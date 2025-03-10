@@ -1,0 +1,34 @@
+# Author Info
+# GitHub: AscendantDestiny
+# Discord: AscendantDestiny
+
+# Maintainer Info
+# GitHub: ???
+# Discord: ???
+
+# Notes:
+# A defunct bar and grill. 
+- type: pointOfInterest
+  id: Imhotep
+  name: "Imhotep's Bar & Grill"
+  minimumDistance: 1200
+  maximumDistance: 2900
+  spawnGroup: RestStop
+  gridPath: /Maps/_NF/POI/imhotep.yml
+  addComponents:
+  - type: StationTransit
+  - type: SolarPoweredGrid
+    trackOnInit: true
+    doNotCull: true
+
+- type: gameMap
+  id: Imhotep
+  mapName: "Imhotep's Bar and Grill"
+  mapPath: /Maps/_NF/POI/imhotep.yml
+  minPlayers: 0
+  stations:
+    Imhotep:
+      stationProto: DeadDropFrontierOutpost
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "Imhotep's Bar & Grill"
