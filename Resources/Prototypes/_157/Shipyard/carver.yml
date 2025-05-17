@@ -3,13 +3,14 @@
 # Discord: AscendantDestiny
 
 # Maintainer Info
-# GitHub: 
-# Discord: 
+# GitHub: SpaceWitchofDune
+# Discord: SpaceWitchofTheLittleDancer
 
 # Shuttle Notes:
 #
 - type: vessel
   id: Carver
+  parent: BaseVessel
   name: NC Carver
   description: A luxurious Booze Cruise. 
   price: 27500

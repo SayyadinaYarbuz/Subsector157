@@ -12,7 +12,7 @@
   id: Flea 
   parent: BaseVessel
   name: NC Flea
-  description: A small transport shuttle with ample space for passengers. The minivan of spacecraft. We have McCargo at home.
+  description: A small transport shuttle with ample space for passengers. The minivan of spacecraft.
   price: 15000 # $14250 after appraisal + ~5% markup
   category: Small
   group: Shipyard

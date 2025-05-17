@@ -3,13 +3,14 @@
 # Discord: AscendantDestiny
 
 # Maintainer Info
-# GitHub: 
-# Discord: 
+# GitHub: SpaceWitchofWitch
+# Discord: SpaceWitchofTheLittleDancer
 
 # Shuttle Notes:
 #
 - type: vessel
   id: Praetorian
+  parent: BaseVessel
   name: LC Praetorian
   description: A small mercenary ship.
   price: 29035 # ~25245$ on mapinit + 3785$ from 15% markup

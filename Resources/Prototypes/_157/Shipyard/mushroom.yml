@@ -10,6 +10,7 @@
 #
 - type: vessel
   id: Mushroom
+  parent: BaseVessel
   name: NC Mushroom
   description: A small mining vessel designed to assist salvage operations.
   price: 24500
@@ -19,6 +20,8 @@
   guidebookPage: Null
   class:
   - Salvage
+  engine:
+  - Plasma
 
 - type: gameMap
   id: Mushroom
