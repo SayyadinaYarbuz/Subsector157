@@ -42,30 +42,30 @@
     trackOnInit: true # 157
     doNotCull: true # 157
 
-- type: gameMap
-  id: CargoDepot
-  mapName: 'Cargo Depot' # Has a letter appended in PointOfInterestSystem
-  mapPath: /Maps/_NF/POI/cargodepotalt.yml
-  minPlayers: 0
-  stations:
-    CargoDepot:
-      stationProto: MarketFrontierOutpost
-      components:
-        - type: StationNameSetup
-          mapNameTemplate: 'Cargo Depot' # Has a letter appended in PointOfInterestSystem
-        - type: TradeCrateDestination
+- type: gameMap # 157
+  id: CargoDepot # 157
+  mapName: 'Cargo Depot' # Has a letter appended in PointOfInterestSystem # 157
+  mapPath: /Maps/_NF/POI/cargodepotalt.yml # 157
+  minPlayers: 0 # 157
+  stations: # 157
+    CargoDepot: # 157
+      stationProto: MarketFrontierOutpost # 157
+      components: # 157
+        - type: StationNameSetup # 157
+          mapNameTemplate: 'Cargo Depot' # Has a letter appended in PointOfInterestSystem # 157
+        - type: TradeCrateDestination # 157
           destinationProto: CargoA # Redefined in PointOfInterestSystem
 
-- type: gameMap
-  id: CargoDepotAlt
+- type: gameMap # 157
+  id: CargoDepotAlt # 157
   mapName: 'Cargo Depot' # Has a letter appended in PointOfInterestSystem
-  mapPath: /Maps/_NF/POI/cargodepotalt.yml
-  minPlayers: 0
-  stations:
-    CargoDepotAlt:
-      stationProto: MarketFrontierOutpost
-      components:
-        - type: StationNameSetup
+  mapPath: /Maps/_NF/POI/cargodepotalt.yml # 157
+  minPlayers: 0 # 157
+  stations: # 157
+    CargoDepotAlt: # 157
+      stationProto: MarketFrontierOutpost # 157
+      components: # 157
+        - type: StationNameSetup # 157
           mapNameTemplate: 'Cargo Depot' # Has a letter appended in PointOfInterestSystem
-        - type: TradeCrateDestination
+        - type: TradeCrateDestination # 157
           destinationProto: CargoA # Redefined in PointOfInterestSystem
