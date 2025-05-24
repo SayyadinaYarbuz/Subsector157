@@ -1,10 +1,10 @@
 using Content.Server._DV.Cargo.Components;
-// using Content.Shared.Cargo; // Frontier
+using Content.Shared.Cargo;
 using JetBrains.Annotations;
 
 namespace Content.Server._DV.Cargo.Systems;
 
-public sealed partial class LogisticStatsSystem : EntitySystem // Frontier: SharedCargoSystem<EntitySystem
+public sealed partial class LogisticStatsSystem : SharedCargoSystem
 {
     public override void Initialize()
     {

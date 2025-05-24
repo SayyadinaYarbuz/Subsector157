@@ -3,7 +3,7 @@
 # region Elemental Spawners
 - type: entity
   name: andesite elemental spawner
-  id: NFAndesiteElementalSpawner
+  id: AndesiteElementalSpawner
   parent: MarkerBase
   suffix: 45
   components:
@@ -14,32 +14,32 @@
           state: uranium_crab
     - type: RandomSpawner
       rarePrototypes:
-      - NFWallRockAndesiteBananiumGolem
-      - NFWallRockAndesiteCoalGolem
-      - NFWallRockAndesiteGoldGolem
-      - NFWallRockAndesiteIronGolem
-      - NFWallRockAndesitePlasmaGolem
-      - NFWallRockAndesiteQuartzGolem
-      - NFWallRockAndesiteSaltGolem
-      - NFWallRockAndesiteSilverGolem
-      - NFWallRockAndesiteUraniumGolem
+      - WallRockAndesiteBananiumGolem
+      - WallRockAndesiteCoalGolem
+      - WallRockAndesiteGoldGolem
+      - WallRockAndesiteIronGolem
+      - WallRockAndesitePlasmaGolem
+      - WallRockAndesiteQuartzGolem
+      - WallRockAndesiteSaltGolem
+      - WallRockAndesiteSilverGolem
+      - WallRockAndesiteUraniumGolem
       rareChance: 0.1
       prototypes:
-        - NFWallRockAndesiteBananiumCrab
-        - NFWallRockAndesiteCoalCrab
-        - NFWallRockAndesiteGoldCrab
-        - NFWallRockAndesiteIronCrab
-        - NFWallRockAndesitePlasmaCrab
-        - NFWallRockAndesiteQuartzCrab
-        - NFWallRockAndesiteSaltCrab
-        - NFWallRockAndesiteSilverCrab
-        - NFWallRockAndesiteUraniumCrab
+        - WallRockAndesiteBananiumCrabNF
+        - WallRockAndesiteCoalCrabNF
+        - WallRockAndesiteGoldCrabNF
+        - WallRockAndesiteIronCrabNF
+        - WallRockAndesitePlasmaCrabNF
+        - WallRockAndesiteQuartzCrabNF
+        - WallRockAndesiteSaltCrabNF
+        - WallRockAndesiteSilverCrabNF
+        - WallRockAndesiteUraniumCrabNF
       chance: 0.45
       offset: 0.2
 
 - type: entity
   name: basalt elemental spawner
-  id: NFBasaltElementalSpawner
+  id: BasaltElementalSpawner
   parent: MarkerBase
   suffix: 45
   components:
@@ -50,32 +50,32 @@
           state: uranium_crab
     - type: RandomSpawner
       rarePrototypes:
-      - NFWallRockBasaltBananiumGolem
-      - NFWallRockBasaltCoalGolem
-      - NFWallRockBasaltGoldGolem
-      - NFWallRockBasaltIronGolem
-      - NFWallRockBasaltPlasmaGolem
-      - NFWallRockBasaltQuartzGolem
-      - NFWallRockBasaltSaltGolem
-      - NFWallRockBasaltSilverGolem
-      - NFWallRockBasaltUraniumGolem
+      - WallRockBasaltBananiumGolem
+      - WallRockBasaltCoalGolem
+      - WallRockBasaltGoldGolem
+      - WallRockBasaltIronGolem
+      - WallRockBasaltPlasmaGolem
+      - WallRockBasaltQuartzGolem
+      - WallRockBasaltSaltGolem
+      - WallRockBasaltSilverGolem
+      - WallRockBasaltUraniumGolem
       rareChance: 0.1
       prototypes:
-        - NFWallRockBasaltBananiumCrab
-        - NFWallRockBasaltCoalCrab
-        - NFWallRockBasaltGoldCrab
-        - NFWallRockBasaltIronCrab
-        - NFWallRockBasaltPlasmaCrab
-        - NFWallRockBasaltQuartzCrab
-        - NFWallRockBasaltSaltCrab
-        - NFWallRockBasaltSilverCrab
-        - NFWallRockBasaltUraniumCrab
+        - WallRockBasaltBananiumCrabNF
+        - WallRockBasaltCoalCrabNF
+        - WallRockBasaltGoldCrabNF
+        - WallRockBasaltIronCrabNF
+        - WallRockBasaltPlasmaCrabNF
+        - WallRockBasaltQuartzCrabNF
+        - WallRockBasaltSaltCrabNF
+        - WallRockBasaltSilverCrabNF
+        - WallRockBasaltUraniumCrabNF
       chance: 0.45
       offset: 0.2
 
 - type: entity
   name: rock elemental spawner
-  id: NFRockElementalSpawner
+  id: RockElementalSpawner
   parent: MarkerBase
   suffix: 45
   components:
@@ -86,32 +86,32 @@
           state: uranium_crab
     - type: RandomSpawner
       rarePrototypes:
-      - NFWallRockBananiumGolem
-      - NFWallRockCoalGolem
-      - NFWallRockGoldGolem
-      - NFWallRockIronGolem
-      - NFWallRockPlasmaGolem
-      - NFWallRockQuartzGolem
-      - NFWallRockSaltGolem
-      - NFWallRockSilverGolem
-      - NFWallRockUraniumGolem
+      - WallRockBananiumGolem
+      - WallRockCoalGolem
+      - WallRockGoldGolem
+      - WallRockIronGolem
+      - WallRockPlasmaGolem
+      - WallRockQuartzGolem
+      - WallRockSaltGolem
+      - WallRockSilverGolem
+      - WallRockUraniumGolem
       rareChance: 0.1
       prototypes:
-        - NFWallRockBananiumCrab
-        - NFWallRockCoalCrab
-        - NFWallRockGoldCrab
-        - NFWallRockIronCrab
-        - NFWallRockPlasmaCrab
-        - NFWallRockQuartzCrab
-        - NFWallRockSaltCrab
-        - NFWallRockSilverCrab
-        - NFWallRockUraniumCrab
+        - WallRockBananiumCrabNF
+        - WallRockCoalCrabNF
+        - WallRockGoldCrabNF
+        - WallRockIronCrabNF
+        - WallRockPlasmaCrabNF
+        - WallRockQuartzCrabNF
+        - WallRockSaltCrabNF
+        - WallRockSilverCrabNF
+        - WallRockUraniumCrabNF
       chance: 0.45
       offset: 0.2
 
 - type: entity
   name: sand elemental spawner
-  id: NFSandElementalSpawner
+  id: SandElementalSpawner
   parent: MarkerBase
   suffix: 45
   components:
@@ -122,32 +122,32 @@
           state: uranium_crab
     - type: RandomSpawner
       rarePrototypes:
-      - NFWallRockSandBananiumGolem
-      - NFWallRockSandCoalGolem
-      - NFWallRockSandGoldGolem
-      - NFWallRockSandIronGolem
-      - NFWallRockSandPlasmaGolem
-      - NFWallRockSandQuartzGolem
-      - NFWallRockSandSaltGolem
-      - NFWallRockSandSilverGolem
-      - NFWallRockSandUraniumGolem
+      - WallRockSandBananiumGolem
+      - WallRockSandCoalGolem
+      - WallRockSandGoldGolem
+      - WallRockSandIronGolem
+      - WallRockSandPlasmaGolem
+      - WallRockSandQuartzGolem
+      - WallRockSandSaltGolem
+      - WallRockSandSilverGolem
+      - WallRockSandUraniumGolem
       rareChance: 0.1
       prototypes:
-        - NFWallRockSandBananiumCrab
-        - NFWallRockSandCoalCrab
-        - NFWallRockSandGoldCrab
-        - NFWallRockSandIronCrab
-        - NFWallRockSandPlasmaCrab
-        - NFWallRockSandQuartzCrab
-        - NFWallRockSandSaltCrab
-        - NFWallRockSandSilverCrab
-        - NFWallRockSandUraniumCrab
+        - WallRockSandBananiumCrabNF
+        - WallRockSandCoalCrabNF
+        - WallRockSandGoldCrabNF
+        - WallRockSandIronCrabNF
+        - WallRockSandPlasmaCrabNF
+        - WallRockSandQuartzCrabNF
+        - WallRockSandSaltCrabNF
+        - WallRockSandSilverCrabNF
+        - WallRockSandUraniumCrabNF
       chance: 0.45
       offset: 0.2
 
 - type: entity
   name: snow elemental spawner
-  id: NFSnowElementalSpawner
+  id: SnowElementalSpawner
   parent: MarkerBase
   suffix: 45
   components:
@@ -158,32 +158,32 @@
           state: uranium_crab
     - type: RandomSpawner
       rarePrototypes:
-      - NFWallRockSnowBananiumGolem
-      - NFWallRockSnowCoalGolem
-      - NFWallRockSnowGoldGolem
-      - NFWallRockSnowIronGolem
-      - NFWallRockSnowPlasmaGolem
-      - NFWallRockSnowQuartzGolem
-      - NFWallRockSnowSaltGolem
-      - NFWallRockSnowSilverGolem
-      - NFWallRockSnowUraniumGolem
+      - WallRockSnowBananiumGolem
+      - WallRockSnowCoalGolem
+      - WallRockSnowGoldGolem
+      - WallRockSnowIronGolem
+      - WallRockSnowPlasmaGolem
+      - WallRockSnowQuartzGolem
+      - WallRockSnowSaltGolem
+      - WallRockSnowSilverGolem
+      - WallRockSnowUraniumGolem
       rareChance: 0.1
       prototypes:
-        - NFWallRockSnowBananiumCrab
-        - NFWallRockSnowCoalCrab
-        - NFWallRockSnowGoldCrab
-        - NFWallRockSnowIronCrab
-        - NFWallRockSnowPlasmaCrab
-        - NFWallRockSnowQuartzCrab
-        - NFWallRockSnowSaltCrab
-        - NFWallRockSnowSilverCrab
-        - NFWallRockSnowUraniumCrab
+        - WallRockSnowBananiumCrabNF
+        - WallRockSnowCoalCrabNF
+        - WallRockSnowGoldCrabNF
+        - WallRockSnowIronCrabNF
+        - WallRockSnowPlasmaCrabNF
+        - WallRockSnowQuartzCrabNF
+        - WallRockSnowSaltCrabNF
+        - WallRockSnowSilverCrabNF
+        - WallRockSnowUraniumCrabNF
       chance: 0.45
       offset: 0.2
 
 - type: entity
   name: chromite elemental spawner
-  id: NFChromiteElementalSpawner
+  id: ChromiteElementalSpawner
   parent: MarkerBase
   suffix: 45
   components:
@@ -194,32 +194,32 @@
           state: uranium_crab
     - type: RandomSpawner
       rarePrototypes:
-      - NFWallRockChromiteBananiumGolem
-      - NFWallRockChromiteCoalGolem
-      - NFWallRockChromiteGoldGolem
-      - NFWallRockChromiteIronGolem
-      - NFWallRockChromitePlasmaGolem
-      - NFWallRockChromiteQuartzGolem
-      - NFWallRockChromiteSaltGolem
-      - NFWallRockChromiteSilverGolem
-      - NFWallRockChromiteUraniumGolem
+      - WallRockChromiteBananiumGolem
+      - WallRockChromiteCoalGolem
+      - WallRockChromiteGoldGolem
+      - WallRockChromiteIronGolem
+      - WallRockChromitePlasmaGolem
+      - WallRockChromiteQuartzGolem
+      - WallRockChromiteSaltGolem
+      - WallRockChromiteSilverGolem
+      - WallRockChromiteUraniumGolem
       rareChance: 0.1
       prototypes:
-        - NFWallRockChromiteBananiumCrab
-        - NFWallRockChromiteCoalCrab
-        - NFWallRockChromiteGoldCrab
-        - NFWallRockChromiteIronCrab
-        - NFWallRockChromitePlasmaCrab
-        - NFWallRockChromiteQuartzCrab
-        - NFWallRockChromiteSaltCrab
-        - NFWallRockChromiteSilverCrab
-        - NFWallRockChromiteUraniumCrab
+        - WallRockChromiteBananiumCrabNF
+        - WallRockChromiteCoalCrabNF
+        - WallRockChromiteGoldCrabNF
+        - WallRockChromiteIronCrabNF
+        - WallRockChromitePlasmaCrabNF
+        - WallRockChromiteQuartzCrabNF
+        - WallRockChromiteSaltCrabNF
+        - WallRockChromiteSilverCrabNF
+        - WallRockChromiteUraniumCrabNF
       chance: 0.45
       offset: 0.2
 
 - type: entity
   name: asteroid rock elemental spawner
-  id: NFAsteroidRockElementalSpawner
+  id: AsteroidRockElementalSpawner
   parent: MarkerBase
   suffix: 45
   components:
@@ -230,30 +230,30 @@
           state: uranium_crab
     - type: RandomSpawner
       rarePrototypes:
-      - NFAsteroidRockBananiumGolem
-      - NFAsteroidRockCoalGolem
-      - NFAsteroidRockGoldGolem
-      - NFAsteroidRockIronGolem
-      - NFAsteroidRockPlasmaGolem
-      - NFAsteroidRockQuartzGolem
-      - NFAsteroidRockSaltGolem
-      - NFAsteroidRockSilverGolem
-      - NFAsteroidRockUraniumGolem
+      - AsteroidRockBananiumGolem
+      - AsteroidRockCoalGolem
+      - AsteroidRockGoldGolem
+      - AsteroidRockIronGolem
+      - AsteroidRockPlasmaGolem
+      - AsteroidRockQuartzGolem
+      - AsteroidRockSaltGolem
+      - AsteroidRockSilverGolem
+      - AsteroidRockUraniumGolem
       rareChance: 0.1
       prototypes:
-        - NFAsteroidRockBananiumCrab
-        - NFAsteroidRockCoalCrab
-        - NFAsteroidRockGoldCrab
-        - NFAsteroidRockIronCrab
-        - NFAsteroidRockPlasmaCrab
-        - NFAsteroidRockQuartzCrab
-        - NFAsteroidRockSaltCrab
-        - NFAsteroidRockSilverCrab
-        - NFAsteroidRockUraniumCrab
+        - AsteroidRockBananiumCrabNF
+        - AsteroidRockCoalCrabNF
+        - AsteroidRockGoldCrabNF
+        - AsteroidRockTinCrabNF
+        - AsteroidRockPlasmaCrabNF
+        - AsteroidRockQuartzCrabNF
+        - AsteroidRockSaltCrabNF
+        - AsteroidRockSilverCrabNF
+        - AsteroidRockUraniumCrabNF
 
 - type: entity
   name: Cobblebrick Elemental Spawner
-  id: NFCobblebrickElementalSpawner
+  id: CobblebrickElementalSpawner
   parent: MarkerBase
   suffix: 45
   components:
@@ -289,7 +289,7 @@
 
 - type: entity
   name: Ice Elemental Spawner
-  id: NFIceElementalSpawner
+  id: IceElementalSpawner
   parent: MarkerBase
   suffix: 45
   components:
@@ -325,7 +325,7 @@
 
 - type: entity
   name: Andesite Cobblebrick Elemental Spawner
-  id: NFAndesiteNFCobblebrickElementalSpawner
+  id: AndesiteCobblebrickElementalSpawner
   parent: MarkerBase
   suffix: 45
   components:
@@ -361,7 +361,7 @@
 
 - type: entity
   name: Basalt Cobblebrick Elemental Spawner
-  id: NFBasaltNFCobblebrickElementalSpawner
+  id: BasaltCobblebrickElementalSpawner
   parent: MarkerBase
   suffix: 45
   components:
@@ -397,7 +397,7 @@
 
 - type: entity
   name: Sandstone Cobblebrick Elemental Spawner
-  id: NFSandstoneNFCobblebrickElementalSpawner
+  id: SandstoneCobblebrickElementalSpawner
   parent: MarkerBase
   suffix: 45
   components:
@@ -433,7 +433,7 @@
 
 - type: entity
   name: Chromite Cobblebrick Elemental Spawner
-  id: NFChromiteNFCobblebrickElementalSpawner
+  id: ChromiteCobblebrickElementalSpawner
   parent: MarkerBase
   suffix: 45
   components:
@@ -469,7 +469,7 @@
 
 - type: entity
   name: Necropolis Elemental Spawner
-  id: NFNecropolisElementalSpawner
+  id: NecropolisElementalSpawner
   parent: MarkerBase
   suffix: 45
   components:
@@ -507,7 +507,7 @@
 # region Scrap Spawners
 - type: entity
   name: asteroid scrap bot spawner
-  id: NFAsteroidScrapBotSpawner
+  id: AsteroidScrapBotSpawner
   parent: MarkerBase
   components:
   - type: Sprite
@@ -528,18 +528,18 @@
       color: "#990000"
   - type: RandomSpawner
     rarePrototypes:
-    - NFMobSpawnScrapbotLaser
+    - MobSpawnScrapbotLaser
     rareChance: 0.05
     prototypes:
-    - NFMobSpawnScrapbot
-    - NFMobSpawnScrapbotThreads
-    - NFMobSpawnScrapbotThrusters
+    - MobSpawnScrapbot
+    - MobSpawnScrapbotThreads
+    - MobSpawnScrapbotThrusters
     chance: 0.45
     offset: 0.2
 
 - type: entity
   name: asteroid scrap bot rock spawner
-  id: NFAsteroidScrapBotWallSpawner
+  id: AsteroidScrapBotWallSpawner
   parent: MarkerBase
   suffix: 45
   components:
@@ -561,21 +561,21 @@
       color: "#990000"
   - type: RandomSpawner
     rarePrototypes:
-    - NFWallRockScrapPileSaltBot
-    - NFWallRockScrapPileIronBot
-    - NFWallRockScrapPileSilverBot
-    - NFWallRockScrapPileQuartzBot
-    - NFWallRockScrapPilePlasmaBot
-    - NFWallRockScrapPileDiamondBot
-    - NFWallRockScrapPileGoldBot
-    - NFWallRockScrapPileCoalBot
-    - NFWallRockScrapPileBananiumBot
-    - NFWallRockScrapPileUraniumBot
-    - NFWallRockScrapPileBluespaceBot
-    - NFWallRockScrapPileArtifactFragmentBot
+    - WallRockScrapPileSaltBot
+    - WallRockScrapPileIronBot
+    - WallRockScrapPileSilverBot
+    - WallRockScrapPileQuartzBot
+    - WallRockScrapPilePlasmaBot
+    - WallRockScrapPileDiamondBot
+    - WallRockScrapPileGoldBot
+    - WallRockScrapPileCoalBot
+    - WallRockScrapPileBananiumBot
+    - WallRockScrapPileUraniumBot
+    - WallRockScrapPileBluespaceBot
+    - WallRockScrapPileArtifactFragmentBot
     rareChance: 0.1
     prototypes:
-    - NFWallRockScrapPileBot
+    - WallRockScrapPileBot
     chance: 0.45
     offset: 0.2
 # endregion Scrap Spawners
@@ -606,7 +606,7 @@
 
 - type: entity
   name: salvage tank spawner
-  id: NFSalvageTankSpawnerHighCapacity
+  id: SalvageTankSpawnerHighCapacity
   parent: MarkerBase
   suffix: High Capacity, 95%
   components:
@@ -623,7 +623,7 @@
 
 - type: entity
   name: salvage locker spawner
-  id: NFSalvageLockerSpawner
+  id: SalvageLockerSpawner
   parent: MarkerBase
   components:
   - type: Sprite
@@ -663,7 +663,7 @@
 
 - type: entity
   name: salvage random furniture spawner
-  id: NFSalvageFurnitureSpawner
+  id: SalvageFurnitureSpawner
   parent: MarkerBase
   components:
   - type: Sprite
@@ -699,7 +699,7 @@
 
 - type: entity
   name: salvage random brass furniture spawner
-  id: NFSalvageBrassFurnitureSpawner
+  id: SalvageBrassFurnitureSpawner
   parent: MarkerBase
   components:
   - type: Sprite
@@ -716,7 +716,7 @@
 
 - type: entity
   name: salvage suit storage spawner
-  id: NFSalvageSuitStorageSpawner
+  id: SalvageSuitStorageSpawner
   parent: MarkerBase
   components:
   - type: Sprite
@@ -743,7 +743,7 @@
 
 - type: entity
   name: salvage generator spawner
-  id: NFSalvageGeneratorSpawner
+  id: SalvageGeneratorSpawner
   parent: MarkerBase
   components:
   - type: Sprite
@@ -763,7 +763,7 @@
 
 - type: entity
   name: salvage handheld flag spawner
-  id: NFSalvageHandheldFlagSpawner
+  id: SalvageHandheldFlagSpawner
   parent: MarkerBase
   components:
   - type: Sprite
@@ -783,7 +783,7 @@
 
 - type: entity
   parent: MarkerBase
-  id: NFRandomBook
+  id: RandomBook
   name: random book spawner
   components:
   - type: Sprite
@@ -799,7 +799,7 @@
 
 - type: entity
   name: Antag Vehicle Spawner
-  id: NFSpawnVehicleAntagVehicle
+  id: SpawnVehicleAntagVehicle
   parent: MarkerBase
   components:
   - type: Sprite
@@ -810,7 +810,7 @@
   - type: RandomSpawner
     prototypes:
     - VehicleSyndicateSegway
-    - NFVehicleSkeletonMotorcycle
+    - VehicleSkeletonMotorcycle
     chance: 1.0
     offset: 0.0
 
@@ -821,57 +821,36 @@
   components:
   - type: RandomSpawner
     prototypes:
-    - SpawnMobCarp
-    - SpawnMobCarp
-    - SpawnMobCarp
-    - SpawnMobCarp
-    - SpawnMobCarp
+    - MobCarpSalvage
+    - MobCarpSalvage
+    - MobCarpSalvage
+    - MobCarpSalvage
+    - MobCarpSalvage
     - SpawnMobBearSalvage
     - SpawnMobSpiderSalvage
     - SpawnMobKangarooSalvage
     - PlushieCarp
     - DehydratedSpaceCarp
-    - NFMobTick
-    - NFMobTick
-    - NFMobTick
-    - NFMobSmallRainbowSnake # SpawnMobCobraSalvage<NFMobSmallRainbowSnake
+#    - MobTickSalvage
+#    - MobTickSalvage
+#    - MobTickSalvage
+#    - SpawnMobSmallPurpleSnake # Why are they xeno
     chance: 0.95
     rarePrototypes:
-    - NFSalvageSpawnerMobTickSwarm
-    - NFSpawnMobWyvern
-    - NFSpawnMobWyvern
-    - NFMobShark
-    - NFMobShark
-    - NFMobShark
-    - NFMobShark
-    - NFMobShark
+    - MobSharkSalvage
+    - MobSharkSalvage
+    - MobSharkSalvage
+    - MobSharkSalvage
+    - MobSharkSalvage
     - NFPlushieSharkMinnow
     - DehydratedSharkMinnow
-    - SpawnMobCobraSalvage
+#    - SpawnMobPurpleSnake # Why are they xeno
     rareChance: 0.2
     offset: 0.0
 
 - type: entity
-  parent: MarkerBase
-  id: NFSalvageSpawnerMobTickSwarm
-  name: Salvage Tick Swarm Spawner
-  components:
-  - type: Sprite
-    layers:
-    - state: pink
-    - sprite: _NF/Mobs/Aliens/spacetick.rsi
-      state: alive
-  - type: EntityTableSpawner
-    table: !type:AllSelector
-      children:
-      - id: NFMobTick
-        rolls: !type:RangeNumberSelector
-          range: 3, 4
-
-- type: entity
   id: NFSalvageChemicalBarrelSpawner
   parent: MarkerBase
-  categories: [HideSpawnMenu]
   components:
   - type: Sprite
     layers:
@@ -908,7 +887,6 @@
 - type: entity
   id: NFSalvageServiceBarrelSpawner
   parent: MarkerBase
-  categories: [HideSpawnMenu]
   components:
   - type: Sprite
     layers:
@@ -932,7 +910,6 @@
 - type: entity
   id: NFSalvageDrinkableBarrelSpawner
   parent: MarkerBase
-  categories: [HideSpawnMenu]
   components:
   - type: Sprite
     layers:
@@ -963,7 +940,6 @@
 - type: entity
   id: NFSalvageEmptyBarrelSpawner
   parent: MarkerBase
-  categories: [HideSpawnMenu]
   components:
   - type: Sprite
     layers:

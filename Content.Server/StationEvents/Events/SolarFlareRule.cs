@@ -66,7 +66,7 @@ public sealed class SolarFlareRule : StationEventSystem<SolarFlareRuleComponent>
             if (!GameTicker.IsGameRuleActive(uid, gameRule))
                 continue;
 
-            if (!flare.AllChannels && !flare.AffectedChannels.Contains(args.Channel.ID)) // Frontier: add flare.AllChannels
+            if (!flare.AffectedChannels.Contains(args.Channel.ID))
                 continue;
 
             if (!flare.OnlyJamHeadsets || (HasComp<HeadsetComponent>(args.RadioReceiver) || HasComp<HeadsetComponent>(args.RadioSource)))

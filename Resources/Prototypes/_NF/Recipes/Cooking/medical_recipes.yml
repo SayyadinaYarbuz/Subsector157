@@ -6,7 +6,6 @@
   name: emergency medipen
   result: EmergencyMedipen
   time: 5
-  group: Medicinal
   solids:
     BlankMediPen: 1
   reagents:
@@ -19,7 +18,6 @@
   name: poison auto-injector
   result: AntiPoisonMedipen
   time: 5
-  group: Medicinal
   solids:
     BlankMediPen: 1
   reagents:
@@ -32,7 +30,6 @@
   name: brute auto-injector
   result: BruteAutoInjector
   time: 5
-  group: Medicinal
   solids:
     BlankMediPen: 1
   reagents:
@@ -45,7 +42,6 @@
   name: burn auto-injector
   result: BurnAutoInjector
   time: 5
-  group: Medicinal
   solids:
     BlankMediPen: 1
   reagents:
@@ -58,7 +54,6 @@
   name: rad auto-injector
   result: RadAutoInjector
   time: 5
-  group: Medicinal
   solids:
     BlankMediPen: 1
   reagents:
@@ -71,7 +66,6 @@
   name: puncturase auto-injector
   result: PunctAutoInjector
   time: 5
-  group: Medicinal
   solids:
     BlankMediPen: 1
   reagents:
@@ -84,7 +78,6 @@
   name: pyrazine auto-injector
   result: PyraAutoInjector
   time: 5
-  group: Medicinal
   solids:
     BlankMediPen: 1
   reagents:
@@ -97,7 +90,6 @@
   name: airloss auto-injector
   result: AirlossAutoInjector
   time: 5
-  group: Medicinal
   solids:
     BlankMediPen: 1
   reagents:
@@ -112,7 +104,6 @@
   name: hemostasis auto-injector
   result: HemostasisAutoInjector
   time: 5
-  group: Medicinal
   solids:
     BlankMediPen: 1
   reagents:
@@ -125,7 +116,6 @@
   name: stimulant auto-injector
   result: StimulantAutoInjector
   time: 5
-  group: Medicinal
   solids:
     BlankMediPen: 1
   reagents:
@@ -138,7 +128,6 @@
   name: crisis auto-injector
   result: CrisisAutoInjector
   time: 5
-  group: Medicinal
   solids:
     BlankMediPen: 1
   reagents:
@@ -151,7 +140,6 @@
   name: lacerinol auto-injector
   result: LacerAutoInjector
   time: 5
-  group: Medicinal
   solids:
     BlankMediPen: 1
   reagents:
@@ -164,7 +152,6 @@
   name: bruizine auto-injector
   result: BruizAutoInjector
   time: 5
-  group: Medicinal
   solids:
     BlankMediPen: 1
   reagents:
@@ -177,7 +164,6 @@
   name: polypyrylium oligomers auto-injector
   result: PolyAutoInjector
   time: 5
-  group: Medicinal
   solids:
     BlankMediPen: 1
   reagents:
@@ -189,7 +175,6 @@
   name: barkeeper's friend auto-injector
   result: EthylredoxrazineAutoInjector
   time: 5
-  group: Medicinal
   solids:
     BlankMediPen: 1
   reagents:
@@ -205,7 +190,6 @@
   name: Build-A-Buddy
   result: NFMobHumanBuddy
   time: 20
-  group: Secret
   solids:
     HeadHuman: 1
     TorsoHuman: 1
@@ -225,7 +209,6 @@
   name: Build-A-Buddy
   result: NFMobGoblinBuddy
   time: 20
-  group: Secret
   solids:
     HeadGoblin: 1
     TorsoGoblin: 1
@@ -245,7 +228,6 @@
   name: Build-A-Buddy
   result: NFMobReptilianBuddy
   time: 20
-  group: Secret
   solids:
     HeadReptilian: 1
     TorsoReptilian: 1
@@ -265,7 +247,6 @@
   name: Build-A-Buddy
   result: NFMobSlimePersonBuddy
   time: 20
-  group: Secret
   solids:
     HeadSlime: 1
     TorsoSlime: 1
@@ -285,7 +266,6 @@
   name: Build-A-Buddy
   result: NFMobVulpkaninBuddy
   time: 20
-  group: Secret
   solids:
     HeadVulpkanin: 1
     TorsoVulpkanin: 1

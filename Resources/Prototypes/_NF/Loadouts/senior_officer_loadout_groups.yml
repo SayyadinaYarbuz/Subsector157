@@ -33,19 +33,9 @@
 
 - type: loadoutGroup
   id: SeniorOfficerPDA
-  name: loadout-group-contractor-pda
+  name: loadout-group-contractor-id
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - SeniorOfficerSeniorOfficerPDA
   fallbacks:
   - SeniorOfficerSeniorOfficerPDA
-
-- type: loadoutGroup
-  id: SeniorOfficerBackpackItems
-  name: loadout-group-contractor-backpack-items
-  minLimit: 0
-  maxLimit: 6
-  loadouts:
-  - SeniorOfficerNFPouchNfsd
-  subgroups:
-  - ContractorBackpackItems

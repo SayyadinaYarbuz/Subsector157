@@ -6,9 +6,17 @@
     sprite: /Textures/Clothing/OuterClothing/Misc/black_hoodie.rsi
     state: icon
   content:
-  - ClothingBackpackChameleonFill
+  - ChameleonPDA
+  - ClothingUniformJumpsuitChameleon
+  - ClothingOuterChameleon
+  - ClothingNeckChameleon
+  - ClothingMaskGasChameleon
+  - ClothingHeadHatChameleon
+  - ClothingEyesChameleon
+  - ClothingHeadsetChameleon
+  - ClothingShoesChameleon
+  - BarberScissors
   - ChameleonProjector
-  - FakeMindShieldImplanter
   - AgentIDCard
 
 - type: thiefBackpackSet
@@ -38,7 +46,7 @@
   content:
   - StorageImplanter
   - DnaScramblerImplanter
-  - ChemistryBottleEphedrine
+  - EphedrineChemistryBottle
   - SoapOmega
   - Syringe
   - DrinkShaker
@@ -54,7 +62,6 @@
   - RadioJammer
   - TraitorCodePaper
   - Emag
-  - AccessBreaker
   - Lighter
   - CigPackSyndicate
   - Telecrystal10 #The thief cannot use them, but it may induce communication with traitors
@@ -67,8 +74,8 @@
     sprite: Objects/Tanks/anesthetic.rsi
     state: icon
   content:
-  - ChemistryBottleNocturine
-  - ChemistryBottleNocturine
+  - NocturineChemistryBottle
+  - NocturineChemistryBottle
   - HypopenBox
   - NitrousOxideTankFilled
 

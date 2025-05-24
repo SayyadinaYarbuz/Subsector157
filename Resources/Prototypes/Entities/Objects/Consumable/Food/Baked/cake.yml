@@ -28,19 +28,6 @@
   - type: Tag
     tags:
     - Cake
-  - type: SecretStash
-    maxItemSize: "Normal"
-    secretStashName: secret-stash-cake
-    damageEatenItemInside:
-      types:
-        Slash: 7.5
-  - type: ToolOpenable
-    openToolQualityNeeded: Slicing
-    closeToolQualityNeeded: Slicing
-    verbOnly: true
-  - type: ContainerContainer
-    containers:
-      stash: !type:ContainerSlot {}
 
 - type: entity
   parent: FoodCakeBase
@@ -796,8 +783,8 @@
     speechSounds: Cat
     speechVerb: SmallMob
   - type: MovementSpeedModifier
-    baseWalkSpeed : 3
-    baseSprintSpeed : 5
+    baseWalkSpeed : 5
+    baseSprintSpeed : 3
   - type: Tag
     tags:
     - VimPilot
@@ -837,7 +824,7 @@
       food:
         maxVol: 48
         reagents:
-        - ReagentId: Flavorol # Frontier: Nutriment<Flavorol
+        - ReagentId: Flavorol
           Quantity: 48
   - type: Food
     transferAmount: 12
@@ -859,10 +846,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 6
+        maxVol: 12
         reagents:
-        - ReagentId: Flavorol # Frontier: Nutriment<Flavorol
-          Quantity: 4
+        - ReagentId: Flavorol
+          Quantity: 12
   - type: Food
     transferAmount: 3
   - type: PointLight

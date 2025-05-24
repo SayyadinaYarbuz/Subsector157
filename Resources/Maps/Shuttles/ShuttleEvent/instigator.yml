@@ -2588,7 +2588,7 @@ entities:
     - type: Transform
       pos: 0.5,4.5
       parent: 1
-- proto: NFGrenadeEMP
+- proto: GrenadeEMP
   entities:
   - uid: 130
     components:

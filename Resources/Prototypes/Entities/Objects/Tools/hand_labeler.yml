@@ -25,6 +25,5 @@
           - Item
         tags:
           - Structure
-    - type: PhysicalComposition
-    - type: StaticPrice # Frontier
-      price: 10 # Frontier
+    - type: StaticPrice
+      price: 10

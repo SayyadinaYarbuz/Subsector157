@@ -14,7 +14,6 @@ using Content.Shared.Coordinates;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
-using Content.Server._NF.Cargo.Systems;
 
 namespace Content.Server._NF.Contraband.Systems;
 
@@ -66,6 +65,9 @@ public sealed partial class ContrabandTurnInSystem : SharedContrabandTurnInSyste
     {
         var player = args.Actor;
 
+        if (player == null)
+            return;
+
         UpdatePalletConsoleInterface(uid, component);
     }
 
@@ -80,6 +82,9 @@ public sealed partial class ContrabandTurnInSystem : SharedContrabandTurnInSyste
     private void OnPalletAppraise(EntityUid uid, ContrabandPalletConsoleComponent component, ContrabandPalletAppraiseMessage args)
     {
         var player = args.Actor;
+
+        if (player == null)
+            return;
 
         UpdatePalletConsoleInterface(uid, component);
     }
@@ -112,7 +117,7 @@ public sealed partial class ContrabandTurnInSystem : SharedContrabandTurnInSyste
 
         if (station != null)
         {
-            var ev = new NFEntitySoldEvent(toSell, gridUid);
+            var ev = new EntitySoldEvent(toSell, gridUid);
             RaiseLocalEvent(ref ev);
         }
 
@@ -190,6 +195,9 @@ public sealed partial class ContrabandTurnInSystem : SharedContrabandTurnInSyste
     private void OnPalletSale(EntityUid uid, ContrabandPalletConsoleComponent component, ContrabandPalletSellMessage args)
     {
         var player = args.Actor;
+
+        if (player == null)
+            return;
 
         if (Transform(uid).GridUid is not EntityUid gridUid)
         {

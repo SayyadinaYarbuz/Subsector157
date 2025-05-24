@@ -30,7 +30,6 @@ public sealed class LockSystem : EntitySystem
     [Dependency] private readonly AccessReaderSystem _accessReader = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly ActivatableUISystem _activatableUI = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _sharedPopupSystem = default!;
@@ -50,7 +49,7 @@ public sealed class LockSystem : EntitySystem
         SubscribeLocalEvent<LockComponent, LockDoAfter>(OnDoAfterLock);
         SubscribeLocalEvent<LockComponent, UnlockDoAfter>(OnDoAfterUnlock);
         SubscribeLocalEvent<LockComponent, StorageInteractAttemptEvent>(OnStorageInteractAttempt);
-        SubscribeLocalEvent<LockComponent, GotUnEmaggedEvent>(OnUnEmagged); // Frontier - demag
+        SubscribeLocalEvent<LockComponent, GotUnEmaggedEvent>(OnUnEmagged); // Frontier - Added DEMUG
 
         SubscribeLocalEvent<LockedWiresPanelComponent, LockToggleAttemptEvent>(OnLockToggleAttempt);
         SubscribeLocalEvent<LockedWiresPanelComponent, AttemptChangePanelEvent>(OnAttemptChangePanel);
@@ -121,7 +120,7 @@ public sealed class LockSystem : EntitySystem
         if (!CanToggleLock(uid, user, quiet: false))
             return false;
 
-        if (lockComp.UseAccess && !HasUserAccess(uid, user, quiet: false))
+        if (!HasUserAccess(uid, user, quiet: false))
             return false;
 
         if (!skipDoAfter && lockComp.LockTime != TimeSpan.Zero)
@@ -146,9 +145,6 @@ public sealed class LockSystem : EntitySystem
     public void Lock(EntityUid uid, EntityUid? user, LockComponent? lockComp = null)
     {
         if (!Resolve(uid, ref lockComp))
-            return;
-
-        if (lockComp.Locked)
             return;
 
         if (user is { Valid: true })
@@ -179,9 +175,6 @@ public sealed class LockSystem : EntitySystem
     public void Unlock(EntityUid uid, EntityUid? user, LockComponent? lockComp = null)
     {
         if (!Resolve(uid, ref lockComp))
-            return;
-
-        if (!lockComp.Locked)
             return;
 
         if (user is { Valid: true })
@@ -220,7 +213,7 @@ public sealed class LockSystem : EntitySystem
         if (!CanToggleLock(uid, user, quiet: false))
             return false;
 
-        if (lockComp.UseAccess && !HasUserAccess(uid, user, quiet: false))
+        if (!HasUserAccess(uid, user, quiet: false))
             return false;
 
         if (!skipDoAfter && lockComp.UnlockTime != TimeSpan.Zero)
@@ -305,10 +298,10 @@ public sealed class LockSystem : EntitySystem
 
     private void OnEmagged(EntityUid uid, LockComponent component, ref GotEmaggedEvent args)
     {
-        if (!_emag.CompareFlag(args.Type, EmagType.Access))
+        if (component.ImmuneToEmag) // Frontier
             return;
 
-        if (!component.Locked || !component.BreakOnAccessBreaker)
+        if (!component.Locked || !component.BreakOnEmag)
             return;
 
         _audio.PlayPredicted(component.UnlockSound, uid, args.UserUid);
@@ -320,31 +313,22 @@ public sealed class LockSystem : EntitySystem
         var ev = new LockToggledEvent(false);
         RaiseLocalEvent(uid, ref ev, true);
 
-        args.Repeatable = true;
+        // Frontier - Has to remove this to allow fixing locks
+        //RemComp<LockComponent>(uid); //Literally destroys the lock as a tell it was emagged
         args.Handled = true;
     }
 
-    // Frontier: demag ("let me lock this without access?")
-    private void OnUnEmagged(EntityUid uid, LockComponent component, ref GotUnEmaggedEvent args)
+    private void OnUnEmagged(EntityUid uid, LockComponent component, ref GotUnEmaggedEvent args) // Frontier - DEMAG
     {
-        if (!_emag.CompareFlag(args.Type, EmagType.Access))
-            return;
-
-        if (component.Locked)
-            return;
-
-        _audio.PlayPredicted(component.LockSound, uid, args.UserUid);
-
-        component.Locked = true;
-        _appearanceSystem.SetData(uid, LockVisuals.Locked, true);
-        Dirty(uid, component);
-
-        var ev = new LockToggledEvent(true);
-        RaiseLocalEvent(uid, ref ev, true);
-
-        args.Handled = true;
+        if (HasComp<EmaggedComponent>(uid))
+        {
+            _audio.PlayPredicted(component.UnlockSound, uid, null, AudioParams.Default.WithVolume(-5));
+            _appearanceSystem.SetData(uid, LockVisuals.Locked, true);
+            //EnsureComp<LockComponent>(uid); //Literally addes the lock as a tell it was emagged
+            component.Locked = true;
+            args.Handled = true;
+        }
     }
-    // End Frontier: demag
 
     private void OnDoAfterLock(EntityUid uid, LockComponent component, LockDoAfter args)
     {

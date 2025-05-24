@@ -80,8 +80,7 @@ public sealed class RandomFaxRule : StationEventSystem<RandomFaxRuleComponent>
                 StampState = component.StampState,
                 StampedBy = component.StampedBy ?? new(),
                 Locked = component.Locked,
-                StampProtected = component.StampProtected,
-                BlueprintRecipes = component.BlueprintRecipes
+                StampProtected = component.StampProtected, // Frontier
             };
             string? localAddress = component.FromAddress;
             if (component.PreFaxActions != null)
@@ -116,8 +115,7 @@ public sealed class RandomFaxRule : StationEventSystem<RandomFaxRuleComponent>
                     stampState: recipientPrintout.StampState,
                     stampedBy: recipientPrintout.StampedBy,
                     locked: recipientPrintout.Locked,
-                    stampProtected: recipientPrintout.StampProtected,
-                    blueprintRecipes: recipientPrintout.BlueprintRecipes
+                    stampProtected: recipientPrintout.StampProtected
                     );
                 _faxSystem.Receive(faxUid, printout, recipientAddress, faxComp);
                 break;

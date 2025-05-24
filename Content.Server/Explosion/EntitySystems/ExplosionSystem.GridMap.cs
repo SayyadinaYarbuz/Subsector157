@@ -71,7 +71,8 @@ public sealed partial class ExplosionSystem
         {
             var targetGrid = Comp<MapGridComponent>(referenceGrid.Value);
             var xform = Transform(referenceGrid.Value);
-            (_, targetAngle, targetMatrix) = _transformSystem.GetWorldPositionRotationInvMatrix(xform);
+            targetAngle = xform.WorldRotation;
+            targetMatrix = xform.InvWorldMatrix;
             tileSize = targetGrid.TileSize;
         }
 
@@ -258,7 +259,7 @@ public sealed partial class ExplosionSystem
             {
                 var neighbourIndex = tileRef.GridIndices + NeighbourVectors[i];
 
-                if (_mapSystem.TryGetTileRef(ev.Entity, grid, neighbourIndex, out var neighbourTile) && !neighbourTile.Tile.IsEmpty)
+                if (grid.TryGetTileRef(neighbourIndex, out var neighbourTile) && !neighbourTile.Tile.IsEmpty)
                 {
                     var oppositeDirection = (NeighborFlag) (1 << ((i + 4) % 8));
                     edges[neighbourIndex] = edges.GetValueOrDefault(neighbourIndex) | oppositeDirection;

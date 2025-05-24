@@ -1,8 +1,6 @@
 - type: entity
   parent: HolopadLongRange
   id: NFHolopadShip
-  name: bluespace holopad
-  description: "A floor-mounted device for projecting holographic images to enable ship to ship communication."
   suffix: Ship
   components:
   - type: Telephone
@@ -18,8 +16,6 @@
   - type: AccessReader
     access: [ [ "HeadOfSecurity" ] ]
   - type: PowerSwitch
-  - type: Machine
-    board: NFHolopadShipMachineCircuitboard
 
 - type: entity
   parent: NFHolopadShip

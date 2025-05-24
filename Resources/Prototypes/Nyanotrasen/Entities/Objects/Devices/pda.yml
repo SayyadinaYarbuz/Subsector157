@@ -1,6 +1,6 @@
 - type: entity
   parent: BasePDA
-  id: NFPrisonerPDA # Frontier: add NF prefix
+  id: PrisonerPDA
   name: prisoner PDA
   description: Clear, so you can make sure there's nothing being smuggled inside.
   components:

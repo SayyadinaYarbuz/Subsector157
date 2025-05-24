@@ -3,8 +3,7 @@
 - type: latheRecipe
   abstract: true
   id: NFBaseLightTubeRecipe
-  categories:
-  - Lights
+  category: Lights
   completetime: 2
   materials:
     Steel: 50
@@ -133,9 +132,9 @@
   result: ClothingNeckIFFPurple
   parent: NFWearableIFFRecipe
 
-- type: latheRecipe
-  id: LightTubeUltraviolet
-  result: LightTubeUltraviolet
+- type: latheRecipe # Remove this ones we have a black crystal
+  id: LightTubeCrystalBlack
+  result: LightTubeCrystalBlack
   parent: NFBaseLightTubeRecipe
 
 - type: latheRecipe
@@ -153,27 +152,3 @@
   completetime: 2
   materials:
     Steel: 600
-
-# Toys
-- type: latheRecipe
-  id: MysteryFigureBox
-  result: MysteryFigureBox
-  completetime: 2
-  applyMaterialDiscount: false
-  categories:
-  - Brand
-  - General
-  materials:
-    Plastic: 200
-    Cardboard: 100
-
-- type: latheRecipe
-  id: SpaceBladeMc
-  result: SpaceBladeMc
-  completetime: 2
-  applyMaterialDiscount: false
-  categories:
-  - Brand
-  - General
-  materials:
-    Steel: 300

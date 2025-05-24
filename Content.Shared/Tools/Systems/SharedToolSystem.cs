@@ -61,11 +61,6 @@ public abstract partial class SharedToolSystem : EntitySystem
 
     private void OnExamine(Entity<ToolComponent> ent, ref ExaminedEvent args)
     {
-        // Frontier: hide tool qualities
-        if (ent.Comp.HideQualities)
-            return;
-        // End Frontier
-
         // If the tool has no qualities, exit early
         if (ent.Comp.Qualities.Count == 0)
             return;

@@ -359,9 +359,8 @@ namespace Content.Server.Carrying
 
         public override void Update(float frameTime)
         {
-            // Frontier: query for transform
-            var query = EntityQueryEnumerator<BeingCarriedComponent, TransformComponent>();
-            while (query.MoveNext(out var carried, out var comp, out var xform))
+            var query = EntityQueryEnumerator<BeingCarriedComponent>();
+            while (query.MoveNext(out var carried, out var comp))
             {
                 var carrier = comp.Carrier;
                 if (carrier is not { Valid: true } || carried is not { Valid: true })
@@ -369,19 +368,19 @@ namespace Content.Server.Carrying
 
                 // SOMETIMES - when an entity is inserted into disposals, or a cryosleep chamber - it can get re-parented without a proper reparent event
                 // when this happens, it needs to be dropped because it leads to weird behavior
-                if (xform.ParentUid != carrier)
+                if (Transform(carried).ParentUid != carrier)
                 {
                     DropCarried(carrier, carried);
                     continue;
                 }
 
                 // Make sure the carried entity is always centered relative to the carrier, as gravity pulls can offset it otherwise
+                var xform = Transform(carried);
                 if (!xform.LocalPosition.Equals(Vector2.Zero))
                 {
-                    _transform.SetLocalPosition(carried, Vector2.Zero, xform); // Frontier: warning suppression
+                    xform.LocalPosition = Vector2.Zero;
                 }
             }
-            // End Frontier: query for transform
             query.Dispose();
         }
     }

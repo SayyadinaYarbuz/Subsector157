@@ -22,6 +22,7 @@
       layers:
       - map: [ "enum.DamageStateVisualLayers.Base" ]
         state: alive
+    - type: Carriable #DeltaV - this is for you, deltanedas o7
     - type: CombatMode
     - type: Physics
     - type: Fixtures
@@ -29,7 +30,7 @@
         fix1:
           shape:
             !type:PhysShapeCircle
-            radius: 0.35 # Frontier 0.40<0.35 Lowered the value, to allow them to fit through the airlocks
+            radius: 0.5 # frontier trying to get them to not teleport into shuttles
           density: 80
           mask:
             - FlyingMobMask
@@ -69,7 +70,7 @@
       damage:
         types:
           Blunt: 5
-          Slash: 7
+          Slash: 5 # Frontier: 7<5
     - type: TypingIndicator
       proto: alien
     - type: Tag
@@ -85,7 +86,6 @@
       interactFailureString: petting-failure-carp
       interactFailureSound:
         path: /Audio/Effects/bite.ogg
-    - type: Carriable # DeltaV
 
 - type: entity
   parent: BaseMobCarp
@@ -133,7 +133,7 @@
         fix1:
           shape:
             !type:PhysShapeCircle
-            radius: 0.35 # Frontier 0.40<0.35 Lowered the value, to allow them to fit through the airlocks
+            radius: 0.5
           density: 10
           mask:
             - MobMask
@@ -157,11 +157,8 @@
 
 - type: entity
   id: MobCarpSalvage
-  parent: MobCarp
+  parent: [NFMobRestrictions, MobCarp] # Frontier: add NFMobRestrictions, remove components
   suffix: "Salvage Ruleset"
-  categories: [ HideSpawnMenu ] # Frontier
-  components:
-    - type: NFSalvageMobRestrictions # Frontier: SalvageMobRestrictions<NFSalvageMobRestrictions
 
 - type: entity
   name: space carp
@@ -178,7 +175,7 @@
       description: ghost-role-information-sentient-carp-description
       rules: ghost-role-information-space-dragon-summoned-carp-rules
       mindRoles:
-      - MindRoleGhostRoleTeamAntagonistFlock
+      - MindRoleGhostRoleTeamAntagonist
       raffle:
         settings: short
     - type: GhostTakeoverAvailable
@@ -192,17 +189,10 @@
   suffix: Dungeon
   categories: [ HideSpawnMenu ] # Frontier
   components:
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      50: Dead
-  - type: SlowOnDamage
-    speedModifierThresholds:
-      25: 0.7
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 6
+        Slash: 5
 
 - type: entity
   name: sharkminnow
@@ -224,7 +214,7 @@
         fix1:
           shape:
             !type:PhysShapeCircle
-            radius: 0.35 # Frontier 0.40<0.35 Lowered the value, to allow them to fit through the airlocks
+            radius: 0.55
           density: 100
           mask:
             - FlyingMobMask
@@ -233,7 +223,7 @@
     - type: MobThresholds
       thresholds:
         0: Alive
-        150: Dead
+        80: Dead # Frontier: 150<80
     - type: Stamina
       critThreshold: 150
     - type: DamageStateVisuals
@@ -257,13 +247,11 @@
     - type: MeleeWeapon
       damage:
         types:
-          Slash: 10
+          Slash: 7 # Frontier: 10<7
           Bloodloss: 5
 
 - type: entity
   id: MobSharkSalvage
-  parent: MobShark
+  parent: [NFMobRestrictions, MobShark] # Frontier: add NFMobRestrictions
   suffix: "Salvage Ruleset"
   categories: [ HideSpawnMenu ] # Frontier
-  components:
-    - type: NFSalvageMobRestrictions # Frontier: SalvageMobRestrictions<NFSalvageMobRestrictions

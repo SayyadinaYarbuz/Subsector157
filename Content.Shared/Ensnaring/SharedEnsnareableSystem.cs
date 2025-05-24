@@ -1,4 +1,7 @@
+using System.Linq;
 using Content.Shared.Alert;
+using Content.Shared.Body.Part;
+using Content.Shared.Body.Systems;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
@@ -28,6 +31,7 @@ public abstract class SharedEnsnareableSystem : EntitySystem
     [Dependency] private   readonly MovementSpeedModifierSystem _speedModifier = default!;
     [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
     [Dependency] private   readonly SharedAudioSystem _audio = default!;
+    [Dependency] private   readonly SharedBodySystem _body = default!;
     [Dependency] protected readonly SharedContainerSystem Container = default!;
     [Dependency] private   readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private   readonly SharedHandsSystem _hands = default!;
@@ -252,18 +256,23 @@ public abstract class SharedEnsnareableSystem : EntitySystem
         if (!TryComp<EnsnareableComponent>(target, out var ensnareable))
             return false;
 
-        var numEnsnares = ensnareable.Container.ContainedEntities.Count;
-
-        //Don't do anything if the maximum number of ensnares is applied.
-        if (numEnsnares >= component.MaxEnsnares)
-            return false;
-
+        // Need to insert before free legs check.
         Container.Insert(ensnare, ensnareable.Container);
 
-        // Apply stamina damage to target
-        if (TryComp<StaminaComponent>(target, out var stamina))
+        var legs = _body.GetBodyChildrenOfType(target, BodyPartType.Leg).Count();
+        var ensnaredLegs = (2 * ensnareable.Container.ContainedEntities.Count);
+        var freeLegs = legs - ensnaredLegs;
+
+        if (freeLegs > 0)
+            return false;
+
+        // Apply stamina damage to target if they weren't ensnared before.
+        if (ensnareable.IsEnsnared != true)
         {
-            _stamina.TakeStaminaDamage(target, component.StaminaDamage, with: ensnare, component: stamina);
+            if (TryComp<StaminaComponent>(target, out var stamina))
+            {
+                _stamina.TakeStaminaDamage(target, component.StaminaDamage, with: ensnare, component: stamina);
+            }
         }
 
         component.Ensnared = target;

@@ -14,14 +14,14 @@
     requiredLegs: 2
   - type: NpcFactionMember
     factions:
-    - NFSyndicate
+    - SyndicateNF
   - type: RandomHumanoidAppearance
     randomizeName: false
   - type: RandomMetadata
     nameSegments:
-    - NamesSyndicatePrefix
-    - NamesSyndicateNormal
-    - NamesSyndicateElite
+    - SyndicateNamesPrefix
+    - SyndicateNamesNormal
+    - SyndicateNamesElite
   #- type: AutoImplant
     #implants:
     #- DeathRattleImplant
@@ -44,9 +44,6 @@
     deleteOrgans: true
     gib: false
     useArgumentEntity: true
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 4.5
-    baseSprintSpeed : 4.5
 
 # Humans
 # Syndicate Captain, "armed" with AP Python
@@ -65,7 +62,7 @@
       rechargeSound:
         path: /Audio/_NF/Effects/silence.ogg
     - type: BasicEntityAmmoProvider
-      proto: NFCartridgePistol45Overpressure
+      proto: BulletMagnumAP
       capacity: 1
       count: 1
     - type: Gun
@@ -85,7 +82,7 @@
       prototypes:
         - SyndicateNavalCaptainGearB
     - type: BasicEntityAmmoProvider
-      proto: NFCartridgePistol45
+      proto: BulletMagnum
       capacity: 1
       count: 1
 
@@ -98,7 +95,7 @@
       prototypes:
         - SyndicateNavalCaptainGearC
     - type: BasicEntityAmmoProvider
-      proto: NFCartridgePistol45
+      proto: BulletMagnum
       capacity: 1
       count: 1
 
@@ -111,7 +108,7 @@
       prototypes:
         - SyndicateNavalCaptainGearD
     - type: BasicEntityAmmoProvider
-      proto: NFCartridgePistol45
+      proto: BulletMagnum
       capacity: 1
       count: 1
 
@@ -131,16 +128,12 @@
       rechargeSound:
         path: /Audio/_NF/Effects/silence.ogg
     - type: BasicEntityAmmoProvider
-      proto: NFShellShotgunSlug
+      proto: ShellShotgunSlug
       capacity: 1
       count: 1
     - type: Gun
       showExamineText: false
       fireRate: 2
-      minAngle: 10
-      maxAngle: 20
-      angleIncrease: 5
-      angleDecay: 3
       selectedMode: SemiAuto
       availableModes:
       - SemiAuto
@@ -155,7 +148,7 @@
       prototypes:
         - SyndicateNavalEngineerGearB
     - type: BasicEntityAmmoProvider
-      proto: NFShellShotgunBuckshot
+      proto: ShellShotgun
       capacity: 1
       count: 1
 
@@ -177,7 +170,7 @@
       prototypes:
         - SyndicateNavalEngineerGearD
     - type: BasicEntityAmmoProvider
-      proto: NFShellShotgunBeanbag
+      proto: PelletShotgunBeanbag
       capacity: 1
       count: 1
 
@@ -204,10 +197,6 @@
     - type: Gun
       showExamineText: false
       fireRate: 4
-      minAngle: 5
-      maxAngle: 20
-      angleIncrease: 2
-      angleDecay: 3
       selectedMode: SemiAuto
       availableModes:
       - SemiAuto
@@ -260,8 +249,8 @@
     - type: Loadout
       prototypes:
         - SyndicateNavalSecondOfficerGearA
-    - type: ProjectileBatteryAmmoProvider
-      proto: NFBulletLaserLow
+    - type: HitscanBatteryAmmoProvider
+      proto: RedMediumLaser
       fireCost: 100
     - type: BatterySelfRecharger
       autoRecharge: true
@@ -272,10 +261,6 @@
     - type: Gun
       showExamineText: false
       fireRate: 1
-      minAngle: 5
-      maxAngle: 20
-      angleIncrease: 1
-      angleDecay: 3
       selectedMode: SemiAuto
       availableModes:
         - SemiAuto
@@ -307,8 +292,8 @@
     - type: Loadout
       prototypes:
         - SyndicateNavalSecondOfficerGearD
-    - type: ProjectileBatteryAmmoProvider
-      proto: NFBulletLaserLow
+    - type: HitscanBatteryAmmoProvider
+      proto: RedLaser
       fireCost: 50
 
 # Syndicate Security Operative, "armed" with Atreides SMG
@@ -328,7 +313,7 @@
       rechargeSound:
         path: /Audio/_NF/Effects/silence.ogg
     - type: BasicEntityAmmoProvider
-      proto: NFCartridgePistol35
+      proto: BulletPistol
       capacity: 7
       count: 7
     - type: Gun
@@ -390,7 +375,7 @@
       rechargeSound:
         path: /Audio/_NF/Effects/silence.ogg
     - type: BasicEntityAmmoProvider
-      proto: NFGrenadeFrag
+      proto: GrenadeFrag
       capacity: 1
       count: 1
     - type: Gun
@@ -410,7 +395,7 @@
       prototypes:
         - SyndicateNavalGrenadierGearB
     - type: BasicEntityAmmoProvider
-      proto: NFGrenadeBlast
+      proto: GrenadeBlast
       capacity: 1
       count: 1
 
@@ -423,7 +408,7 @@
       prototypes:
         - SyndicateNavalGrenadierGearC
     - type: BasicEntityAmmoProvider
-      proto: NFGrenadeBaton
+      proto: GrenadeBaton
       capacity: 1
       count: 1
 
@@ -436,7 +421,7 @@
       prototypes:
         - SyndicateNavalGrenadierGearD
     - type: BasicEntityAmmoProvider
-      proto: NFGrenadeFlash
+      proto: GrenadeFlash
       capacity: 2
       count: 2
 
@@ -456,7 +441,7 @@
       rechargeSound:
         path: /Audio/_NF/Effects/silence.ogg
     - type: BasicEntityAmmoProvider
-      proto: NFCartridgePistol35Emp
+      proto: BulletPistolEmp
       capacity: 4
       count: 4
     - type: Gun
@@ -504,28 +489,23 @@
   id: MobExperimentationVictim
   categories: [ HideSpawnMenu ]
   components:
-  - type: NameIdentifier
-    group: GenericNumber
-  - type: NpcFactionMember
-    factions:
-      - SimpleHostile
-  - type: Loadout
-    prototypes:
-      - SyndicateVictimInsaneGear
-  - type: InputMover
-  - type: MobMover
-  - type: HTN
-    rootTask:
-      task: SimpleHumanoidHostileCompound
-  - type: NFSalvageMobRestrictions
-    despawnIfOffLinkedGrid: false
-    addComponentsOnDeath: []
-    removeComponentsOnDeath:
-    - type: Prying
-    - type: Tool
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 4.5
-    baseSprintSpeed : 4.5
+    - type: NameIdentifier
+      group: GenericNumber
+    - type: NpcFactionMember
+      factions:
+        - SimpleHostile
+    - type: Loadout
+      prototypes:
+        - SyndicateVictimInsaneGear
+    - type: InputMover
+    - type: MobMover
+    - type: HTN
+      rootTask:
+        task: SimpleHumanoidHostileCompound
+    - type: NFSalvageMobRestrictions
+      despawnIfOffLinkedGrid: false
+      addComponentsOnDeath: []
+      removeComponentsOnDeath: []
 
 # Syndicate Commander, "armed" with AK
 - type: entity
@@ -552,12 +532,12 @@
       rechargeSound:
         path: /Audio/_NF/Effects/silence.ogg
     - type: BasicEntityAmmoProvider
-      proto: NFCartridgeRifle25
+      proto: CartridgeLightRifle
       capacity: 4
       count: 4
     - type: Gun
       showExamineText: false
-      fireRate: 4
+      fireRate: 5
       selectedMode: SemiAuto
       availableModes:
       - SemiAuto
@@ -572,12 +552,12 @@
       prototypes:
         - SyndicateNavalCommanderGearB
     - type: BasicEntityAmmoProvider
-      proto: NFCartridgeRifle25
+      proto: CartridgeRifle
       capacity: 4
       count: 4
     - type: Gun
       showExamineText: false
-      fireRate: 4
+      fireRate: 5
       selectedMode: SemiAuto
       availableModes:
       - SemiAuto
@@ -617,7 +597,7 @@
       rechargeSound:
         path: /Audio/_NF/Effects/silence.ogg
     - type: BasicEntityAmmoProvider
-      proto: NFBulletPistol35
+      proto: BulletPistol
       capacity: 4
       count: 4
     - type: Gun
@@ -674,8 +654,8 @@
       baseSprintSpeed: 6
     - type: Advertise
       pack: mimehumanoidchatter
-      minimumWait: 120
-      maximumWait: 240
+      minimumWait: 120 # 1 * 2
+      maximumWait: 240 # 2 * 60
       nextAdvertisementTime: 0
 
 # Syndicate Chemwarrior, shoots healthy mixes of chems
@@ -700,7 +680,7 @@
     count: 3
   - type: Gun
     showExamineText: false
-    fireRate: 1
+    fireRate: 4
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -759,7 +739,7 @@
       prototypes:
         - SyndicateNavalCaptainVoidGear
     - type: BasicEntityAmmoProvider
-      proto: NFCartridgePistol45
+      proto: BulletMagnum
       capacity: 1
       count: 1
 
@@ -801,7 +781,7 @@
       prototypes:
         - SyndicateNavalEngineerVoidGear
     - type: BasicEntityAmmoProvider
-      proto: NFShellShotgunBuckshot
+      proto: ShellShotgun
       capacity: 1
       count: 1
 

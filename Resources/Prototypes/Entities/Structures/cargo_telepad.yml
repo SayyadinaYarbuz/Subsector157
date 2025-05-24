@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: CargoTelepad
   parent: [BaseStructureDisableToolUse, BaseStructureIndestructible, ConstructibleMachine, BaseMachinePowered] # Frontier
   name: cargo telepad
@@ -22,12 +22,12 @@
           - MachineMask
   - type: Sprite
     sprite: Structures/cargo_telepad.rsi
-    drawdepth: HighFloorObjects
+    drawdepth: FloorObjects
     layers:
     - state: offline
-      map: [ "enum.NFCargoTelepadLayers.Base" ] # Frontier: use NF values
+      map: [ "enum.CargoTelepadLayers.Base" ]
     - state: idle
-      map: [ "enum.NFCargoTelepadLayers.Beam" ] # Frontier: use NF values
+      map: [ "enum.CargoTelepadLayers.Beam" ]
       shader: unshaded
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -42,11 +42,10 @@
       - OrderReceiver
   - type: ApcPowerReceiver
     powerLoad: 1000 # TODO if we keep this make it spike power draw when teleporting
-  - type: NFCargoTelepad # Frontier: use NF variant
+  - type: CargoTelepad
   - type: Machine
     board: CargoTelepadMachineCircuitboard
   - type: Appearance
   - type: CollideOnAnchor
 #  - type: NameIdentifier # Frontier
 #    group: CargoTelepads # Frontier
-  - type: AnimationPlayer

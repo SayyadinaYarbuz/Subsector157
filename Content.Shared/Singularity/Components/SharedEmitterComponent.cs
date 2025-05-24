@@ -30,7 +30,7 @@ public sealed partial class EmitterComponent : Component
     /// The entity that is spawned when the emitter fires.
     /// </summary>
     [DataField("boltType", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string BoltType = "NFEmitterBolt"; // Frontier: use NF prefix
+    public string BoltType = "EmitterBolt";
 
     [DataField("selectableTypes", customTypeSerializer: typeof(PrototypeIdListSerializer<EntityPrototype>))]
     public List<string> SelectableTypes = new();

@@ -18,14 +18,9 @@
       behaviors:
       - !type:TriggerBehavior
   - type: ScatteringGrenade
-  - type: OnUseTimerTrigger
-    delay: 3
-  - type: Tag
-    tags:
-    - HandGrenade
 
 - type: entity
-  parent: [ScatteringGrenadeBase, BaseC2ContrabandUnredeemable, RecyclableItemSteelMedium] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable added RecyclableItemSteelMedium
+  parent: [ScatteringGrenadeBase, BaseC2ContrabandUnredeemable, RecyclableItemSteelMedium] # Frontier: BaseRestrictedContraband<BaseC2ContrabandUnredeemable added RecyclableItemSteelMedium
   id: ClusterBang
   name: clusterbang
   description: Can be used only with flashbangs. Explodes several times.
@@ -41,6 +36,8 @@
   - type: Sprite
     sprite: Objects/Weapons/Grenades/clusterbang.rsi
     state: base-0
+  - type: OnUseTimerTrigger
+    delay: 3.5
 
 - type: entity
   parent: ClusterBang
@@ -95,6 +92,7 @@
         volume: 5
     initialBeepDelay: 0
     beepInterval: 0.5
+    delay: 3.5
   - type: EmitSoundOnTrigger
     sound:
       path: "/Audio/Machines/door_lock_off.ogg"
@@ -161,7 +159,7 @@
     - state: primed
       map: ["enum.TriggerVisualLayers.Base"]
   - type: ScatteringGrenade
-    fillPrototype: NFBulletFoam # Frontier: use NF variant
+    fillPrototype: BulletFoam
     capacity: 30
     velocity: 30
   - type: OnUseTimerTrigger
@@ -171,6 +169,7 @@
         volume: 5
     initialBeepDelay: 0
     beepInterval: 2
+    delay: 3.5
   - type: EmitSoundOnTrigger
     sound:
       path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"

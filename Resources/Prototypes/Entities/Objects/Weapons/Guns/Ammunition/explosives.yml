@@ -1,11 +1,9 @@
-# region FRONTIER - IGNORED
-
 # Rockets
 
 - type: entity
   id: CartridgeRocket
   name: PG-7VL grenade
-  parent: [BaseItem] # Frontier: removed BaseMajorContraband
+  parent: [BaseItem, BaseC2ContrabandUnredeemable] # Frontier: BaseMajorContraband<BaseC2ContrabandUnredeemable
   description: A 1.5 warhead designed for the RPG-7 launcher. Has tubular shape.
   components:
   - type: Tag
@@ -14,7 +12,7 @@
   - type: Item
     size: Small
   - type: CartridgeAmmo
-    # proto: BulletRocket # Frontier
+    proto: BulletRocket
     deleteOnSpawn: true
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
@@ -25,7 +23,7 @@
 - type: entity
   id: CartridgeRocketSlow
   name: PG-7VL grenade "Snail-Rocket"
-  parent: [BaseItem] # Frontier: removed BaseMajorContraband
+  parent: [BaseItem, BaseC2ContrabandUnredeemable] # Frontier: BaseMajorContraband<BaseC2ContrabandUnredeemable
   description: A 1.5 warhead designed for the RPG-7 launcher. It's unusually slow.
   components:
     - type: Tag
@@ -34,7 +32,7 @@
     - type: Item
       size: Small
     - type: CartridgeAmmo
-      # proto: BulletWeakRocket # Frontier
+      proto: BulletWeakRocket
       deleteOnSpawn: true
     - type: Sprite
       sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
@@ -63,7 +61,7 @@
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
-    # proto: BulletGrenadeBaton # Frontier
+    proto: BulletGrenadeBaton
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
     layers:
@@ -80,7 +78,7 @@
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
-    # proto: BulletGrenadeBlast # Frontier
+    proto: BulletGrenadeBlast
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
     layers:
@@ -97,7 +95,7 @@
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
-    # proto: BulletGrenadeFlash # Frontier
+    proto: BulletGrenadeFlash
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
     layers:
@@ -114,7 +112,7 @@
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
-    # proto: BulletGrenadeFrag # Frontier
+    proto: BulletGrenadeFrag
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
     layers:
@@ -126,29 +124,12 @@
     suffix: false
 
 - type: entity
-  parent: BaseGrenade
-  id: GrenadeCleanade
-  name: cleanade grenade round
-  components:
-  - type: CartridgeAmmo
-    # proto: BulletGrenadeCleanade # Frontier
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
-    layers:
-    - state: cleanade
-      map: [ "enum.AmmoVisualLayers.Base" ]
-  - type: Appearance
-  - type: SpentAmmoVisuals
-    state: frag
-    suffix: false
-
-- type: entity
   id: GrenadeEMP
   name: EMP grenade
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
-    # proto: BulletGrenadeEMP # Frontier
+    proto: BulletGrenadeEMP
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
     layers:
@@ -158,6 +139,10 @@
   - type: SpentAmmoVisuals
     state: frag
     suffix: false
+  - type: EmpDescription # Frontier
+    range: 5 # Frontier
+    energyConsumption: 2700000 # Frontier
+    disableDuration: 10 # Frontier
 
 # Cannon Balls
 
@@ -181,7 +166,7 @@
   parent: BaseCannonBall
   components:
   - type: CartridgeAmmo
-    # proto: NFBulletCannonBall # Frontier
+    proto: BulletCannonBall
     deleteOnSpawn: true
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
@@ -194,7 +179,7 @@
   parent: BaseCannonBall
   components:
   - type: CartridgeAmmo
-    # proto: NFPelletGrapeshotSpread # Frontier
+    proto: PelletGrapeshotSpread
     deleteOnSpawn: true
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
@@ -207,7 +192,7 @@
   parent: BaseCannonBall
   components:
   - type: CartridgeAmmo
-    # proto: NFPelletGlassSpread # Frontier
+    proto: PelletGlassSpread
     deleteOnSpawn: true
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi

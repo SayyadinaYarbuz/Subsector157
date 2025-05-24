@@ -19,8 +19,6 @@
   gridPath: /Maps/_157/POI/imhotep.yml
   addComponents:
   - type: StationTransit
-    routes:
-      MinorPointsOfInterest: 10
   - type: SolarPoweredGrid
     trackOnInit: true
     doNotCull: true

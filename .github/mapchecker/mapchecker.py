@@ -130,9 +130,8 @@ if __name__ == "__main__":
                 proto_id = item["id"]
                 proto_name = item["name"] if "name" in item.keys() else ""
                 proto_suffixes = str(item["suffix"]).split(", ") if "suffix" in item.keys() else list()
-                proto_categories = item["categories"] if "categories" in item.keys() else list()
 
-                check_result = check_prototype(proto_id, proto_name, proto_suffixes, proto_categories)
+                check_result = check_prototype(proto_id, proto_name, proto_suffixes)
                 if check_result is False:
                     illegal_prototypes.append(proto_id)
                 elif check_result is not True:

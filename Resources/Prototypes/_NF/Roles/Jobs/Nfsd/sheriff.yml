@@ -49,8 +49,8 @@
 - type: startingGear
   id: SheriffGear
   equipment:
-    pocket1: NFWeaponPistolUniversalNfsdLessLethal
-    pocket2: NFWeaponEnergyPistolLaserX01Multiphase
+    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
+    pocket2: WeaponEnergyGunMultiphase # DeltaV gun
   storage:
     back:
     - NfsdTechFabFlatpack

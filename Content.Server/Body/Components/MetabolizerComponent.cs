@@ -81,10 +81,5 @@ namespace Content.Server.Body.Components
 
         [DataField("rateModifier")]
         public FixedPoint2 MetabolismRateModifier = 1.0;
-
-        // Frontier: skip metabolizing effects
-        [DataField]
-        public bool SkipEffects = false;
-        // End Frontier
     }
 }

@@ -6,6 +6,7 @@
   flavor: bitter
   color: "#4B382A"
   physicalDesc: reagent-physical-desc-powdery
+  slippery: false
   recognizable: true # "Waiter, there seems to be grounds in my coffee."
   metabolisms:
     Drink:
@@ -61,14 +62,3 @@
     collection: FootstepSticky
     params:
       volume: 6
-
-- type: reagent
-  id: Everyspice
-  name: reagent-name-everyspice
-  group: Foods
-  desc: reagent-desc-everyspice
-  physicalDesc: reagent-physical-desc-powdery
-  flavor: spices
-  flavorMinimum: 0.05
-  color: "#7a481f"
-  recognizable: true

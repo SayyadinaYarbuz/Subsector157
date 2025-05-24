@@ -232,7 +232,7 @@
   entries:
   - name: pirate-bounty-item-orebox
     amount: 2
-    id: NFMagnetBoxOre
+    id: OreBox
 
 - type: pirateBounty
   id: PirateBountyAutolathe

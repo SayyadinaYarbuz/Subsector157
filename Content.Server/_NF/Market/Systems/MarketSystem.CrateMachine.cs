@@ -68,12 +68,13 @@ public sealed partial class MarketSystem
         if (!TryComp<MarketItemSpawnerComponent>(crateMachineUid, out var itemSpawner))
             return;
 
-        var cartBalance = Math.Max(0, MarketDataExtensions.GetMarketValue(consoleComponent.CartDataList, marketMod));
+        var cartBalance = MarketDataExtensions.GetMarketValue(consoleComponent.CartDataList, marketMod);
         if (playerBank.Balance < cartBalance)
             return;
 
         // Withdraw spesos from player
-        if (!_bankSystem.TryBankWithdraw(player, cartBalance))
+        var spawnCost = int.Abs(MarketDataExtensions.GetMarketValue(consoleComponent.CartDataList, marketMod));
+        if (!_bankSystem.TryBankWithdraw(player, spawnCost))
         {
             _popup.PopupEntity(Loc.GetString("market-insufficient-funds"), consoleUid, player);
             _audio.PlayPredicted(consoleComponent.ErrorSound, consoleUid, null, AudioParams.Default.WithMaxDistance(5f));
@@ -101,11 +102,8 @@ public sealed partial class MarketSystem
             }
             else
             {
-                for (int i = 0; i < data.Quantity; i++)
-                {
-                    var spawn = Spawn(data.Prototype, coordinates);
-                    _crateMachine.InsertIntoCrate(spawn, targetCrate);
-                }
+                var spawn = Spawn(data.Prototype, coordinates);
+                _crateMachine.InsertIntoCrate(spawn, targetCrate);
             }
         }
     }

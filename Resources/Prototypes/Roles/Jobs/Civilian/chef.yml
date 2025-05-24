@@ -5,9 +5,8 @@
   playTimeTracker: JobChef
   setPreference: false # Frontier
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Civilian
-      time: 1800 #0.5 hr
+    - !type:OverallPlaytimeRequirement
+      time: 10800
   startingGear: ChefGear
   icon: "JobIconChef"
   supervisors: job-supervisors-hire # Frontier

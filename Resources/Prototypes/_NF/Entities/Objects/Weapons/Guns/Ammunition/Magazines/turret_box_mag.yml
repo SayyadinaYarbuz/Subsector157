@@ -2,7 +2,7 @@
 - type: entity
   parent: BaseMagazinePistolHighCapacity
   id: MagazineAsmgtUniversalEmpty
-  name: ASMGT-compatible box magazine
+  name: "ASMGT-compatible ammo box"
   description: |-
    Universal ASMGT-compatible ammo box capable of accepting .20, .25, .30 and .35 cartridges.
   suffix: empty
@@ -16,10 +16,10 @@
     mayTransfer: true
     whitelist:
       tags:
-        - NFMagazinePistol35
-        - NFCartridgeRifle20
-        - NFCartridgeRifle30
-        - NFCartridgeRifle25
+        - CartridgePistol
+        - CartridgeRifle
+        - CartridgeLightRifle
+        - CartridgeCaselessRifle
     capacity: 50
   - type: ContainerContainer
     containers:
@@ -40,11 +40,11 @@
 - type: entity
   parent: MagazineAsmgtUniversalEmpty
   id: MagazineAsmgtUniversalPistol
-  name: ASMGT-compatible box magazine
+  name: "ASMGT-compatible ammo box"
   suffix: loaded .35 pistol
   components:
   - type: BallisticAmmoProvider
-    proto: NFCartridgePistol35
+    proto: CartridgePistol
   - type: Sprite
     layers:
     - state: base

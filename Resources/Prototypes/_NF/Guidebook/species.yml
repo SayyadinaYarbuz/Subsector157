@@ -2,8 +2,3 @@
   id: Goblin
   name: species-name-goblin
   text: "/ServerInfo/_NF/Guidebook/Mobs/Goblin.xml"
-
-- type: guideEntry
-  id: Sheleg
-  name: species-name-sheleg
-  text: "/ServerInfo/_NF/Guidebook/Mobs/Sheleg.xml"

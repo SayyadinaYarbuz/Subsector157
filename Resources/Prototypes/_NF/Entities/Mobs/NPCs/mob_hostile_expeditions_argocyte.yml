@@ -41,11 +41,11 @@
   - type: MobThresholds # Base value to fall back to
     thresholds:
       0: Alive
-      40: Dead
+      50: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      24: 0.7
-      32: 0.5
+      30: 0.7
+      40: 0.5
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcBite
@@ -99,11 +99,11 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      16: Dead
+      20: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      10: 0.7
-      13: 0.5
+      12: 0.7
+      16: 0.5
   - type: Fixtures
     fixtures:
       fix1:
@@ -143,11 +143,11 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      24: Dead
+      30: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      15: 0.7
-      20: 0.5
+      18: 0.7
+      24: 0.5
   - type: Fixtures
     fixtures:
       fix1:
@@ -187,11 +187,11 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      32: Dead
+      40: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      19: 0.7
-      26: 0.5
+      24: 0.7
+      32: 0.5
   - type: MeleeWeapon
     damage:
       types:
@@ -220,11 +220,11 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      40: Dead
+      50: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      24: 0.7
-      32: 0.5
+      30: 0.7
+      40: 0.5
   - type: MeleeWeapon
     damage:
       types:
@@ -253,11 +253,11 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      48: Dead
+      60: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      28: 0.7
-      38: 0.5
+      36: 0.7
+      48: 0.5
   - type: MeleeWeapon
     damage:
       types:
@@ -293,15 +293,15 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      120: Dead
+      150: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      72: 0.7
-      96: 0.5
+      90: 0.7
+      120: 0.5
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 14
+        Slash: 16
         Structural: 25
   - type: MovementSpeedModifier
     baseSprintSpeed : 4.5
@@ -333,11 +333,11 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      28: Dead
+      35: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      17: 0.7
-      22: 0.5
+      21: 0.7
+      28: 0.5
   - type: Fixtures
     fixtures:
       fix1:
@@ -374,11 +374,11 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      64: Dead
+      80: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      38: 0.7
-      50: 0.5
+      48: 0.7
+      64: 0.5
   - type: MeleeWeapon
     damage:
       types:
@@ -407,11 +407,11 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      80: Dead
+      100: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      48: 0.7
-      64: 0.5
+      60: 0.7
+      80: 0.5
   - type: MeleeWeapon
     damage:
       types:
@@ -445,11 +445,11 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      72: Dead
+      90: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      44: 0.7
-      58: 0.5
+      54: 0.7
+      72: 0.5
   - type: MeleeWeapon
     damage:
       types:
@@ -481,15 +481,15 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      110: Dead
+      140: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      66: 0.7
-      90: 0.5
+      84: 0.7
+      112: 0.5
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 14
+        Blunt: 16
         Structural: 20
   - type: Butcherable
     spawned:
@@ -518,15 +518,15 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      400: Dead
+      500: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      240: 0.7
-      320: 0.5
+      300: 0.7
+      400: 0.5
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 20
+        Blunt: 25
         Structural: 50
   - type: Butcherable
     spawned:

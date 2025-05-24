@@ -104,7 +104,7 @@
     sprite: Clothing/Shoes/Specific/cult.rsi
 
 - type: entity
-  parent: ClothingShoesBase # Frontier: remove BaseJanitorContraband
+  parent: ClothingShoesBase
   id: ClothingShoesGaloshes
   name: galoshes
   description: Rubber boots.

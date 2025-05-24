@@ -55,14 +55,14 @@
       types:
         Bloodloss:
           -1
-  - type: MobThresholds
+  - type: MobThresholds # Base value to fall back to
     thresholds:
       0: Alive
-      40: Dead
+      50: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      24: 0.7
-      32: 0.5
+      30: 0.7
+      40: 0.5
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepThud
@@ -70,9 +70,6 @@
     tags:
     - FootstepSound
     - DoorBumpOpener
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 4.5
-    baseSprintSpeed : 4.5
 
 # MOBS
 # Sorted by health pool (less health ~= faster and harder hitting)
@@ -90,6 +87,14 @@
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: compy
       scale: 0.6, 0.6
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      30: 0.7
+      40: 0.5
   - type: DamageStateVisuals
     states:
       Alive:
@@ -127,6 +132,14 @@
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: dilo
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      30: 0.7
+      40: 0.5
   - type: DamageStateVisuals
     states:
       Alive:
@@ -165,11 +178,11 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      64: Dead
+      80: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      38: 0.7
-      52: 0.5
+      48: 0.7
+      64: 0.5
   - type: DamageStateVisuals
     states:
       Alive:
@@ -207,11 +220,11 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      80: Dead
+      100: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      48: 0.7
-      64: 0.5
+      60: 0.7
+      80: 0.5
   - type: DamageStateVisuals
     states:
       Alive:
@@ -249,11 +262,11 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      120: Dead
+      150: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      72: 0.7
-      96: 0.5
+      90: 0.7
+      120: 0.5
   - type: DamageStateVisuals
     states:
       Alive:
@@ -291,11 +304,11 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      160: Dead
+      200: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      96: 0.7
-      130: 0.5
+      120: 0.7
+      160: 0.5
   - type: DamageStateVisuals
     states:
       Alive:
@@ -311,7 +324,7 @@
     animation: WeaponArcClaw
     damage:
       types:
-        Piercing: 12
+        Piercing: 15
         Structural: 20
   - type: MovementSpeedModifier
     baseSprintSpeed : 3
@@ -333,11 +346,11 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      200: Dead
+      250: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      120: 0.7
-      160: 0.5
+      150: 0.7
+      200: 0.5
   - type: DamageStateVisuals
     states:
       Alive:
@@ -375,11 +388,11 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      280: Dead
+      350: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      170: 0.7
-      225: 0.5
+      210: 0.7
+      280: 0.5
   - type: DamageStateVisuals
     states:
       Alive:
@@ -417,11 +430,11 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      280: Dead
+      350: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      170: 0.7
-      225: 0.5
+      210: 0.7
+      280: 0.5
   - type: DamageStateVisuals
     states:
       Alive:
@@ -461,11 +474,11 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      360: Dead
+      450: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      220: 0.7
-      290: 0.5
+      270: 0.7
+      360: 0.5
   - type: DamageStateVisuals
     states:
       Alive:

@@ -11,6 +11,7 @@ using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Server.StationEvents.Events;
+using Content.Server.Warps;
 using Content.Shared._NF.CCVar;
 using Content.Shared._NF.Smuggling.Prototypes;
 using Content.Shared.Database;
@@ -20,13 +21,14 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Paper;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Verbs;
+using Robust.Server.GameObjects;
+using Robust.Server.Maps;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Server._NF.Station.Systems;
-using Robust.Shared.EntitySerialization.Systems;
 
 namespace Content.Server._NF.Smuggling;
 
@@ -442,21 +444,21 @@ public sealed class DeadDropSystem : EntitySystem
             return;
 
         //relying entirely on shipyard capabilities, including using the shipyard map to spawn the items and ftl to bring em in
-        if (_shipyard.ShipyardMap == null)
+        if (_shipyard.ShipyardMap is not MapId shipyardMap)
+            return;
+
+        var options = new MapLoadOptions
         {
-            _shipyard.SetupShipyardIfNeeded();
-            if (_shipyard.ShipyardMap == null)
-                return;
-        }
+            LoadMap = false,
+        };
 
         //load whatever grid was specified on the component, either a special dead drop or default
-        if (!_map.TryLoadGrid(_shipyard.ShipyardMap.Value, component.DropGrid, out var gridUid))
+        if (!_map.TryLoad(shipyardMap, component.DropGrid, out var gridUids, options))
             return;
-        var grid = gridUid.Value;
 
         //setup the radar properties
-        _shuttle.SetIFFColor(grid, component.Color);
-        _shuttle.AddIFFFlag(grid, IFFFlags.HideLabel);
+        _shuttle.SetIFFColor(gridUids[0], component.Color);
+        _shuttle.AddIFFFlag(gridUids[0], IFFFlags.HideLabel);
 
         //this is where we set up all the information that FTL is going to need, including a new null entity as a destination target because FTL needs it for reasons?
         //dont ask me im just fulfilling FTL requirements.
@@ -471,11 +473,10 @@ public sealed class DeadDropSystem : EntitySystem
 
         var stationName = Loc.GetString(component.Name);
 
-        var meta = EnsureComp<MetaDataComponent>(grid);
-        _meta.SetEntityName(grid, stationName, meta);
-        List<EntityUid> gridList = [grid];
+        var meta = EnsureComp<MetaDataComponent>(gridUids[0]);
+        _meta.SetEntityName(gridUids[0], stationName, meta);
 
-        _stationRenameWarps.SyncWarpPointsToGrids(gridList, forceAdminOnly: true);
+        _stationRenameWarps.SyncWarpPointsToGrids(gridUids, forceAdminOnly: true);
 
         // Get sector info (with sane defaults if it doesn't exist)
         int maxSimultaneousPods = 5;
@@ -491,10 +492,10 @@ public sealed class DeadDropSystem : EntitySystem
         }
 
         //this will spawn in the latest ship, and delete the oldest one available if the amount of ships exceeds 5.
-        if (TryComp<ShuttleComponent>(grid, out var shuttle))
+        if (TryComp<ShuttleComponent>(gridUids[0], out var shuttle))
         {
-            _shuttle.FTLToCoordinates(grid, shuttle, new EntityCoordinates(mapUid.Value, dropLocation), 0f, 0f, 35f);
-            _drops.Enqueue(grid);
+            _shuttle.FTLToCoordinates(gridUids[0], shuttle, new EntityCoordinates(mapUid.Value, dropLocation), 0f, 0f, 35f);
+            _drops.Enqueue(gridUids[0]);
 
             if (_drops.Count > maxSimultaneousPods)
             {
@@ -544,8 +545,8 @@ public sealed class DeadDropSystem : EntitySystem
             if (!TryComp<StationDataComponent>(reportStation, out var stationData))
                 continue; // Not a station?
 
-            var stationGrid = _station.GetLargestGrid(stationData);
-            if (stationGrid == null)
+            var gridUid = _station.GetLargestGrid(stationData);
+            if (gridUid == null)
                 continue; // Nobody to send our message.
 
             if (!_prototypeManager.TryIndex(reportComp.MessageSet, out var messageSets))
@@ -622,12 +623,12 @@ public sealed class DeadDropSystem : EntitySystem
                 {
                     Timer.Spawn(TimeSpan.FromMinutes(delayMinutes), () =>
                     {
-                        _radio.SendRadioMessage(stationGrid.Value, output, messageSets.Channel, uid);
+                        _radio.SendRadioMessage(gridUid.Value, output, messageSets.Channel, uid);
                     });
                 }
                 else
                 {
-                    _radio.SendRadioMessage(stationGrid.Value, output, messageSets.Channel, uid);
+                    _radio.SendRadioMessage(gridUid.Value, output, messageSets.Channel, uid);
                 }
             }
         }

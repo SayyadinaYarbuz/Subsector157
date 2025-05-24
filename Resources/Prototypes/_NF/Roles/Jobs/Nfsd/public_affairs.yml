@@ -31,7 +31,7 @@
 - type: startingGear
   id: PublicAffairGear
   equipment:
-    pocket1: NFHyperlinkBookSpaceLaw
+    pocket1: HyperlinkBookSpaceLaw
     pocket2: BoxFolderClipboardPal
   storage:
     back:

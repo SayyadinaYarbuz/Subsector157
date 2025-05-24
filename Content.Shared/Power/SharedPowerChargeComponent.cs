@@ -11,11 +11,4 @@ public abstract partial class SharedPowerChargeComponent : Component
     [DataField]
     public LocId WindowTitle { get; set; } = string.Empty;
 
-    // Frontier: actions
-    /// <summary>
-    /// Show a action button on UI
-    /// </summary>
-    [DataField]
-    public bool ActionUI { get; set; } = false;
-    // End Frontier: actions
 }

@@ -139,9 +139,11 @@
 
 - type: entity
   id: StructureGunRackWallmounted
-  parent: [ BaseStructureWallmount, StructureGunRack ]
+  parent: StructureGunRack
   suffix: Empty, Wallmount
   components:
+  - type: WallMount
+    arc: 360
   - type: Sprite
     layers:
     - state: base-gun-wall
@@ -232,9 +234,11 @@
 
 - type: entity
   id: StructureMeleeWeaponRackWallmounted
-  parent: [ BaseStructureWallmount, StructureMeleeWeaponRack ]
+  parent: StructureMeleeWeaponRack
   suffix: Empty, Wallmount
   components:
+  - type: WallMount
+    arc: 360
   - type: Sprite
     layers:
     - state: base-melee-wall
@@ -322,9 +326,11 @@
 
 - type: entity
   id: StructurePistolRackWallmounted
-  parent: [ BaseStructureWallmount, StructurePistolRack ]
+  parent: StructurePistolRack
   suffix: Empty, Wallmount
   components:
+  - type: WallMount
+    arc: 360
   - type: Sprite
     layers:
     - state: base-pistol-wall
@@ -385,9 +391,11 @@
 
 - type: entity
   id: StructurePistolRackLockWallmounted
-  parent: [ BaseStructureWallmount, StructurePistolRackLock]
+  parent: StructurePistolRackLock
   abstract: true
   components:
+  - type: WallMount
+    arc: 360
   - type: Sprite
     layers:
     - state: base-pistol-wall

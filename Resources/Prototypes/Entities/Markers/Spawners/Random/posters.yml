@@ -92,26 +92,20 @@
       - PosterContrabandInterdyne
       - PosterContrabandWaffleCorp
       - PosterContrabandMissingSpacepen
-        # Frontier: Start
-      - NFPosterContrabandLvhiStation
-      - NFPosterContrabandLvhiShuttle
-      - NFPosterContrabandLvhiSpace
-      - NFPosterContrabandLvhiMountains
-      - NFPosterContrabandLvhiPlanetCore
-      - NFPosterContrabandLvhiLogo
-      - NFPosterContrabandFsbLogo
-      - NFPosterContrabandFsbStasis
-      - NFPosterContrabandFsbApothecary
-      - NFPosterContrabandEatShrooms
-      - NFPosterContrabandKillerFashion
-      - NFPosterContrabandGoblinFront
-      - NFPosterContrabandGoblinate
-      - NFPosterContrabandFsbRubicon
-      - NFPosterContrabandWyvernShipyards
-      - NFPosterContrabandRatvarLives
-      - NFPosterContrabandFsbNightlight
-      - NFPosterContrabandFsbRetort
-        # Frontier: Ending
+      - NFPosterContrabandLvhiStation # Frontier
+      - NFPosterContrabandLvhiShuttle # Frontier
+      - NFPosterContrabandLvhiSpace # Frontier
+      - NFPosterContrabandLvhiMountains # Frontier
+      - NFPosterContrabandLvhiPlanetCore # Frontier
+      - NFPosterContrabandLvhiLogo # Frontier
+      - NFPosterContrabandFsbLogo # Frontier
+      - NFPosterContrabandFsbStasis # Frontier
+      - NFPosterContrabandFsbApothecary # Frontier
+      - NFPosterContrabandEatShrooms # Frontier
+      - NFPosterContrabandKillerFashion # Frontier
+      - NFPosterContrabandGoblinFront # Frontier
+      - NFPosterContrabandGoblinate # Frontier
+      - NFPosterContrabandFsbRubicon # Frontier
     chance: 1
 
 - type: entity
@@ -167,6 +161,7 @@
       - PosterLegitJustAWeekAway
       - PosterLegitSecWatch
       - PosterLegitVacation
+      - PosterLegitPeriodicTable
       - PosterLegitRenault
       - PosterLegitNTTGC
       - PosterLegitSafetyMothDelam
@@ -176,15 +171,9 @@
       - PosterLegitSafetyMothHardhat
       - PosterLegitSafetyMothSSD
       - PosterLegitOppenhopper
-      - PosterLegitTyrone
-        # Frontier
-      - NFPosterLegitMagnusWatching
-      - NFPosterLegitGoblinTinkerer
-      - NFPosterLegitBahamaMama
-      - NFPosterLegitWinnerWinner
-      - NFPosterLegitWantedClarpy
-      - NFPosterLegitMothPlease
-      - NFPosterLegitHaveYouSeenThisEgg
-      - NFPosterLegitGunTurnIn
-        # End Frontier
+      - NFPosterLegitMagnusWatching # Frontier
+      - NFPosterLegitGoblinTinkerer # Frontier
+      - NFPosterLegitBahamaMama # Frontier
+      - NFPosterLegitWinnerWinner # Frontier
+      - NFPosterLegitWantedClarpy # Frontier
     chance: 1

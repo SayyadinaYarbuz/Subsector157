@@ -1,8 +1,6 @@
 - type: latheRecipe
   abstract: true
   id: BaseBedsheetRecipe
-  categories:
-  - Bedsheets
   completetime: 2
   applyMaterialDiscount: false # Frontier
   materials:

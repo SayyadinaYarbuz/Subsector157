@@ -28,7 +28,7 @@
   recipeUnlocks:
   - RadarConsoleCircuitboard
   - HandHeldMassScanner
-  # - BorgModuleGPS # Frontier: useless
+  - BorgModuleGPS
 
 - type: technology
   id: AdvancedPowercells
@@ -70,7 +70,6 @@
   - ProtolatheHyperConvectionMachineCircuitboard
   - CircuitImprinterHyperConvectionMachineCircuitboard
   - SheetifierMachineCircuitboard
-  - MaterialSiloMachineCircuitboard # Frontier
 
 - type: technology
   id: PowerGeneration
@@ -120,7 +119,6 @@
   - RipleyCentralElectronics
   - RipleyPeripheralsElectronics
   - MechEquipmentGrabber
-  - MechEquipmentFork # Frontier
 
 # Tier 2
 
@@ -128,7 +126,7 @@
   id: Shuttlecraft
   name: research-technology-shuttlecraft
   icon:
-    sprite: _NF/Structures/Shuttles/gyroscope.rsi # Frontier: add _NF prefix
+    sprite: Structures/Shuttles/gyroscope.rsi
     state: base
   discipline: Industrial
   tier: 2
@@ -174,8 +172,10 @@
     - JawsOfLife
     - UtilityBeltChiefEngineer
     - BorgModuleAdvancedTool
-    # - Fulton # Frontier
-    # - FultonBeacon # Frontier
+    - BorgModuleJetpack # Frontier
+    - NFBlueprintPowerDrill # Frontier
+    - NFBlueprintJawsOfLife # Frontier
+    - NFBlueprintWelderExperimental # Frontier
 
 - type: technology
   id: MassExcavation
@@ -190,6 +190,9 @@
     - OreBagOfHolding
     - MiningDrillDiamond
     - AdvancedMineralScannerEmpty
+    - NFBlueprintOreBagOfHolding # Frontier
+    - NFBlueprintMiningDrillDiamond # Frontier
+    - NFBlueprintAdvancedMineralScannerEmpty # Frontier
     - BorgModuleAdvancedMining # Frontier
 
 # Tier 3
@@ -208,6 +211,10 @@
   - ClothingBackpackSatchelHolding
   - ClothingBackpackDuffelHolding
   - ClothingBackpackMessengerHolding # Frontier
+  - NFBlueprintClothingBackpackHolding # Frontier
+  - NFBlueprintClothingBackpackSatchelHolding # Frontier
+  - NFBlueprintClothingBackpackDuffelHolding # Frontier
+  - NFBlueprintClothingBackpackMessengerHolding # Frontier
 
 - type: technology
   id: PortableFission
@@ -220,7 +227,7 @@
   cost: 10000
   recipeUnlocks:
   - PowerCellMicroreactor
-  - PortableGeneratorDKJrMachineCircuitboard # Frontier
+  - NFBlueprintPowerCellMicroreactor # Frontier
   technologyPrerequisites:
   - AdvancedPowercells
 
@@ -234,5 +241,6 @@
   tier: 2
   cost: 10000
   recipeUnlocks:
-    - ShipyardRCD # Frontier: RCD<ShipyardRCD
-    - ShipyardRCDAmmo # Frontier: RCDAmmo<ShipyardRCDAmmo
+    - ShipyardRCD # Frontier
+    - ShipyardRCDAmmo # Frontier
+    - NFBlueprintShipyardRCDAmmo # Frontier

@@ -3,8 +3,7 @@
 - type: latheRecipe
   abstract: true
   id: NFBaseToolboxRecipe
-  categories:
-  - StorageNF
+  category: StorageNF
   completetime: 4
   materials:
     Steel: 300
@@ -111,9 +110,6 @@
   parent: NFBaseBoxRecipe
   result: HappyHonkMcCargoEmpty
   name: lathe-recipe-NFHappyHonkMcCargoEmpty-name
-  categories:
-  - Brand
-  - StorageNF
 
 - type: latheRecipe
   id: NFHappyHonkCluwneEmpty

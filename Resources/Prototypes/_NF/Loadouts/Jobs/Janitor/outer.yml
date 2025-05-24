@@ -1,18 +1,5 @@
 - type: loadout
-  id: JanitorForcedClothingOuterEVASuitJanitor
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: NFOuterSuitRequired
-  price: 0
-  equipment:
-    outerClothing: ClothingOuterEVASuitJanitor
-
-- type: loadout
   id: JanitorNFClothingOuterWinterJani
-  hideEffects:
-  - !type:GroupLoadoutEffect
-    proto: NFCoatCapable
-  price: 0
   equipment:
     outerClothing: ClothingOuterWinterJani
 
@@ -21,9 +8,6 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: ContractorT3
-  hideEffects:
-  - !type:GroupLoadoutEffect
-    proto: NFCoatCapable
   price: 0
   equipment:
     outerClothing: WetFloorSign

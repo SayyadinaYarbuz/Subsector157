@@ -51,8 +51,8 @@
     - WeaponCrusherDagger
     - WeaponCrusher
     - WeaponCrusherGlaive
-    - NFWeaponPka
-    - NFWeaponPkaSawn
+    - WeaponProtoKineticAccelerator
+    - WeaponProtoKineticAcceleratorSawn
     - OreBag
     - RadioHandheldNF
     - HandheldGPSBasic
@@ -64,7 +64,6 @@
     chance: 0.9
     offset: 0.0
     rarePrototypes:
-    - NFWeaponPkaCannon
     - OreBagOfHolding
     - HandHeldMassScanner
     - SpawnDungeonLootHardsuitsSalvage
@@ -250,7 +249,7 @@
     offset: 0.0
     rarePrototypes:
     - VendingMachineSyndieContraband
-    # - VendingMachineSyndieDrobe # A bit less Syndicate loot
+    - VendingMachineSyndieDrobe
     - VendingMachineArcadia
     rareChance: 0.01
 

@@ -9,7 +9,7 @@
     whitelist:
       tags:
         - CartridgePistol
-    # proto: CartridgePistol # Frontier
+    proto: CartridgePistol
     capacity: 60
   - type: Item
     size: Small
@@ -26,14 +26,15 @@
 
 # Boxes
 - type: entity
-  categories: [ HideSpawnMenu ] # Frontier
   parent: BaseMagazineBoxPistol
   id: MagazineBoxPistol
   name: ammunition box (.35 auto)
-  description: A cardboard box of .35 auto rounds. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: BallisticAmmoProvider
-    # proto: CartridgePistol # Frontier
+    proto: CartridgePistol
+  - type: Icon # Frontier
+    sprite: _NF/Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi # Frontier
+    state: display # Frontier
   - type: Sprite
     layers:
     - state: base
@@ -42,14 +43,15 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  categories: [ HideSpawnMenu ] # Frontier
   parent: BaseMagazineBoxPistol
   id: MagazineBoxPistolPractice
   name: ammunition box (.35 auto practice)
-  description: A cardboard box of .35 auto rounds. Intended to hold non-harmful chalk ammunition.
   components:
   - type: BallisticAmmoProvider
-    # proto: CartridgePistolPractice # Frontier
+    proto: CartridgePistolPractice
+  - type: Icon # Frontier
+    sprite: _NF/Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi # Frontier
+    state: practicedisplay # Frontier
   - type: Sprite
     layers:
     - state: base
@@ -59,14 +61,15 @@
     - state: practice
 
 - type: entity
-  categories: [ HideSpawnMenu ] # Frontier
   parent: BaseMagazineBoxPistol
   id: MagazineBoxPistolIncendiary
   name: ammunition box (.35 auto incendiary)
-  description: A cardboard box of .35 auto rounds. Intended to hold self-igniting incendiary ammunition.
   components:
   - type: BallisticAmmoProvider
-    # proto: CartridgePistolIncendiary # Frontier
+    proto: CartridgePistolIncendiary
+  - type: Icon # Frontier
+    sprite: _NF/Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi # Frontier
+    state: incendiarydisplay # Frontier
   - type: Sprite
     layers:
     - state: base
@@ -76,14 +79,15 @@
     - state: incendiary
 
 - type: entity
-  categories: [ HideSpawnMenu ] # Frontier
   id: MagazineBoxPistolUranium
   parent: BaseMagazineBoxPistol
   name: ammunition box (.35 auto uranium)
-  description: A cardboard box of .35 auto rounds. Intended to hold exotic uranium-core ammunition.
   components:
   - type: BallisticAmmoProvider
-    # proto: CartridgePistolUranium # Frontier
+    proto: CartridgePistolUranium
+  - type: Icon # Frontier
+    sprite: _NF/Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi # Frontier
+    state: uraniumdisplay # Frontier
   - type: Sprite
     layers:
     - state: base

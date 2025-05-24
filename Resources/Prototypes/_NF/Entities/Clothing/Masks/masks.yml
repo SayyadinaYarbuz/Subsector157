@@ -89,33 +89,30 @@
   - type: Sprite
     sprite: _NF/Clothing/Mask/punkhalfmask.rsi
     layers:
-    - state: icon-base-mask
+    - state: equipped-MASK
       map: [ "mask_main" ]
-    - state: icon-decor-mask
+      scale: 2, 2
+      offset: 0,-0.6
+    - state: decor-equipped-MASK
       map: [ "mask_decor" ]
       shader: unshaded
+      scale: 2, 2
+      offset: 0,-0.6
   - type: Clothing
     sprite: _NF/Clothing/Mask/punkhalfmask.rsi
     clothingVisuals:
       mask:
       - state: equipped-MASK
-        map: [ "clothing_mask_main" ]
+        map: [ "mask_main" ]
       - state: decor-equipped-MASK
-        map: [ "clothing_mask_decor" ]
+        map: [ "mask_decor" ]
         shader: unshaded
   - type: RandomSprite
     available:
     - mask_main:
-        icon-base-mask: Base
-      clothing_mask_main:
-        equipped-MASK: Base
+        equipped-MASK: CyberpunkDark
       mask_decor:
-        icon-decor-mask: Decor
-      clothing_mask_decor:
-        decor-equipped-MASK: Decor
-    mappedColors:
-      Base: CyberpunkDark
-      Decor: CyberpunkNeon
+        decor-equipped-MASK: CyberpunkNeon
   - type: IdentityBlocker
     coverage: MOUTH
 

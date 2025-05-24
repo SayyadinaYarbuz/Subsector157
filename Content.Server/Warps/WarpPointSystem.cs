@@ -1,6 +1,5 @@
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
-using Content.Shared.Warps;
 using Content.Server.Station.Systems; // Frontier
 
 namespace Content.Server.Warps;

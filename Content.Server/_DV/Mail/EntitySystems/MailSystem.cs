@@ -49,7 +49,6 @@ using Content.Shared._NF.Bank.BUI; // Frontier
 using Content.Shared.SSDIndicator; // Frontier
 using Content.Server.Power.EntitySystems; // Frontier
 using Content.Server._NF.Mail.Components; // Frontier
-using Robust.Server.Player; // Frontier
 
 namespace Content.Server._DV.Mail.EntitySystems
 {
@@ -62,7 +61,7 @@ namespace Content.Server._DV.Mail.EntitySystems
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IdCardSystem _idCardSystem = default!;
         [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
-        // [Dependency] private readonly MindSystem _mindSystem = default!; // Frontier: warning suppression
+        [Dependency] private readonly MindSystem _mindSystem = default!;
         [Dependency] private readonly OpenableSystem _openable = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
@@ -73,16 +72,11 @@ namespace Content.Server._DV.Mail.EntitySystems
         [Dependency] private readonly StationSystem _stationSystem = default!;
         [Dependency] private readonly TagSystem _tagSystem = default!;
         [Dependency] private readonly LogisticStatsSystem _logisticsStatsSystem = default!;
-        [Dependency] private readonly EmagSystem _emag = default!;
         [Dependency] private readonly SectorServiceSystem _sectorService = default!; // Frontier
         [Dependency] private readonly BankSystem _bank = default!; // Frontier
         [Dependency] private readonly PowerReceiverSystem _powerReceiver = default!; // Frontier
-        [Dependency] private readonly IPlayerManager _player = default!; // Frontier
 
         private ISawmill _sawmill = default!;
-        private static readonly ProtoId<TagPrototype> MailTag = "Mail"; // Frontier
-        private static readonly ProtoId<TagPrototype> TrashTag = "Trash"; // Frontier
-        private static readonly ProtoId<TagPrototype> RecyclableTag = "Recyclable"; // Frontier
 
         public override void Initialize()
         {
@@ -204,7 +198,7 @@ namespace Content.Server._DV.Mail.EntitySystems
             if (idCard == null) // Return if we still haven't found an id card.
                 return;
 
-            if (!_emag.CheckFlag(uid, EmagType.Interaction))
+            if (!HasComp<EmaggedComponent>(uid))
             {
                 if (idCard.FullName != component.Recipient /*|| idCard.LocalizedJobTitle != component.RecipientJob*/)  // Frontier - Only match the name
                 {
@@ -352,11 +346,6 @@ namespace Content.Server._DV.Mail.EntitySystems
 
         private void OnMailEmagged(EntityUid uid, MailComponent component, ref GotEmaggedEvent args)
         {
-            // Frontier: emag type check
-            if (args.Handled || !_emag.CheckFlag(uid, EmagType.Access))
-                return;
-            // End Frontier
-
             if (!component.IsLocked)
                 return;
 
@@ -630,8 +619,8 @@ namespace Content.Server._DV.Mail.EntitySystems
                 }
 
                 // Mail recipients requires a connected player
-                if (!_player.TryGetSessionByEntity(receiverUid, out var session)
-                    || session.State.Status != SessionStatus.InGame)
+                if (!_mindSystem.TryGetMind(receiverUid, out var mindId, out var mindComp)
+                    || mindComp?.Session?.State.Status != SessionStatus.InGame)
                     return false;
 
                 // Antagonists (pirates and the like) don't get mail.
@@ -786,7 +775,7 @@ namespace Content.Server._DV.Mail.EntitySystems
                 SetupMail(mail, component, candidate);
                 validTeleporters[index].HadMail = true;
 
-                _tagSystem.AddTag(mail, MailTag); // Frontier
+                _tagSystem.AddTag(mail, "Mail"); // Frontier
             }
 
             for (int i = 0; i < validTeleporters.Count; i++)
@@ -823,8 +812,8 @@ namespace Content.Server._DV.Mail.EntitySystems
                 _handsSystem.PickupOrDrop(user, entity);
             }
 
-            _tagSystem.AddTag(uid, TrashTag);
-            _tagSystem.AddTag(uid, RecyclableTag);
+            _tagSystem.AddTag(uid, "Trash");
+            _tagSystem.AddTag(uid, "Recyclable");
             component.IsEnabled = false;
             UpdateMailTrashState(uid, true);
         }

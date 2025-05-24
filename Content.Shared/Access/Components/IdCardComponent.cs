@@ -23,8 +23,6 @@ public sealed partial class IdCardComponent : Component
     [Access(typeof(SharedIdCardSystem), typeof(SharedPdaSystem), typeof(SharedAgentIdCardSystem), Other = AccessPermissions.ReadWrite)]
     public LocId? JobTitle;
 
-    [DataField]
-    [AutoNetworkedField]
     private string? _jobTitle;
 
     [Access(typeof(SharedIdCardSystem), typeof(SharedPdaSystem), typeof(SharedAgentIdCardSystem), Other = AccessPermissions.ReadWriteExecute)]
@@ -36,13 +34,6 @@ public sealed partial class IdCardComponent : Component
     [DataField]
     [AutoNetworkedField]
     public ProtoId<JobIconPrototype> JobIcon = "JobIconUnknown";
-
-    /// <summary>
-    /// Holds the job prototype when the ID card has no associated station record
-    /// </summary>
-    [DataField]
-    [AutoNetworkedField]
-    public ProtoId<JobPrototype>? JobPrototype; // Frontier: AccessLevelPrototype<JobPrototype
 
     /// <summary>
     /// The proto IDs of the departments associated with the job
@@ -66,17 +57,18 @@ public sealed partial class IdCardComponent : Component
     [DataField]
     public bool CanMicrowave = true;
 
-    // Frontier: sounds for shipyard RCD, etc.
-    [DataField]
+    // Frontier
+    [DataField("soundError")]
     public SoundSpecifier ErrorSound =
         new SoundPathSpecifier("/Audio/Effects/Cargo/buzz_sigh.ogg");
 
-    [DataField]
+    // Frontier
+    [DataField("soundSwipe")]
     public SoundSpecifier SwipeSound =
         new SoundPathSpecifier("/Audio/Machines/id_swipe.ogg");
 
-    [DataField]
+    // Frontier
+    [DataField("soundInsert")]
     public SoundSpecifier InsertSound =
         new SoundPathSpecifier("/Audio/Machines/id_insert.ogg");
-    // End Frontier
 }

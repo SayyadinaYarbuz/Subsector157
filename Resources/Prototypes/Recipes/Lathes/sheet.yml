@@ -241,7 +241,7 @@
 - type: latheRecipe
   id: SheetPaper
   result: SheetPaper1
-  categories: [Materials] # Frontier
+  category: Materials # Frontier
   completetime: 1
   applyMaterialDiscount: false # Frontier
   materials:

@@ -14,18 +14,17 @@
     - BaseStationCargo
     - BaseStationJobsSpawning
     - BaseStationRecords
-    # - BaseStationArrivals # Frontier: prevent test issues from non-Frontier maps
-    # - BaseStationGateway # Frontier: prevent test issues from non-Frontier maps
-    # - BaseStationShuttles # Frontier: prevent test issues from non-Frontier maps
-    # - BaseStationCentcomm # Frontier: prevent test issues from non-Frontier maps
-    # - BaseStationEvacuation # Frontier: prevent test issues from non-Frontier maps
+    - BaseStationArrivals
+    - BaseStationGateway
+    - BaseStationShuttles
+    - BaseStationCentcomm
+    - BaseStationEvacuation
     - BaseStationAlertLevels
     - BaseStationMagnet
     - BaseStationExpeditions
     - BaseStationSiliconLawCrewsimov
     - BaseStationAllEventsEligible
     - BaseStationNanotrasen
-    - BaseStationDeliveries
   categories: [ HideSpawnMenu ]
   components:
     - type: Transform

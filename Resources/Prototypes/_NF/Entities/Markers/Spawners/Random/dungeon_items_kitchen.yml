@@ -214,6 +214,7 @@
     - CrateServiceReplacementColoredLights
     - CrateFunArtSupplies
     - CrateServiceJanitorialSupplies
+    - CrateServiceJanitorialSupplies2
     - JanitorialTrolley
     - FoodCartHot
     - FoodCartCold
@@ -227,10 +228,10 @@
     - CrateServiceKitCleanades
     chance: 0.9
     offset: 0.0
-    #rarePrototypes:
-    #- CrateServiceKitKitchen
-    #- CrateServiceKitHydroponics
-    #rareChance: 0.005
+    rarePrototypes:
+    - CrateServiceKitKitchen
+    - CrateServiceKitHydroponics
+    rareChance: 0.005
 
 - type: entity
   name: random crate (restock)

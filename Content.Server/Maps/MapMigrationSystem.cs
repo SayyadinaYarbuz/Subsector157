@@ -1,8 +1,9 @@
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
+using Robust.Server.GameObjects;
+using Robust.Server.Maps;
 using Robust.Shared.ContentPack;
-using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Markdown;
@@ -17,12 +18,10 @@ namespace Content.Server.Maps;
 /// </summary>
 public sealed class MapMigrationSystem : EntitySystem
 {
-#if DEBUG // Frontier
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
-#endif // Frontier
     [Dependency] private readonly IResourceManager _resMan = default!;
 
-    private static readonly string[] MigrationFiles = { "/migration.yml", "/nf_migration.yml" }; // Frontier: use array of migration files
+    private static readonly string[] MigrationFiles = { "/migration.yml", "/_NF/migration.yml" }; // Frontier: use array of migration files
 
     public override void Initialize()
     {
@@ -62,7 +61,7 @@ public sealed class MapMigrationSystem : EntitySystem
             if (!TryReadFile(migrationFile, out var mapping))
                 continue;
 
-            mappings ??= new();
+            mappings = mappings ?? new List<MappingDataNode>();
             mappings.Add(mapping);
         }
 
@@ -97,13 +96,13 @@ public sealed class MapMigrationSystem : EntitySystem
         {
             foreach (var (key, value) in mapping)
             {
-                if (value is not ValueDataNode valueNode)
+                if (key is not ValueDataNode keyNode || value is not ValueDataNode valueNode)
                     continue;
 
                 if (string.IsNullOrWhiteSpace(valueNode.Value) || valueNode.Value == "null")
-                    ev.DeletedPrototypes.Add(key);
+                    ev.DeletedPrototypes.Add(keyNode.Value);
                 else
-                    ev.RenamedPrototypes.Add(key, valueNode.Value);
+                    ev.RenamedPrototypes.Add(keyNode.Value, valueNode.Value);
             }
         }
         // End Delta-V

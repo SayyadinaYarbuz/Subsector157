@@ -56,7 +56,6 @@
   - type: SpaceGarbage
   - type: StaticPrice # Frontier
     price: 4.5 # Frontier
-  - type: NFCookware # Frontier
 
 - type: entity
   name: broken plate
@@ -77,8 +76,6 @@
   - type: SpaceGarbage
   - type: StaticPrice # Frontier
     price: 1 # Frontier
-  - type: NFCookware # Frontier
-  - type: GoblinPreciousTrash # Frontier
 
 # Small Plate
 
@@ -117,7 +114,6 @@
       Glass: 30
   - type: StaticPrice # Frontier
     price: 3 # Frontier
-  - type: NFCookware # Frontier
 
 - type: entity
   parent: FoodPlateTrash
@@ -128,7 +124,6 @@
     state: plate-small-trash
   - type: Item
     storedOffset: 0,-3
-  - type: NFCookware # Frontier
 
 # Plastic Plate
 
@@ -150,7 +145,6 @@
     - Trash
   - type: StaticPrice # Frontier
     price: 1 # Frontier
-  - type: NFCookware # Frontier
 
 - type: entity
   name: plastic plate
@@ -170,7 +164,6 @@
     - Trash
   - type: StaticPrice # Frontier
     price: 1 # Frontier
-  - type: NFCookware # Frontier
 
 # Pie Tin
 
@@ -197,7 +190,6 @@
   - type: SpaceGarbage
   - type: StaticPrice # Frontier
     price: 4 # Frontier
-  - type: NFCookware # Frontier
 
 # Muffin Tin
 
@@ -222,4 +214,3 @@
     materialComposition:
       Steel: 30
   - type: SpaceGarbage
-  - type: NFCookware # Frontier

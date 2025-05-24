@@ -5,9 +5,8 @@
   playTimeTracker: JobStationEngineer
   setPreference: false # Frontier
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 9000 #2.5 hrs
+    - !type:OverallPlaytimeRequirement
+      time: 10800
   startingGear: StationEngineerGear
   icon: "JobIconStationEngineer"
   supervisors: job-supervisors-hire # Frontier

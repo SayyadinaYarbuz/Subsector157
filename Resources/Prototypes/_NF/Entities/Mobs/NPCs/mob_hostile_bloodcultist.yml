@@ -26,9 +26,6 @@
     deleteOrgans: true
     gib: false
     useArgumentEntity: true
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 4.5
-    baseSprintSpeed : 4.5
 
 # Humans
 # Blood Cult Priest, ranged mab, bolts deal 10 slash damage
@@ -59,11 +56,9 @@
     startingCharge: 300
   - type: Gun
     showExamineText: false
-    fireRate: 2
-    minAngle: 10
-    maxAngle: 20
-    angleIncrease: 2
-    angleDecay: 3
+    fireRate: 4
+    minAngle: 1
+    maxAngle: 10
     soundGunshot:
       path: /Audio/Effects/Lightning/lightningshock.ogg
 
@@ -92,11 +87,9 @@
     count: 1
   - type: Gun
     showExamineText: false
-    fireRate: 2
-    minAngle: 10
-    maxAngle: 20
-    angleIncrease: 2
-    angleDecay: 3
+    fireRate: 4
+    minAngle: 1
+    maxAngle: 10
     selectedMode: SemiAuto
     soundGunshot:
       path: /Audio/Effects/Lightning/lightningshock.ogg
@@ -159,10 +152,8 @@
   - type: Gun
     showExamineText: false
     fireRate: 0.5
-    minAngle: 7
-    maxAngle: 16
-    angleIncrease: 2
-    angleDecay: 3
+    minAngle: 1
+    maxAngle: 10
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
@@ -188,11 +179,7 @@
     capacity: 3
     count: 3
   - type: Gun
-    fireRate: 1.5
-    minAngle: 10
-    maxAngle: 20
-    angleIncrease: 2
-    angleDecay: 3
+    fireRate: 2
     soundGunshot:
       path: /Audio/Effects/demon_consume.ogg
   - type: RechargeBasicEntityAmmo
@@ -235,10 +222,10 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      60: Critical
-      120: Dead
+      80: Critical
+      130: Dead
   - type: Stamina
-    critThreshold: 80
+    critThreshold: 100
   - type: MovementSpeedModifier
     baseWalkSpeed: 4
     baseSprintSpeed: 6
@@ -247,7 +234,7 @@
       path: /Audio/Effects/bite.ogg
     damage:
       types:
-        Slash: 8
+        Slash: 10
         Structural: 20
     animation: WeaponArcBite
 
@@ -307,10 +294,10 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      240: Critical
-      320: Dead
+      300: Critical
+      400: Dead
   - type: Stamina
-    critThreshold: 320
+    critThreshold: 400
   - type: BasicEntityAmmoProvider
     proto: SpawnMobBloodCultistAscendedSummons # MobBloodCultDrainedOne
     capacity: 2
@@ -318,10 +305,8 @@
   - type: Gun
     showExamineText: false
     fireRate: 1
-    minAngle: 10
-    maxAngle: 20
-    angleIncrease: 2
-    angleDecay: 3
+    minAngle: 1
+    maxAngle: 10
     soundGunshot:
       path: /Audio/Effects/teleport_arrival.ogg
   - type: RechargeBasicEntityAmmo
@@ -333,7 +318,7 @@
       path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
     damage:
       types:
-        Slash: 16
+        Slash: 20
         Structural: 20
     animation: WeaponArcClaw
   - type: PointLight
@@ -351,9 +336,6 @@
     spawned:
     - id: ClothingNeckAmuletBloodCult
       amount: 1
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 4.5
-    baseSprintSpeed : 4.5
 
 # Drained One, melee
 - type: entity
@@ -405,10 +387,10 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      80: Critical
-      100: Dead
+      100: Critical
+      130: Dead
   - type: Stamina
-    critThreshold: 320
+    critThreshold: 400
   - type: MeleeWeapon
     soundHit:
       collection: MetalThud
@@ -429,9 +411,6 @@
     speechVerb: Ghost
   - type: Ammo
     muzzleFlash: null
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 4.5
-    baseSprintSpeed : 4.5
 
 - type: entity
   name: cultist shade
@@ -507,7 +486,7 @@
 - type: entity
   parent:
   - BaseC3CultContraband
-  - BaseWeaponTurretNF
+  - BaseWeaponTurret
   #- MobBloodCultistTimedDespawn
   id: BloodCultTurret
   name: blood pylon
@@ -531,10 +510,6 @@
     - type: Gun
       showExamineText: false
       fireRate: 2
-      minAngle: 10
-      maxAngle: 20
-      angleIncrease: 2
-      angleDecay: 3
       selectedMode: FullAuto
       availableModes:
         - FullAuto
@@ -542,11 +517,10 @@
         collection: RadiationPulse
     - type: RechargeBasicEntityAmmo
       rechargeCooldown: 1
-      rechargeSound: Null
-    - type: BasicEntityAmmoProvider
+      rechargeSound:
+        path: /Audio/_NF/Effects/silence.ogg
+    - type: BallisticAmmoProvider
       proto: BulletBloodCultDarkBolt
-      capacity: 3
-      count: 3
     - type: HTN
       rootTask:
         task: TurretCompound
@@ -569,13 +543,13 @@
       thresholds:
         - trigger:
             !type:DamageTrigger
-            damage: 480
+            damage: 600
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
         - trigger:
             !type:DamageTrigger
-            damage: 240
+            damage: 300
           # TODO: Construction graph
           behaviors:
             - !type:DoActsBehavior
@@ -588,6 +562,3 @@
                 ShardCrystalRed:
                   min: 1
                   max: 3
-    - type: ContainerContainer # TODO: parent this off of a ballistic version?
-      containers:
-        ballistic-ammo: !type:Container

@@ -22,13 +22,13 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      56: Dead
+      70: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      34: 0.7
-      45: 0.5
+      42: 0.7
+      56: 0.5
   - type: Stamina
-    critThreshold: 64
+    critThreshold: 80
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -47,9 +47,6 @@
         Structural: 20
   - type: ReplacementAccent
     accent: genericAggressive
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 4.5
-    baseSprintSpeed : 4.5
 
 # MOBS
 - type: entity
@@ -73,11 +70,11 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      40: Dead
+      50: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      24: 0.7
-      32: 0.5
+      30: 0.7
+      40: 0.5
 
 - type: entity
   parent: MobFleshJaredExpeditions
@@ -173,12 +170,12 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      80: Critical
-      110: Dead
+      100: Critical
+      140: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      48: 0.7
-      64: 0.5
+      60: 0.7
+      80: 0.5
   - type: Stamina
     critThreshold: 100
   - type: DamageStateVisuals
@@ -234,11 +231,11 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      32: Dead
+      40: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      20: 0.7
-      26: 0.5
+      24: 0.7
+      32: 0.5
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 4
     rechargeSound:
@@ -250,10 +247,6 @@
   - type: Gun
     showExamineText: false
     fireRate: 0.75
-    minAngle: 10
-    maxAngle: 20
-    angleIncrease: 2
-    angleDecay: 3
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
@@ -282,10 +275,6 @@
   - type: Gun
     showExamineText: false
     fireRate: 0.5
-    minAngle: 10
-    maxAngle: 20
-    angleIncrease: 2
-    angleDecay: 3
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
@@ -331,11 +320,11 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      24: Dead
+      30: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      15: 0.7
-      20: 0.5
+      18: 0.7
+      24: 0.5
   - type: MeleeWeapon
     attackRate: 1.5
     soundHit:
@@ -344,7 +333,7 @@
     animation: WeaponArcClaw
     damage:
       types:
-        Blunt: 4
+        Blunt: 5
 
 # EXPEDITION BOSS
 - type: entity
@@ -374,11 +363,11 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      160: Dead
+      200: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      96: 0.7
-      128: 0.5
+      120: 0.7
+      160: 0.5
   - type: MeleeWeapon
     autoAttack: true
     attackRate: 1.5
@@ -460,7 +449,7 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Blunt: 3
+        Blunt: 4
   - type: Ammo
     muzzleFlash: null
   - type: EmbeddableProjectile
@@ -483,7 +472,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      6: Dead
+      8: Dead
   - type: MeleeWeapon
     attackRate: 0.3
     soundHit:
@@ -492,7 +481,7 @@
     animation: WeaponArcBite
     damage:
       types:
-        Slash: 3
+        Slash: 4
 
 # Newborns (spawned from assimilation sack)
 - type: entity
@@ -510,7 +499,7 @@
     animation: WeaponArcClaw
     damage:
       types:
-        Blunt: 6
+        Blunt: 7
         Structural: 20
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.8

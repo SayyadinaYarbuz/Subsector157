@@ -1,3 +1,4 @@
+using Content.Shared.Paper;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;

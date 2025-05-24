@@ -15,8 +15,8 @@ public sealed partial class GasSaleMenu : FancyWindow
 
     public static readonly string[] GasStrings =
     [
-        "gases-oxygen", // 0
-        "gases-nitrogen", // 1
+        "gases-nitrogen", // 0
+        "gases-oxygen", // 1
         "gases-co2", // 2
         "gases-plasma", // 3
         "gases-tritium", // 4

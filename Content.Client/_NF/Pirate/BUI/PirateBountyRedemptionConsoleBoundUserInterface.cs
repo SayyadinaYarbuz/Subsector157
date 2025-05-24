@@ -1,7 +1,7 @@
 using Content.Client._NF.Pirate.UI;
 using Content.Shared._NF.Pirate.BUI;
+using Content.Shared._NF.Pirate.Components;
 using Content.Shared._NF.Pirate.Events;
-using Robust.Client.UserInterface;
 
 namespace Content.Client._NF.Pirate.BUI;
 
@@ -9,17 +9,32 @@ public sealed class PirateBountyRedemptionConsoleBoundUserInterface : BoundUserI
 {
     [ViewVariables]
     private PirateBountyRedemptionMenu? _menu;
+    [ViewVariables]
+    private EntityUid uid;
 
-    public PirateBountyRedemptionConsoleBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey) {}
+    public PirateBountyRedemptionConsoleBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
+    {
+        if (EntMan.TryGetComponent<PirateBountyRedemptionConsoleComponent>(owner, out var console))
+            uid = owner;
+    }
 
     protected override void Open()
     {
         base.Open();
 
-        if (_menu == null)
+        _menu = new PirateBountyRedemptionMenu();
+        _menu.SellRequested += OnSell;
+        _menu.OnClose += Close;
+
+        _menu.OpenCentered();
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+        if (disposing)
         {
-            _menu = this.CreateWindow<PirateBountyRedemptionMenu>();
-            _menu.SellRequested += OnSell;
+            _menu?.Dispose();
         }
     }
 

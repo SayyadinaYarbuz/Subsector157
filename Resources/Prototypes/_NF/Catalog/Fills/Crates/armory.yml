@@ -7,9 +7,9 @@
   components:
   - type: StorageFill
     contents:
-      - id: NFWeaponRifleAssaultGestio
+      - id: WeaponRifleGestio
         amount: 2
-      - id: NFMagazineLowCapacityRifle30
+      - id: MagazineLightRifleLowCapacity
         amount: 6
 
 # Contraband (unregistered) weaponry crates for expeditions
@@ -24,9 +24,9 @@
   components:
   - type: StorageFill
     contents:
-      - id: NFWeaponSubMachineGunWt550Expedition
+      - id: WeaponSubMachineGunWt550Expedition
         amount: 2
-      - id: NFMagazineSubMachineGunTopMounted35
+      - id: MagazinePistolSubMachineGunTopMounted
         amount: 4
 
 - type: entity
@@ -40,9 +40,9 @@
   components:
   - type: StorageFill
     contents:
-      - id: NFWeaponShotgunKammererExpedition
+      - id: WeaponShotgunKammererExpedition
         amount: 2
-      - id: NFAmmunitionBoxShellShotgunBuckshot
+      - id: BoxLethalshot
         amount: 3
 
 - type: entity
@@ -56,7 +56,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: NFWeaponEnergyRifleCarbineExpedition
+      - id: WeaponLaserCarbineExpedition
         amount: 3
 
 - type: entity
@@ -70,7 +70,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: NFWeaponEnergySubMachineGunDeltaVExpedition
+      - id: WeaponEnergyGunExpedition
         amount: 3
 
 - type: entity
@@ -84,9 +84,9 @@
   components:
   - type: StorageFill
     contents:
-    - id: NFWeaponPistolMk58Expedition
+    - id: WeaponPistolMk58Expedition
       amount: 2
-    - id: NFMagazinePistol35
+    - id: MagazinePistol
       amount: 4
 
 - type: entity
@@ -100,9 +100,9 @@
   components:
   - type: StorageFill
     contents:
-      - id: NFWeaponRifleAssaultGestioExpedition
+      - id: WeaponRifleGestioExpedition
         amount: 2
-      - id: NFMagazineLowCapacityRifle30
+      - id: MagazineLightRifleLowCapacity
         amount: 6
 
 - type: entity
@@ -116,9 +116,9 @@
   components:
   - type: StorageFill
     contents:
-      - id: NFWeaponRifleAssaultNovaliteC1Expedition
+      - id: WeaponRifleNovaliteC1Expedition
         amount: 2
-      - id: NFMagazineClipRifle20
+      - id: MagazineNovaliteC1
         amount: 6
 
 # Ammo crates

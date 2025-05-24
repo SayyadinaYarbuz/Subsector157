@@ -130,12 +130,6 @@ public sealed partial class AnomalyComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier? SupercriticalSound = new SoundCollectionSpecifier("Explosion");
-
-    /// <summary>
-    /// The sound plays at the start of the animation when an anomaly goes supercritical
-    /// </summary>
-    [DataField]
-    public SoundSpecifier? SupercriticalSoundAtAnimationStart;
     #endregion
 
     /// <summary>
@@ -192,14 +186,14 @@ public sealed partial class AnomalyComponent : Component
     /// The minimum amount of research points generated per second
     /// </summary>
     [DataField]
-    public int MinPointsPerSecond = 5; // Frontier: 10<5
+    public int MinPointsPerSecond = 10;
 
     /// <summary>
     /// The maximum amount of research points generated per second
     /// This doesn't include the point bonus for being unstable.
     /// </summary>
     [DataField]
-    public int MaxPointsPerSecond = 35; // Frontier: 70<35
+    public int MaxPointsPerSecond = 70;
 
     /// <summary>
     /// The multiplier applied to the point value for the

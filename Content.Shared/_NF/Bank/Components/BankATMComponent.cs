@@ -22,11 +22,11 @@ public sealed partial class BankATMComponent : Component
     [DataField]
     public ItemSlot CashSlot = new();
 
-    [DataField]
+    [DataField("soundError")]
     public SoundSpecifier ErrorSound =
         new SoundPathSpecifier("/Audio/Effects/Cargo/buzz_sigh.ogg");
 
-    [DataField]
+    [DataField("soundConfirm")]
     public SoundSpecifier ConfirmSound =
         new SoundPathSpecifier("/Audio/Effects/Cargo/ping.ogg");
 }

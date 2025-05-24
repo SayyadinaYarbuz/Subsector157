@@ -2,7 +2,7 @@
 - type: entity
   id: BaseMagazineRifle
   name: "magazine (.20 rifle)"
-  parent: [ BaseItem, BaseC1Contraband, RecyclableItemSteelTiny ] # Frontier: BaseSecurityContraband<BaseC1Contraband, added RecyclableItemSteelTiny
+  parent: [ BaseItem, BaseC1Contraband, RecyclableItemSteelTiny ] # Frontier: BaseRestrictedContraband<BaseC1Contraband, added RecyclableItemSteelTiny
   abstract: true
   components:
   - type: Tag
@@ -34,13 +34,12 @@
 
 # Magazines
 - type: entity
-  categories: [ HideSpawnMenu ] # Frontier
   id: MagazineRifle
   name: "magazine (.20 rifle)"
   parent: BaseMagazineRifle
   components:
   - type: BallisticAmmoProvider
-    # proto: CartridgeRifle # Frontier
+    proto: CartridgeRifle
   - type: Sprite
     layers:
     - state: red
@@ -49,7 +48,6 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  categories: [ HideSpawnMenu ] # Frontier
   id: MagazineRifleEmpty
   name: "magazine (.20 rifle any)"
   suffix: empty
@@ -61,26 +59,24 @@
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
+    - state: mag-1 # Frontier
+      map: ["enum.GunVisualLayers.Mag"] # Frontier
 
 - type: entity
-  categories: [ HideSpawnMenu ] # Frontier
   id: MagazineRifleIncendiary
   name: "magazine (.20 rifle incendiary)"
   parent: MagazineRifle
   components:
   - type: BallisticAmmoProvider
-    # proto: CartridgeRifleIncendiary # Frontier
+    proto: CartridgeRifleIncendiary
 
 - type: entity
-  categories: [ HideSpawnMenu ] # Frontier
   id: MagazineRiflePractice
   name: "magazine (.20 rifle practice)"
   parent: BaseMagazineRifle
   components:
   - type: BallisticAmmoProvider
-    # proto: CartridgeRiflePractice # Frontier
+    proto: CartridgeRiflePractice
   - type: Sprite
     layers:
     - state: practice
@@ -89,13 +85,12 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  categories: [ HideSpawnMenu ] # Frontier
   id: MagazineRifleUranium
   name: "magazine (.20 rifle uranium)"
   parent: BaseMagazineRifle
   components:
   - type: BallisticAmmoProvider
-    # proto: CartridgeRifleUranium # Frontier
+    proto: CartridgeRifleUranium
   - type: Sprite
     layers:
     - state: uranium

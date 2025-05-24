@@ -29,12 +29,12 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Critical
+      120: Critical
       160: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      60: 0.7
-      80: 0.5
+      72: 0.7
+      96: 0.5
   - type: Advertise
     pack: wizardhumanoidchatter
     minimumWait: 30
@@ -47,9 +47,6 @@
     deleteOrgans: true
     gib: false
     useArgumentEntity: true
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 4.5
-    baseSprintSpeed : 4.5
 
 # Humans
 # Blue Wizard, summons 2 Blue Curacao Elementals
@@ -243,6 +240,3 @@
     transferAmount: 10
   - type: Ammo
     muzzleFlash: null
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 4.5
-    baseSprintSpeed : 4.5

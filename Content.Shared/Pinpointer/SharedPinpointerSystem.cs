@@ -1,4 +1,3 @@
-using Content.Shared._NF.Pinpointer;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
@@ -14,17 +13,17 @@ namespace Content.Shared.Pinpointer;
 public abstract class SharedPinpointerSystem : EntitySystem
 {
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!; // Frontier
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly IEntityManager _endMan = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<PinpointerComponent, GotEmaggedEvent>(OnEmagged);
-        SubscribeLocalEvent<PinpointerComponent, GotUnEmaggedEvent>(OnUnemagged); // Frontier
         SubscribeLocalEvent<PinpointerComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<PinpointerComponent, ExaminedEvent>(OnExamined);
-        SubscribeLocalEvent<PinpointerComponent, PinpointerDoAfterEvent>(OnPinpointerDoAfter); // Frontier
+        // Frontier
+        SubscribeLocalEvent<PinpointerComponent, PinpointerDoAfterEvent>(OnPinpointerDoAfter);
     }
 
     /// <summary>
@@ -51,7 +50,8 @@ public abstract class SharedPinpointerSystem : EntitySystem
         // if (component.UpdateTargetName)
         //     component.TargetName = component.Target == null ? null : Identity.Name(component.Target.Value, EntityManager);
 
-        var daArgs = new DoAfterArgs(EntityManager, args.User, TimeSpan.FromSeconds(component.RetargetDoAfter),
+        // Frontier: do-after
+        var daArgs = new DoAfterArgs(_endMan, args.User, TimeSpan.FromSeconds(component.RetargetDoAfter),
             new PinpointerDoAfterEvent(), uid, args.Target, uid)
         {
             BreakOnDamage = true,
@@ -62,30 +62,12 @@ public abstract class SharedPinpointerSystem : EntitySystem
             BreakOnMove = true,
         };
         _doAfter.TryStartDoAfter(daArgs);
-        // End Frontier
     }
 
     private void OnPinpointerDoAfter(EntityUid uid, PinpointerComponent component, PinpointerDoAfterEvent args)
     {
         if (args.Cancelled)
             return;
-
-        // Frontier: two-way pinpointer tracking
-        if (component.SetsTarget)
-        {
-            if (TryComp<PinpointerTargetComponent>(component.Target, out var pinpointerTarget))
-            {
-                pinpointerTarget.Entities.Remove(uid);
-                if (pinpointerTarget.Entities.Count <= 0)
-                    RemComp<PinpointerTargetComponent>(component.Target.Value);
-            }
-            if (args.Target != null)
-            {
-                pinpointerTarget = EnsureComp<PinpointerTargetComponent>(args.Target.Value);
-                pinpointerTarget.Entities.Add(uid);
-            }
-        }
-        // End Frontier: two-way pinpointer tracking
 
         component.Target = args.Target;
         _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(args.User):player} set target of {ToPrettyString(uid):pinpointer} to {ToPrettyString(component.Target):target}");
@@ -103,23 +85,6 @@ public abstract class SharedPinpointerSystem : EntitySystem
 
         if (pinpointer.Target == target)
             return;
-
-        // Frontier: two-way pinpointer tracking
-        if (pinpointer.SetsTarget)
-        {
-            if (TryComp<PinpointerTargetComponent>(pinpointer.Target, out var pinpointerTarget))
-            {
-                pinpointerTarget.Entities.Remove(uid);
-                if (pinpointerTarget.Entities.Count <= 0)
-                    RemComp<PinpointerTargetComponent>(pinpointer.Target.Value);
-            }
-            if (target != null)
-            {
-                pinpointerTarget = EnsureComp<PinpointerTargetComponent>(target.Value);
-                pinpointerTarget.Entities.Add(uid);
-            }
-        }
-        // End Frontier: two-way pinpointer tracking
 
         pinpointer.Target = target;
         if (pinpointer.UpdateTargetName)
@@ -209,34 +174,9 @@ public abstract class SharedPinpointerSystem : EntitySystem
 
     private void OnEmagged(EntityUid uid, PinpointerComponent component, ref GotEmaggedEvent args)
     {
-        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
-            return;
-
-        if (_emag.CheckFlag(uid, EmagType.Interaction))
-            return;
-
-        if (component.CanRetarget)
-            return;
-
         args.Handled = true;
         component.CanRetarget = true;
     }
-
-    // Frontier: demag
-    private void OnUnemagged(EntityUid uid, PinpointerComponent component, ref GotUnEmaggedEvent args)
-    {
-        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
-            return;
-
-        if (!_emag.CheckFlag(uid, EmagType.Interaction))
-            return;
-
-        if (component.CanRetarget)
-            component.CanRetarget = false;
-
-        args.Handled = true;
-    }
-    // End Frontier: demag
 }
 
 // Frontier - do-after

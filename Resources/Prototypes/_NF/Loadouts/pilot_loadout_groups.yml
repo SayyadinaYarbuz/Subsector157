@@ -84,7 +84,7 @@
 
 - type: loadoutGroup
   id: PilotPDA
-  name: loadout-group-contractor-pda
+  name: loadout-group-contractor-id
   loadouts:
   - PilotPilotPDA
   subgroups:

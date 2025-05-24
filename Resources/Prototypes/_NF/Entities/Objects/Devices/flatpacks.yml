@@ -1,4 +1,4 @@
-#region Base
+# Base
 - type: entity
   parent: BaseFlatpack
   id: BaseNFFlatpack
@@ -11,7 +11,7 @@
     - state: engineering_lathe
 
 # Machines
-#region Engineering
+# Engineering
 - type: entity
   parent: BaseNFFlatpack
   id: AutolatheFlatpack
@@ -63,7 +63,7 @@
   - type: Flatpack
     entity: PowerCellRecharger
   - type: StaticPrice
-    price: 15
+    price: 55
   - type: Sprite
     layers:
     - state: power_charger
@@ -77,7 +77,7 @@
   - type: Flatpack
     entity: WeaponCapacitorRecharger
   - type: StaticPrice
-    price: 55
+    price: 15
 
 - type: entity
   parent: BaseNFFlatpack
@@ -96,8 +96,8 @@
 - type: entity
   parent: BaseNFFlatpack
   id: PortableGeneratorJrPacmanFlatpack
-  name: J.R.P.A.C.M.A.N. portable generator flatpack
-  description: A flatpack used for constructing a J.R.P.A.C.M.A.N. portable generator.
+  name: J.R.P.A.C.M.A.N.-type portable generator flatpack
+  description: A flatpack used for constructing a J.R.P.A.C.M.A.N.-type portable generator.
   components:
   - type: Flatpack
     entity: PortableGeneratorJrPacman
@@ -108,8 +108,8 @@
 - type: entity
   parent: PortableGeneratorJrPacmanFlatpack
   id: PortableGeneratorPacmanFlatpack
-  name: P.A.C.M.A.N. portable generator flatpack
-  description: A flatpack used for constructing a P.A.C.M.A.N. portable generator.
+  name: P.A.C.M.A.N.-type portable generator flatpack
+  description: A flatpack used for constructing a P.A.C.M.A.N.-type portable generator.
   components:
   - type: Flatpack
     entity: PortableGeneratorPacman
@@ -117,8 +117,8 @@
 - type: entity
   parent: PortableGeneratorJrPacmanFlatpack
   id: PortableGeneratorSuperPacmanFlatpack
-  name: S.U.P.E.R.P.A.C.M.A.N. portable generator flatpack
-  description: A flatpack used for constructing a S.U.P.E.R.P.A.C.M.A.N. portable generator.
+  name: S.U.P.E.R.P.A.C.M.A.N.-type portable generator flatpack
+  description: A flatpack used for constructing a S.U.P.E.R.P.A.C.M.A.N.-type portable generator.
   components:
   - type: Flatpack
     entity: PortableGeneratorSuperPacman
@@ -171,8 +171,6 @@
   components:
   - type: Flatpack
     entity: SmallGyroscope
-  - type: StaticPrice
-    price: 55
 
 - type: entity
   parent: BaseNFFlatpack
@@ -182,19 +180,8 @@
   components:
   - type: Flatpack
     entity: SmallThruster
-  - type: StaticPrice
-    price: 55
 
-- type: entity
-  parent: BaseNFFlatpack
-  id: GravityGeneratorMiniFlatpack
-  name: mini gravity generator flatpack
-  description: A flatpack used for constructing a mini gravity generator.
-  components:
-  - type: Flatpack
-    entity: GravityGeneratorMini
-
-#region Science
+# Science
 - type: entity
   parent: BaseNFFlatpack
   id: ExosuitFabricatorFlatpack
@@ -205,34 +192,30 @@
     entity: ExosuitFabricator
   - type: StaticPrice
     price: 250
+  - type: Sprite
+    layers:
+    - state: science_lathe
 
 - type: entity
-  parent: BaseNFFlatpack
+  parent: ExosuitFabricatorFlatpack
   id: CircuitImprinterFlatpack
   name: circuit imprinter flatpack
   description: A flatpack used for constructing a circuit imprinter.
   components:
   - type: Flatpack
     entity: CircuitImprinter
-  - type: StaticPrice
-    price: 250
 
 - type: entity
-  parent: BaseNFFlatpack
+  parent: ExosuitFabricatorFlatpack
   id: ProtolatheFlatpack
   name: protolathe flatpack
   description: A flatpack used for constructing a protolathe.
   components:
   - type: Flatpack
     entity: Protolathe
-  - type: StaticPrice
-    price: 250
-  - type: Sprite
-    layers:
-    - state: science_lathe
 
 - type: entity
-  parent: ProtolatheFlatpack
+  parent: ExosuitFabricatorFlatpack
   id: MachineArtifactAnalyzerFlatpack
   name: artifact analyzer flatpack
   description: A flatpack used for constructing an artifact analyzer.
@@ -244,7 +227,7 @@
     - state: science_artifact_analyzer
 
 - type: entity
-  parent: ProtolatheFlatpack
+  parent: ExosuitFabricatorFlatpack
   id: MachineAnomalyVesselFlatpack
   name: anomaly vessel flatpack
   description: A flatpack used for constructing an anomaly vessel.
@@ -256,7 +239,7 @@
     - state: science_anomaly_vessel
 
 - type: entity
-  parent: ProtolatheFlatpack
+  parent: ExosuitFabricatorFlatpack
   id: MachineAPEFlatpack
   name: A.P.E. flatpack
   description: A flatpack used for constructing an A.P.E..
@@ -268,7 +251,7 @@
     - state: science_ape
 
 - type: entity
-  parent: ProtolatheFlatpack
+  parent: ExosuitFabricatorFlatpack
   id: MachineArtifactCrusherFlatpack
   name: artifact crusher flatpack
   description: A flatpack used for constructing an artifact crusher.
@@ -277,7 +260,7 @@
     entity: MachineArtifactCrusher
 
 - type: entity
-  parent: ProtolatheFlatpack
+  parent: ExosuitFabricatorFlatpack
   id: MachineAnomalyVesselExperimentalFlatpack
   name: experimental anomaly vessel flatpack
   description: A flatpack used for constructing an experimental anomaly vessel.
@@ -286,7 +269,7 @@
     entity: MachineAnomalyVesselExperimental
 
 - type: entity
-  parent: ProtolatheFlatpack
+  parent: ExosuitFabricatorFlatpack
   id: MachineAnomalyGeneratorFlatpack
   name: anomaly generator flatpack
   description: A flatpack used for constructing an anomaly generator.
@@ -295,7 +278,7 @@
     entity: MachineAnomalyGenerator
 
 - type: entity
-  parent: ProtolatheFlatpack
+  parent: ExosuitFabricatorFlatpack
   id: BlueprintLithographFlatpack
   name: blueprint lithograph flatpack
   description: A flatpack used for constructing a blueprint lithograph.
@@ -303,12 +286,12 @@
   - type: Flatpack
     entity: BlueprintLithograph
 
-#region Service
+# Service
 - type: entity
   parent: BaseNFFlatpack
   id: NFHolopadShipFlatpack
-  name: bluespace holopad flatpack
-  description: A flatpack used for constructing a bluespace holopad for ship to ship communication.
+  name: long-range holopad flatpack
+  description: A flatpack used for constructing a long-range holopad for ship to ship communication.
   components:
   - type: Flatpack
     entity: NFHolopadShip
@@ -344,9 +327,6 @@
   components:
   - type: Flatpack
     entity: MaterialReclaimer
-  - type: Sprite
-    layers:
-    - state: supply_lathe
 
 - type: entity
   parent: UniformPrinterFlatpack
@@ -358,8 +338,7 @@
     entity: HydroponicsTrayEmpty
   - type: Sprite
     layers:
-    - sprite: Objects/Devices/flatpack.rsi
-      state: hydroponics-tray
+    - state: service_tray
 
 - type: entity
   parent: UniformPrinterFlatpack
@@ -434,16 +413,7 @@
   - type: Flatpack
     entity: ComputerWithdrawBankATM
 
-- type: entity
-  parent: UniformPrinterFlatpack
-  id: ShuttleGunMailLauncherFlatpack
-  name: FWD-6500m "Priority" flatpack
-  description: A flatpack used for constructing a FWD-6500m "Priority" stationary mail launcher.
-  components:
-  - type: Flatpack
-    entity: ShuttleGunMailLauncher
-
-#region Medical
+# Medical
 - type: entity
   parent: BaseNFFlatpack
   id: MedicalTechFabFlatpack
@@ -530,7 +500,7 @@
   - type: Flatpack
     entity: KitchenReagentGrinder
 
-#region Supply
+# Supply
 - type: entity
   parent: BaseNFFlatpack
   id: OreProcessorFlatpack
@@ -584,7 +554,7 @@
   - type: Flatpack
     entity: ScrapProcessor
 
-#region Mercenary
+# Mercenary
 - type: entity
   parent: BaseNFFlatpack
   id: AmmoTechFabFlatpack
@@ -608,7 +578,7 @@
   - type: StaticPrice
     price: 600
 
-#region Consoles
+# Consoles
 - type: entity
   parent: BaseNFFlatpack
   id: ComputerResearchAndDevelopmentFlatpack
@@ -662,18 +632,7 @@
     layers:
     - state: supply_gun
 
-- type: entity
-  parent: BaseNFFlatpack
-  id: ComputerSolarControlFlatpack
-  name: solar control computer flatpack
-  description: A flatpack used for constructing a solar control computer.
-  components:
-  - type: Flatpack
-    entity: ComputerSolarControl
-  - type: StaticPrice
-    price: 150
-
-#region Servers
+# Servers
 - type: entity
   parent: BaseNFFlatpack
   id: ResearchAndDevelopmentServerFlatpack
@@ -700,7 +659,7 @@
     layers:
     - state: command_server
 
-#region Airlocks
+# Airlocks
 - type: entity
   parent: BaseNFFlatpack
   id: AirlockFlatpack
@@ -745,7 +704,7 @@
   - type: Flatpack
     entity: AirlockGlassShuttle
 
-#region Musical instruments
+# Musical instruments
 - type: entity
   parent: BaseNFFlatpack
   id: TubaInstrumentFlatpack
@@ -897,7 +856,7 @@
   - type: StaticPrice
     price: 250
 
-#region Hoverbikes
+# Hoverbikes
 - type: entity
   parent: BaseNFFlatpack
   id: HoverbikeFlatpack
@@ -905,7 +864,7 @@
   description: A flatpack used for constructing a hoverbike. Keys already slotted in the ignition.
   components:
   - type: Flatpack
-    entity: NFVehicleHoverbikeKeys
+    entity: VehicleHoverbikeNFKeys
   - type: StaticPrice
     price: 2000
   - type: Sprite
@@ -930,7 +889,7 @@
   description: A flatpack used for constructing a hoverbike. Keys already slotted in the ignition.
   components:
   - type: Flatpack
-    entity: NFVehicleHoverbikeNfsdKey
+    entity: VehicleHoverbikeNfsdKey
   - type: StaticPrice
     price: 750
 
@@ -956,7 +915,7 @@
   - type: StaticPrice
     price: 375 # 1.25 * base value of input materials
 
-#region Vendomats
+# Vendomats
 - type: entity
   parent: UniformPrinterFlatpack
   id: VendingMachineBoozeFlatpack
@@ -1086,7 +1045,8 @@
   - type: StaticPrice
     price: 2000
 
-#region DoC Console
+    #DoC Console
+
 - type: entity
   parent: BaseNFFlatpack
   id: StationAdministrationConsoleFlatpack
@@ -1095,24 +1055,6 @@
   components:
   - type: Flatpack
     entity: ComputerTabletopStationAdminBankATMMedical
-  - type: Sprite
-    layers:
-    - state: medical_console
-  - type: StaticPrice
-    price: 0
-  - type: CargoSellBlacklist
-  - type: Item
-    shape:
-    - 0,0,1,1
-
-- type: entity
-  parent: BaseNFFlatpack
-  id: MobileComputerTabletopCommsFlatpack
-  name: communication console flatpack
-  description: A flatpack used for constructing a communication console.
-  components:
-  - type: Flatpack
-    entity: MobileComputerTabletopComms
   - type: Sprite
     layers:
     - state: medical_console

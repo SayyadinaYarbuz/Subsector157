@@ -1,4 +1,3 @@
-using Content.Shared.Access.Components;
 using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -35,12 +34,6 @@ public sealed partial class LockComponent : Component
     public bool UnlockOnClick = true;
 
     /// <summary>
-    /// Whether the lock requires access validation through <see cref="AccessReaderComponent"/>
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool UseAccess = true;
-
-    /// <summary>
     /// The sound played when unlocked.
     /// </summary>
     [DataField("unlockingSound"), ViewVariables(VVAccess.ReadWrite)]
@@ -61,9 +54,9 @@ public sealed partial class LockComponent : Component
     /// <summary>
     /// Whether or not an emag disables it.
     /// </summary>
-    [DataField]
+    [DataField("breakOnEmag")]
     [AutoNetworkedField]
-    public bool BreakOnAccessBreaker = true;
+    public bool BreakOnEmag = true;
 
     /// <summary>
     /// Amount of do-after time needed to lock the entity.
@@ -84,6 +77,12 @@ public sealed partial class LockComponent : Component
     [DataField]
     [AutoNetworkedField]
     public TimeSpan UnlockTime;
+
+    /// <summary>
+    /// Frontier - Whether or not its emag immune.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public bool ImmuneToEmag;
 }
 
 /// <summary>

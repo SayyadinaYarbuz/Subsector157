@@ -3,7 +3,6 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
-using Content.Shared.NameIdentifier;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
 using Content.Shared.Storage;
@@ -102,23 +101,10 @@ public abstract class SharedStationSpawningSystem : EntitySystem
     {
         string? name = null;
 
-        if (roleProto.CanCustomizeName)
-        {
-            name = loadout.EntityName;
-        }
-
         if (string.IsNullOrEmpty(name) && PrototypeManager.TryIndex(roleProto.NameDataset, out var nameData))
         {
             name = Loc.GetString(_random.Pick(nameData.Values));
         }
-
-        // Frontier: apply name modifiers
-        if (TryComp<NameIdentifierComponent>(entity, out var nameIdentifier))
-        {
-            // Append our name identifier (why have a pseudonym for a role that has a complete name identifier group?)
-            name = $"{name} {nameIdentifier.FullIdentifier}";
-        }
-        // End Frontier
 
         if (!string.IsNullOrEmpty(name))
         {

@@ -5,9 +5,8 @@
   playTimeTracker: JobSalvageSpecialist
   setPreference: false # Frontier
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Cargo
-      time: 9000 # 2.5 hrs
+    - !type:OverallPlaytimeRequirement
+      time: 10800
   icon: "JobIconShaftMiner"
   startingGear: SalvageSpecialistGear
   supervisors: job-supervisors-hire # Frontier

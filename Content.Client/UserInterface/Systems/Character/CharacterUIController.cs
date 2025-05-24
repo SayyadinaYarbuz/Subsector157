@@ -56,20 +56,19 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
         _window = UIManager.CreateWindow<CharacterWindow>();
         LayoutContainer.SetAnchorPreset(_window, LayoutContainer.LayoutPreset.CenterTop);
 
-        _window.OnClose += DeactivateButton;
-        _window.OnOpen += ActivateButton;
+
 
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.OpenCharacterMenu,
-                InputCmdHandler.FromDelegate(_ => ToggleWindow()))
-            .Register<CharacterUIController>();
+                 InputCmdHandler.FromDelegate(_ => ToggleWindow()))
+             .Register<CharacterUIController>();
     }
 
     public void OnStateExited(GameplayState state)
     {
         if (_window != null)
         {
-            _window.Close();
+            _window.Dispose();
             _window = null;
         }
 
@@ -106,27 +105,18 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
         }
 
         CharacterButton.OnPressed += CharacterButtonPressed;
-    }
 
-    private void DeactivateButton()
-    {
-        if (CharacterButton == null)
+        if (_window == null)
         {
             return;
         }
 
-        CharacterButton.Pressed = false;
+        _window.OnClose += DeactivateButton;
+        _window.OnOpen += ActivateButton;
     }
 
-    private void ActivateButton()
-    {
-        if (CharacterButton == null)
-        {
-            return;
-        }
-
-        CharacterButton.Pressed = true;
-    }
+    private void DeactivateButton() => CharacterButton!.Pressed = false;
+    private void ActivateButton() => CharacterButton!.Pressed = true;
 
     private void CharacterUpdated(CharacterData data)
     {
@@ -160,7 +150,7 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
 
             var objectiveLabel = new RichTextLabel
             {
-                StyleClasses = { StyleNano.StyleClassTooltipActionTitle }
+                StyleClasses = {StyleNano.StyleClassTooltipActionTitle}
             };
             objectiveLabel.SetMessage(objectiveText);
 
@@ -221,11 +211,18 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
         if (!_ent.TryGetComponent<MindComponent>(container.Mind.Value, out var mind))
             return;
 
-        if (!_prototypeManager.TryIndex(mind.RoleType, out var proto))
-            _sawmill.Error($"Player '{_player.LocalSession}' has invalid Role Type '{mind.RoleType}'. Displaying default instead");
+        var roleText = Loc.GetString("role-type-crew-aligned-name");
+        var color = Color.White;
+        if (_prototypeManager.TryIndex(mind.RoleType, out var proto))
+        {
+            roleText = Loc.GetString(proto.Name);
+            color = proto.Color;
+        }
+        else
+            _sawmill.Error($"{_player.LocalEntity} has invalid Role Type '{mind.RoleType}'. Displaying '{roleText}' instead");
 
-        _window.RoleType.Text = Loc.GetString(proto?.Name ?? "role-type-crew-aligned-name");
-        _window.RoleType.FontColorOverride = proto?.Color ?? Color.White;
+        _window.RoleType.Text = roleText;
+        _window.RoleType.FontColorOverride = color;
     }
 
     private void CharacterDetached(EntityUid uid)
@@ -248,7 +245,10 @@ public sealed class CharacterUIController : UIController, IOnStateEntered<Gamepl
         if (_window == null)
             return;
 
-        CharacterButton?.SetClickPressed(!_window.IsOpen);
+        if (CharacterButton != null)
+        {
+            CharacterButton.SetClickPressed(!_window.IsOpen);
+        }
 
         if (_window.IsOpen)
         {

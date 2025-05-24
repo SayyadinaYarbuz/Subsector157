@@ -1,7 +1,7 @@
 - type: entity
   id: ActionSummonGhosts
   name: Summon Ghosts
-  description: Makes all current ghosts permanently visible
+  description: Makes all current ghosts permanently invisible
   components:
   - type: InstantAction
     useDelay: 120
@@ -26,122 +26,121 @@
       sprite: Objects/Weapons/Guns/Rifles/ak.rsi
       state: base
     event: !type:RandomGlobalSpawnSpellEvent
-      makeSurvivorAntagonist: true
       spawns:
-      - id: NFWeaponPistolViper # Frontier: WeaponPistolViper<NFWeaponPistolViper
+      - id: WeaponPistolViper
         orGroup: Guns
-      - id: NFWeaponPistolCobra # Frontier: WeaponPistolCobra<NFWeaponPistolCobra
+      - id: WeaponPistolCobra
         orGroup: Guns
-      - id: NFWeaponPistolMk58 # Frontier: WeaponPistolMk58<NFWeaponPistolMk58
+      - id: WeaponPistolMk58
         orGroup: Guns
-      - id: NFWeaponPistolN1984 # Frontier: WeaponPistolN1984<NFWeaponPistolN1984
+      - id: WeaponPistolN1984
         orGroup: Guns
-      - id: NFWeaponRevolverDeckard # Frontier: WeaponRevolverDeckard<NFWeaponRevolverDeckard
+      - id: WeaponRevolverDeckard
         orGroup: Guns
-      - id: NFWeaponRevolverInspector # Frontier: WeaponRevolverInspector<NFWeaponRevolverInspector
+      - id: WeaponRevolverInspector
         orGroup: Guns
-      - id: NFWeaponRevolverWard45 # Frontier WeaponRevolverMateba<NFWeaponRevolverWard45
+      - id: WeaponRevolverMateba
         orGroup: Guns
-      - id: NFWeaponRevolverRitland45 # Frontier WeaponRevolverPython<NFWeaponRevolverRitland45
+      - id: WeaponRevolverPython
         orGroup: Guns
-      - id: NFWeaponRevolverPirate # Frontier: add NF prefix
+      - id: WeaponRevolverPirate
         orGroup: Guns
-      - id: NFWeaponRifleAssaultSm # Frontier WeaponRifleAk<NFWeaponRifleAssaultSm
+      - id: WeaponRifleAk
         orGroup: Guns
-      - id: NFWeaponRifleAssaultM90GrenadeLauncher # Frontier: WeaponRifleM90GrenadeLauncher<NFWeaponRifleAssaultM90GrenadeLauncher
+      - id: WeaponRifleM90GrenadeLauncher
         orGroup: Guns
-      - id: NFWeaponRifleAssaultLecter # Frontier: WeaponRifleLecter<NFWeaponRifleAssaultLecter
+      - id: WeaponRifleLecter
         orGroup: Guns
-      - id: NFWeaponShotgunBulldog # Frontier: add NF prefix
+      - id: WeaponShotgunBulldog
         orGroup: Guns
-      - id: NFWeaponShotgunDoubleBarreled # Frontier: add NF prefix
+      - id: WeaponShotgunDoubleBarreled
         orGroup: Guns
-      - id: NFWeaponShotgunEnforcer # Frontier: add NF prefix
+      - id: WeaponShotgunEnforcer
         orGroup: Guns
-      - id: NFWeaponShotgunKammerer # Frontier: add NF prefix
+      - id: WeaponShotgunKammerer
         orGroup: Guns
-      - id: NFWeaponShotgunSawn # Frontier: add NF prefix
+      - id: WeaponShotgunSawn
         orGroup: Guns
-      - id: NFWeaponShotgunHandmade # Frontier: add NF prefix
+      - id: WeaponShotgunHandmade
         orGroup: Guns
-      - id: NFWeaponShotgunBlunderbuss # Frontier: add NF prefix
+      - id: WeaponShotgunBlunderbuss
         orGroup: Guns
-      - id: NFWeaponShotgunImprovised # Frontier: add NF prefix
+      - id: WeaponShotgunImprovised
         orGroup: Guns
-      - id: NFWeaponSubMachineGunAtreides # Frontier: WeaponSubMachineGunAtreides<NFWeaponSubMachineGunAtreides
+      - id: WeaponSubMachineGunAtreides
         orGroup: Guns
-      - id: NFWeaponSubMachineGunC20r # Frontier: WeaponSubMachineGunC20r<NFWeaponSubMachineGunC20r
+      - id: WeaponSubMachineGunC20r
         orGroup: Guns
-      - id: NFWeaponSubMachineGunDrozd # Frontier: WeaponSubMachineGunDrozd<NFWeaponSubMachineGunDrozd
+      - id: WeaponSubMachineGunDrozd
         orGroup: Guns
-      - id: NFWeaponSubMachineGunWt550 # Frontier: WeaponSubMachineGunWt550<NFWeaponSubMachineGunWt550
+      - id: WeaponSubMachineGunWt550
         orGroup: Guns
-      - id: NFWeaponRifleBarlowsBolt # Frontier: WeaponSniperMosin<NFWeaponRifleBarlowsBolt
+      - id: WeaponSniperMosin
         orGroup: Guns
-      - id: NFWeaponRifleSniperHristov # Frontier: WeaponSniperHristov<NFWeaponRifleSniperHristov
+      - id: WeaponSniperHristov
         orGroup: Guns
-      - id: NFWeaponRifleMusket # Frontier: Musket<NFWeaponRifleMusket
+      - id: Musket
         orGroup: Guns
-      - id: NFWeaponPistolFlintlock # Frontier: WeaponPistolFlintlock<NFWeaponPistolFlintlock
+      - id: WeaponPistolFlintlock
         orGroup: Guns
-      - id: NFWeaponLauncherChinaLake # Frontier: WeaponLauncherChinaLake<NFWeaponLauncherChinaLake
+      - id: WeaponLauncherChinaLake
         orGroup: Guns
-      - id: NFWeaponLauncherRocket # Frontier: WeaponLauncherRocket<NFWeaponLauncherRocket
+      - id: WeaponLauncherRocket
         orGroup: Guns
-      - id: NFWeaponLauncherPirateCannon # Frontier: WeaponLauncherPirateCannon<NFWeaponLauncherPirateCannon
+      - id: WeaponLauncherPirateCannon
         orGroup: Guns
-      # - id: WeaponTetherGun # Frontier
-      #   orGroup: Guns # Frontier
-      # - id: WeaponForceGun # Frontier
-      #   orGroup: Guns # Frontier
+      - id: WeaponTetherGun
+        orGroup: Guns
+      - id: WeaponForceGun
+        orGroup: Guns
       - id: WeaponGrapplingGun
         orGroup: Guns
-      - id: NFWeaponLightMachineGunL6 # Frontier: WeaponLightMachineGunL6<NFWeaponLightMachineGunL6
+      - id: WeaponLightMachineGunL6
         orGroup: Guns
-      - id: NFWeaponEnergyPistolLaserSvalinn # Frontier: WeaponLaserSvalinn<NFWeaponEnergyPistolLaserSvalinn
+      - id: WeaponLaserSvalinn
         orGroup: Guns
-      - id: NFWeaponEnergyPistolLaser # Frontier: WeaponLaserGun<NFWeaponEnergyPistolLaser
-        orGroup: Guns # Frontier
-      - id: NFWeaponEnergyPistolLaserMakeshift # WeaponMakeshiftLaser<NFWeaponEnergyPistolLaserMakeshift
+      - id: WeaponLaserGun
         orGroup: Guns
-      # - id: WeaponTeslaGun # Frontier
-      #   orGroup: Guns # Frontier
-      - id: NFWeaponEnergyRifleCarbinePractice # Frontier: WeaponLaserCarbinePractice<NFWeaponEnergyRifleCarbinePractice
+      - id: WeaponMakeshiftLaser
         orGroup: Guns
-      - id: NFWeaponEnergyRifleCarbine # Frontier: WeaponLaserCarbine<NFWeaponEnergyRifleCarbine
+      - id: WeaponTeslaGun
         orGroup: Guns
-      # - id: WeaponPulsePistol # Frontier
-      #   orGroup: Guns # Frontier
-      # - id: WeaponPulseCarbine # Frontier
-      #   orGroup: Guns # Frontier
-      # - id: WeaponPulseRifle # Frontier
-      #   orGroup: Guns # Frontier
-      # - id: WeaponLaserCannon # Frontier
-      #   orGroup: Guns # Frontier
-      # - id: WeaponParticleDecelerator # Frontier
-      #   orGroup: Guns # Frontier
-      # - id: WeaponXrayCannon # Frontier
-      #   orGroup: Guns # Frontier
-      - id: NFWeaponEnergyPistolDisablerPractice # Frontier: WeaponDisablerPractice<NFWeaponEnergyPistolDisablerPractice
+      - id: WeaponLaserCarbinePractice
         orGroup: Guns
-      - id: NFWeaponEnergyPistolDisabler # Frontier: WeaponDisabler<NFWeaponEnergyPistolDisabler
+      - id: WeaponLaserCarbine
         orGroup: Guns
-      - id: NFWeaponEnergySubMachineGunDisabler # Frontier: WeaponDisablerSMG<NFWeaponEnergySubMachineGunDisabler
+      - id: WeaponPulsePistol
         orGroup: Guns
-      # - id: WeaponTaser # Frontier
-      #   orGroup: Guns # Frontier
-      - id: NFWeaponEnergyPistolLaserAntique # Frontier: WeaponAntiqueLaser<NFWeaponEnergyPistolLaserAntique
-        orGroup: Guns # Frontier
-      # - id: WeaponAdvancedLaser # Frontier
-      #   orGroup: Guns # Frontier
-      - id: NFWeaponPistolCHIMP # Frontier
+      - id: WeaponPulseCarbine
         orGroup: Guns
-      - id: NFWeaponBehonkerLaser # Frontier
+      - id: WeaponPulseRifle
         orGroup: Guns
-      # - id: WeaponEnergyShotgun # Frontier
-      #   orGroup: Guns # Frontier
-      # - id: WeaponMinigun # Frontier
-      #   orGroup: Guns # Frontier
+      - id: WeaponLaserCannon
+        orGroup: Guns
+      - id: WeaponParticleDecelerator
+        orGroup: Guns
+      - id: WeaponXrayCannon
+        orGroup: Guns
+      - id: WeaponDisablerPractice
+        orGroup: Guns
+      - id: WeaponDisabler
+        orGroup: Guns
+      - id: WeaponDisablerSMG
+        orGroup: Guns
+      - id: WeaponTaser
+        orGroup: Guns
+      - id: WeaponAntiqueLaser
+        orGroup: Guns
+      - id: WeaponAdvancedLaser
+        orGroup: Guns
+      - id: WeaponPistolCHIMP
+        orGroup: Guns
+      - id: WeaponBehonkerLaser
+        orGroup: Guns
+      - id: WeaponEnergyShotgun
+        orGroup: Guns
+      - id: WeaponMinigun
+        orGroup: Guns
       - id: BowImprovised
         orGroup: Guns
       - id: WeaponFlareGun
@@ -154,12 +153,12 @@
         orGroup: Guns
       - id: WeaponWaterBlasterSuper
         orGroup: Guns
-      - id: NFRevolverCapGun # Frontier: RevolverCapGun<NFRevolverCapGun
+      - id: RevolverCapGun
         orGroup: Guns
-      - id: NFRevolverCapGunFake # Frontier: RevolverCapGunFake<NFRevolverCapGunFake
+      - id: RevolverCapGunFake
         orGroup: Guns
       speech: action-speech-spell-summon-guns
-
+      
 - type: entity
   id: ActionSummonMagic
   name: Summon Magic
@@ -173,13 +172,14 @@
       sprite: Objects/Magic/magicactions.rsi
       state: magicmissile
     event: !type:RandomGlobalSpawnSpellEvent
-      makeSurvivorAntagonist: true
       spawns:
       - id: SpawnSpellbook
         orGroup: Magics
       - id: ForceWallSpellbook
         orGroup: Magics
       - id: BlinkBook
+        orGroup: Magics
+      - id: SmiteBook
         orGroup: Magics
       - id: KnockSpellbook
         orGroup: Magics
@@ -200,9 +200,5 @@
       - id: WeaponStaffHealing
         orGroup: Magics
       - id: WeaponStaffPolymorphDoor
-        orGroup: Magics
-      - id: AnimationStaff
-        orGroup: Magics
-      - id: RGBStaff
         orGroup: Magics
       speech: action-speech-spell-summon-magic

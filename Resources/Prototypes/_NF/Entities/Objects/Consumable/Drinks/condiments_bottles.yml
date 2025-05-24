@@ -43,7 +43,7 @@
       drink:
         maxVol: 150
         reagents:
-        - ReagentId: Coldsauce
+        - ReagentId: Frostoil
           Quantity: 150
   - type: Drink
   - type: Label

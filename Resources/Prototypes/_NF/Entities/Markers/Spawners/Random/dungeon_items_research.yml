@@ -56,12 +56,13 @@
     - ClothingUniformJumpsuitScientistFormal
     - ClothingOuterCoatRnd
     - ClothingNeckTieSci
+    - ClothingNeckMantleRD
     - ClothingBackpackDuffelScience
     - ClothingBackpackMessengerScience
     chance: 0.95
     offset: 0.0
     rarePrototypes:
-    - ClothingNeckMantleRD
+    - ClothingOuterHardsuitRd
     rareChance: 0.01
 
 # Furniture/Lockers
@@ -186,11 +187,11 @@
     # Filled crates
     - CrateEngineeringKitShipyardRcd
     - CrateEngineeringKitRtg
-    #- CrateEngineeringKitFabrication
+    - CrateEngineeringKitFabrication
     - CrateEngineerChiefHardsuit
-    #- CrateServiceKitMedbay
-    #- CrateServiceKitChemLab
-    #- CrateServiceKitMedbayCryo
+    - CrateServiceKitMedbay
+    - CrateServiceKitChemLab
+    - CrateServiceKitMedbayCryo
     - CrateEvaKitCmo
     rareChance: 0.01
 

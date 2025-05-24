@@ -19,10 +19,8 @@
   weight: 125
   displayWeight: 35
   canBeAntag: false
-  access:
-  - Brigmedic
   accessGroups:
-  - GeneralNfsdAccess
+  - GeneralNfsdBrigmedicAccess
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, TrackingImplant ]
@@ -33,11 +31,11 @@
 - type: startingGear
   id: BrigmedicGear
   equipment:
-    pocket1: NFWeaponPistolUniversalNfsdLessLethal
+    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
   storage:
     back:
     - EncryptionKeyMedical
     - Flash
-    - NFMagazineHighCapacityPistol35Overpressure
-    - NFMagazineHighCapacityPistol35Rubber
+    - MagazinePistol
+    - MagazinePistolRubber
     - FrontierUplinkCoin10

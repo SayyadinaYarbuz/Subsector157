@@ -54,7 +54,7 @@
     belt: ClothingBeltMilitaryWebbing
   storage:
     back:
-    - NFWeaponPistolViper # Frontier: WeaponPistolViper<NFWeaponPistolViper
+    - WeaponPistolViper
     - PinpointerSyndicateNuclear
     - DeathAcidifierImplanter
 
@@ -91,7 +91,7 @@
     - SawAdvanced
     - Cautery
     - CombatKnife
-    - NFWeaponPistolViper # Frontier: WeaponPistolViper<NFWeaponPistolViper
+    - WeaponPistolViper
     - PinpointerSyndicateNuclear
     - HandheldHealthAnalyzer
     - CombatMedipen

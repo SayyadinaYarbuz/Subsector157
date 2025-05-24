@@ -1,46 +1,44 @@
-# region FRONTIER - IGNORED
-
 # Tier 1
 
 - type: technology
   id: SalvageWeapons
   name: research-technology-salvage-weapons
   icon:
-    sprite: _NF/Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi # Frontier: _NF prefix
+    sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
     state: icon
   discipline: Arsenal
   tier: 1
   cost: 5000
   recipeUnlocks:
-  - NFWeaponPka # Frontier: WeaponProtoKineticAccelerator<NFWeaponPka
-  - ShuttleGunKineticCircuitboard
+  - WeaponProtoKineticAccelerator
+#  - ShuttleGunKineticCircuitboard # Frontier - Hold on there pardner
   # These are roundstart but not replenishable for salvage
   - WeaponCrusher
   - WeaponCrusherDagger
   # This is not roundstart since its a direct upgrade
   - WeaponCrusherGlaive
 
-- type: technology
-  id: DraconicMunitions
-  name: research-technology-draconic-munitions
-  icon:
-    sprite: Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi
-    state: incendiarydisplay
-  discipline: Arsenal
-  tier: 1
-  cost: 10000
-  # recipeUnlocks: # Frontier
-  # - BoxShotgunIncendiary # Frontier
-  # - MagazineRifleIncendiary # Frontier
-  # - MagazinePistolIncendiary # Frontier
-  # - MagazinePistolSubMachineGunIncendiary # Frontier
-  # - MagazineLightRifleIncendiary # Frontier
-  # - SpeedLoaderMagnumIncendiary # Frontier
-  # - MagazineShotgunIncendiary # Frontier
-  # - MagazineBoxPistolIncendiary # Frontier
-  # - MagazineBoxMagnumIncendiary # Frontier
-  # - MagazineBoxLightRifleIncendiary # Frontier
-  # - MagazineBoxRifleIncendiary # Frontier
+#- type: technology
+#  id: DraconicMunitions
+#  name: research-technology-draconic-munitions
+#  icon:
+#    sprite: Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi
+#    state: incendiarydisplay
+#  discipline: Arsenal
+#  tier: 1
+#  cost: 10000
+#  recipeUnlocks:
+#  - BoxShotgunIncendiary
+#  - MagazineRifleIncendiary
+#  - MagazinePistolIncendiary
+#  - MagazineLightRifleIncendiary
+#  - SpeedLoaderMagnumIncendiary
+#  - MagazineShotgunIncendiary
+#  - MagazineBoxPistolIncendiary
+#  - MagazineBoxMagnumIncendiary
+#  - MagazineBoxLightRifleIncendiary
+#  - MagazineBoxRifleIncendiary
+#  - SpeedLoaderRifleHeavyIncendiary # Frontier
 
 - type: technology
   id: WeaponizedLaserManipulation
@@ -51,29 +49,48 @@
   discipline: Arsenal
   tier: 1
   cost: 7500
-  # recipeUnlocks: # Frontier
-  # - WeaponLaserCarbine # Frontier
+  recipeUnlocks:
+  - WeaponLaserCarbine
 
 - type: technology
-  id: UraniumMunitions
-  name: research-technology-uranium-munitions
+  id: NonlethalAmmunition
+  name: research-technology-nonlethal-ammunition
   icon:
-    sprite: Objects/Materials/Sheets/other.rsi
-    state: uranium
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi
+    state: beanbag
   discipline: Arsenal
   tier: 1
-  cost: 7500
-  # recipeUnlocks: # Frontier
-  # - MagazineRifleUranium # Frontier
-  # - MagazinePistolUranium # Frontier
-  # - MagazinePistolSubMachineGunUranium # Frontier
-  # - MagazineLightRifleUranium # Frontier
-  # - SpeedLoaderMagnumUranium # Frontier
-  # - MagazineBoxPistolUranium # Frontier
-  # - MagazineBoxMagnumUranium # Frontier
-  # - MagazineBoxLightRifleUranium # Frontier
-  # - MagazineBoxRifleUranium # Frontier
-  # - BoxShotgunUranium # Frontier
+  cost: 5000
+  recipeUnlocks:
+  - MagazineShotgunBeanbag
+  - BoxShellTranquilizer
+  - BoxBeanbag
+  - WeaponDisabler
+  - MagazineBoxLightRifleRubber # Frontier
+  - MagazineBoxMagnumRubber # Frontier
+  - MagazineBoxPistolRubber # Frontier
+  - MagazineBoxRifleRubber # Frontier
+
+#- type: technology
+#  id: UraniumMunitions
+#  name: research-technology-uranium-munitions
+#  icon:
+#    sprite: Objects/Materials/Sheets/other.rsi
+#    state: uranium
+#  discipline: Arsenal
+#  tier: 1
+#  cost: 7500
+#  recipeUnlocks:
+#  - MagazineRifleUranium
+#  - MagazinePistolUranium
+#  - MagazineLightRifleUranium
+#  - SpeedLoaderMagnumUranium
+#  - MagazineBoxPistolUranium
+#  - MagazineBoxMagnumUranium
+#  - MagazineBoxLightRifleUranium
+#  - MagazineBoxRifleUranium
+#  - BoxShotgunUranium
+#  - SpeedLoaderRifleHeavyUranium # Frontier
 
 - type: technology
   id: AdvancedRiotControl
@@ -84,11 +101,11 @@
   discipline: Arsenal
   tier: 1
   cost: 8000
-  # recipeUnlocks: # Frontier
-  # - Truncheon # Frontier
-  # - TelescopicShield # Frontier
-  # - HoloprojectorSecurity # Frontier
-  # - WeaponDisablerSMG # Frontier
+  recipeUnlocks:
+  - Truncheon
+  - TelescopicShield
+  - HoloprojectorSecurity
+  - WeaponDisablerSMG
 
 - type: technology
   id: ExplosiveTechnology
@@ -107,6 +124,7 @@
   - FlashPayload
   - ExplosivePayload
   - ChemicalPayload
+  - NFBlueprintSignallerAdvanced # Frontier
 
 - type: technology
   id: SpecialMeans
@@ -131,8 +149,8 @@
   discipline: Arsenal
   tier: 2
   cost: 10000
-  # recipeUnlocks: # Frontier
-  # - WeaponLaserCannon # Frontier
+  recipeUnlocks:
+  - WeaponLaserCannon
 
 - type: technology
   id: WaveParticleHarnessing
@@ -143,10 +161,8 @@
   discipline: Arsenal
   tier: 2
   cost: 10000
-  # recipeUnlocks: # Frontier
-  # - WeaponXrayCannon # Frontier
-
-# End Frontier: restricted arsenal research
+  recipeUnlocks:
+  - WeaponXrayCannon
 
 - type: technology
   id: BasicShuttleArmament
@@ -161,14 +177,16 @@
   - PowerCageRechargerCircuitboard
   - PowerCageSmall
   - PowerCageMedium
-  # - MagazineGrenadeEmpty # Frontier
-  # - GrenadeFlash # Frontier
-  # - GrenadeBlast # Frontier
-  # - ShuttleGunSvalinnMachineGunCircuitboard # Frontier
-  # - ShuttleGunPerforatorCircuitboard # Frontier
-  # - ShuttleGunFriendshipCircuitboard # Frontier
-  # technologyPrerequisites: # Frontier
-  # - SalvageWeapons # Frontier 
+  - MagazineGrenadeEmpty
+  - GrenadeFlash
+  - GrenadeBlast
+  - GrenadeEMP #Frontier
+  - PowerCageHigh #frontier
+#  - ShuttleGunSvalinnMachineGunCircuitboard # Frontier
+#  - ShuttleGunPerforatorCircuitboard # Frontier
+#  - ShuttleGunFriendshipCircuitboard # Frontier
+  technologyPrerequisites:
+  - SalvageWeapons
 
 # Tier 3
 
@@ -182,32 +200,37 @@
   tier: 3
   cost: 15000
   recipeUnlocks:
-#  - WeaponAdvancedLaser # Frontier
+  - WeaponAdvancedLaser
   - PortableRecharger
+  - WeaponAntiqueLaserNF # Frontier
+  - NFBlueprintWeaponAntiqueLaser # Frontier
+  - NFBlueprintPortableRecharger # Frontier
 
 - type: technology
-  id: ThermalWeaponry
-  name: research-technology-thermal-weaponry
+  id: ExperimentalBatteryAmmo
+  name: research-technology-experimental-battery-ammo
   icon:
-    sprite: Objects/Weapons/Guns/Battery/temp_gun.rsi
-    state: icon
-  discipline: Arsenal
-  tier: 3
-  cost: 15000
-  # recipeUnlocks: # Frontier
-  # - WeaponTemperatureGun # Frontier
-
-- type: technology
-  id: AdvancedShuttleWeapon
-  name: research-technology-advanced-shuttle-weapon
-  icon:
-    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Grenade/grenade_cartridge.rsi
+    sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
     state: icon
   discipline: Arsenal
   tier: 3
   cost: 15000
   recipeUnlocks:
-  # - GrenadeEMP # Frontier
-  - PowerCageHigh
-  # technologyPrerequisites: # Frontier
-  # - BasicShuttleArmament # Frontier
+  - WeaponLaserSvalinn
+  - NFBlueprintWeaponLaserSvalinn # Frontier
+
+# - type: technology #Frontier
+#  id: AdvancedShuttleWeapon
+#  name: research-technology-advanced-shuttle-weapon
+#  icon:
+#    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Grenade/grenade_cartridge.rsi
+#    state: icon
+#  discipline: Arsenal
+#  tier: 3
+#  cost: 15000
+#  recipeUnlocks:
+#  - GrenadeEMP
+#  - PowerCageHigh
+#  - ShuttleGunDusterCircuitboard # Frontier
+#  technologyPrerequisites:
+#  - BasicShuttleArmament

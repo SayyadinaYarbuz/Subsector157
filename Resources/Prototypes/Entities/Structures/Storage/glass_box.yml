@@ -104,7 +104,6 @@
   id: GlassBoxLaser
   parent: GlassBox
   suffix: AntiqueLaser
-  categories: [HideSpawnMenu] # Frontier
   components:
   - type: AccessReader
     access: [["Captain"]]
@@ -124,7 +123,6 @@
   id: GlassBoxLaserOpen
   parent: GlassBoxLaser
   suffix: AntiqueLaser, Open
-  categories: [HideSpawnMenu] # Frontier
   components:
   - type: Openable
     opened: true
@@ -135,18 +133,16 @@
   id: GlassBoxLaserFilled
   parent: GlassBoxLaser
   suffix: AntiqueLaser, Filled
-  categories: [HideSpawnMenu] # Frontier
   components:
   - type: ContainerFill
     containers:
       ItemCabinet:
-      - NFWeaponEnergyPistolLaserAntique # Frontier: WeaponAntiqueLaser<NFWeaponEnergyPistolLaserAntique
+      - WeaponAntiqueLaser
 
 - type: entity
   parent: [GlassBoxLaserFilled, GlassBoxLaserOpen]
   id: GlassBoxLaserFilledOpen
   suffix: AntiqueLaser, Filled, Open
-  categories: [HideSpawnMenu] # Frontier
 
 - type: entity
   id: GlassBoxFrame

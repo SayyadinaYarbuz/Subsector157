@@ -12,9 +12,6 @@
   - AllAccess
   access:
   - CentralCommand
-  special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: DeathSquadGear
@@ -33,10 +30,10 @@
     belt: ClothingBeltMilitaryWebbingMedFilled
   storage:
     back:
-    - NFWeaponEnergyPistolPulse # Frontier: WeaponPulsePistol<NFWeaponEnergyPistolPulse
-    - NFWeaponRevolverWard45 # Frontier WeaponRevolverMateba<NFWeaponRevolverWard45
-    - NFSpeedLoaderPistol45Uranium # Frontier SpeedLoaderMagnumAP<NFSpeedLoaderPistol45Uranium
-    - NFSpeedLoaderPistol45Uranium # Frontier SpeedLoaderMagnumAP<NFSpeedLoaderPistol45Uranium
+    - WeaponPulsePistol
+    - WeaponRevolverMateba
+    - SpeedLoaderMagnumAP
+    - SpeedLoaderMagnumAP
     - BoxFlashbang
     - ToolDebug # spanish army knife
     - WelderExperimental
@@ -44,4 +41,4 @@
     - DeathAcidifierImplanter # crew will try to steal their amazing hardsuits
     - FreedomImplanter
   inhand:
-  - NFWeaponEnergyRiflePulse # Frontier: WeaponPulseRifle<NFWeaponEnergyRiflePulse
+  - WeaponPulseRifle

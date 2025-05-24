@@ -29,7 +29,6 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
     [Dependency] protected readonly SharedAudioSystem _audio = default!; // Frontier: private<protected
     [Dependency] protected readonly SharedContainerSystem Container = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    //[Dependency] private readonly EmagSystem _emag = default!; // Frontier: no point
 
     public const string ActiveReclaimerContainerId = "active-material-reclaimer-container";
 
@@ -38,7 +37,7 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
     {
         SubscribeLocalEvent<MaterialReclaimerComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<MaterialReclaimerComponent, ExaminedEvent>(OnExamined);
-        //SubscribeLocalEvent<MaterialReclaimerComponent, GotEmaggedEvent>(OnEmagged); // Frontier: no point
+        SubscribeLocalEvent<MaterialReclaimerComponent, GotEmaggedEvent>(OnEmagged);
         SubscribeLocalEvent<MaterialReclaimerComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<CollideMaterialReclaimerComponent, StartCollideEvent>(OnCollide);
         SubscribeLocalEvent<ActiveMaterialReclaimerComponent, ComponentStartup>(OnActiveStartup);
@@ -59,20 +58,10 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
         args.PushMarkup(Loc.GetString("recycler-count-items", ("items", component.ItemsProcessed)));
     }
 
-    // Frontier: no point
-    /*
     private void OnEmagged(EntityUid uid, MaterialReclaimerComponent component, ref GotEmaggedEvent args)
     {
-        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
-            return;
-
-        if (_emag.CheckFlag(uid, EmagType.Interaction))
-            return;
-
         args.Handled = true;
     }
-    */
-    // End Frontier: no point
 
     private void OnCollide(EntityUid uid, CollideMaterialReclaimerComponent component, ref StartCollideEvent args)
     {
@@ -222,13 +211,12 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
     /// </summary>
     public bool CanGib(EntityUid uid, EntityUid victim, MaterialReclaimerComponent component)
     {
-        return false;
-        // Frontier: disallow player gibbing
+        return false; // DeltaV - Kinda LRP
         // return component.Powered &&
         //        component.Enabled &&
         //        !component.Broken &&
         //        HasComp<BodyComponent>(victim) &&
-        //        _emag.CheckFlag(uid, EmagType.Interaction);
+        //        HasComp<EmaggedComponent>(uid);
     }
 
     /// <summary>

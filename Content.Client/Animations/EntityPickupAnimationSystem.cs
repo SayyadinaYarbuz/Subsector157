@@ -39,9 +39,7 @@ public sealed class EntityPickupAnimationSystem : EntitySystem
         if (Deleted(uid) || !initial.IsValid(EntityManager))
             return;
 
-        if (!TryComp(uid, out MetaDataComponent? metadata)) // Frontier: metadata safety
-            return; // Frontier: metadata safety
-        // var metadata = MetaData(uid); // Frontier: metadata safety
+        var metadata = MetaData(uid);
 
         if (IsPaused(uid, metadata))
             return;

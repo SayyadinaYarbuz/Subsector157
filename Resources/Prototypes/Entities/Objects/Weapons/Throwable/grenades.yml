@@ -16,7 +16,7 @@
     slots:
     - Belt
   - type: OnUseTimerTrigger
-    delay: 3
+    delay: 3.5
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -36,14 +36,11 @@
         enum.ConstructionVisuals.Layer:
           Primed: { state: primed }
           Unprimed: { state: icon }
-  - type: Tag
-    tags:
-    - HandGrenade
 
 - type: entity
   name: explosive grenade
   description: Grenade that creates a small but devastating explosion.
-  parent: [GrenadeBase, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  parent: [GrenadeBase, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC2Contraband
   id: ExGrenade
   components:
   - type: ExplodeOnTrigger
@@ -64,7 +61,7 @@
 - type: entity
   name: flashbang
   description: Eeeeeeeeeeeeeeeeeeeeee.
-  parent: [ GrenadeBase, BaseC2ContrabandUnredeemable ] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: [ GrenadeBase, BaseC2ContrabandUnredeemable ] # Frontier: BaseRestrictedContraband<BaseC2ContrabandUnredeemable
   id: GrenadeFlashBang
   components:
   - type: Sprite
@@ -87,7 +84,6 @@
     #- Antagonists # Frontier: removed guidebook entry
   - type: Tag
     tags:
-    - HandGrenade
     - GrenadeFlashBang
 
 - type: entity
@@ -170,13 +166,13 @@
 
 
 - type: entity
-  parent: [ GrenadeBase, BaseC3SyndicateContraband ] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
-  id: SingularityGrenade
-  name: singularity grenade
-  description: Grenade that simulates the power of a singularity, pulling things in a heap.
+  name: supermatter grenade
+  description: Grenade that simulates delamination of the supermatter engine, pulling things in a heap and exploding after some time.
+  parent: [GrenadeBase, BaseC3SyndicateContraband] # Frontier: BaseSyndicateContraband<BaseC3SyndicateContraband
+  id: SupermatterGrenade
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/singularitygrenade.rsi
+    sprite: Objects/Weapons/Grenades/supermattergrenade.rsi
   - type: OnUseTimerTrigger
     delay: 3
     beepInterval: 0.46
@@ -189,6 +185,11 @@
       path: /Audio/Effects/Grenades/Supermatter/smbeep.ogg
       params:
         volume: -5
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 200
+    intensitySlope: 30
+    maxIntensity: 120
   - type: SoundOnTrigger
     removeOnTrigger: true
     sound:
@@ -206,10 +207,10 @@
         sound:
           path: /Audio/Effects/Grenades/Supermatter/supermatter_loop.ogg
       - type: GravityWell
-        maxRange: 7
-        baseRadialAcceleration: 5
-        baseTangentialAcceleration: .5
-        gravPulsePeriod: 0.03
+        maxRange: 8
+        baseRadialAcceleration: 145
+        baseTangentialAcceleration: 5
+        gravPulsePeriod: 0.01
       - type: SingularityDistortion
         intensity: 150
         falloffPower: 1.5
@@ -225,12 +226,12 @@
           path: /Audio/Effects/Grenades/Supermatter/supermatter_end.ogg
           params:
             volume: 5
-      - type: DeleteOnTrigger
+      - type: ExplodeOnTrigger
 
 - type: entity
   name: whitehole grenade
   description: Grenade that repulses everything around for some time.
-  parent: SingularityGrenade
+  parent: [SupermatterGrenade, BaseC3SyndicateContraband] # Frontier: added BaseC3SyndicateContraband
   id: WhiteholeGrenade
   components:
   - type: Sprite
@@ -253,10 +254,10 @@
         sound:
           path: /Audio/Effects/Grenades/Supermatter/whitehole_loop.ogg
       - type: GravityWell
-        maxRange: 7
-        baseRadialAcceleration: -10
-        baseTangentialAcceleration: -1
-        gravPulsePeriod: 0.03
+        maxRange: 10
+        baseRadialAcceleration: -180
+        baseTangentialAcceleration: -5
+        gravPulsePeriod: 0.01
       - type: SingularityDistortion
         intensity: -200
         falloffPower: 1.5
@@ -318,9 +319,6 @@
       map: [ "enum.ConstructionVisuals.Layer" ]
   - type: Item
     size: Small
-  - type: Tag
-    tags:
-    - HandGrenade
   - type: PayloadCase
   - type: Construction
     graph: ModularGrenadeGraph
@@ -396,7 +394,7 @@
       path: /Audio/Effects/hallelujah.ogg
 
 - type: entity
-  parent: [ GrenadeBase, BaseC2ContrabandUnredeemable ] # Frontier: BaseSecurityContraband<BaseC2ContrabandUnredeemable
+  parent: [ GrenadeBase, BaseC2ContrabandUnredeemable ] # Frontier: BaseRestrictedContraband<BaseC2ContrabandUnredeemable
   id: SmokeGrenade
   name: smoke grenade
   description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
@@ -450,15 +448,13 @@
   parent: SmokeGrenade # Frontier: removed BaseEngineeringContraband
   id: MetalFoamGrenade
   name: metal foam grenade
-  description: An emergency tool used for patching breaches with special quick-set metal foam. Almost as good as real walls.
+  description: An emergency tool used for patching up holes. Almost as good as real walls.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/metalfoam.rsi
-  - type: OnUseTimerTrigger
-    delay: 1.5
   - type: SmokeOnTrigger
-    duration: 2
-    spreadAmount: 5
+    duration: 10
+    spreadAmount: 13
     smokePrototype: AluminiumMetalFoam
   - type: StaticPrice
     price: 350
@@ -492,8 +488,6 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/syndgrenade.rsi
-  - type: OnUseTimerTrigger
-    delay: 5
   - type: SoundOnTrigger
     sound:
       path: /Audio/Effects/Emotes/parp1.ogg

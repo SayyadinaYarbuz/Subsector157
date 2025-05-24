@@ -104,22 +104,22 @@
       prob: 0.001
       orGroup: Canister
     #weapons
-    - id: NFWeaponEnergyRifleAssaultPulseCarbine # Frontier: WeaponPulseCarbine<NFWeaponEnergyRifleAssaultPulseCarbine
+    - id: WeaponPulseCarbine
       prob: 0.0001
       orGroup: Weapons
-    - id: NFWeaponRifleAssaultSm # Frontier: WeaponRifleAk<NFWeaponRifleAssaultSm
+    - id: WeaponRifleAk
       prob: 0.0001
       orGroup: Weapons
-    - id: NFWeaponLauncherPirateCannon # Frontier: WeaponLauncherPirateCannon<NFWeaponLauncherPirateCannon
+    - id: WeaponLauncherPirateCannon
       prob: 0.001
       orGroup: Weapons
-    - id: NFWeaponPistolCHIMP # Frontier: FWeaponPistolCHIMP<NFWeaponPistolCHIMP
+    - id: WeaponPistolCHIMP
       prob: 0.001
       orGroup: Weapons
-    - id: NFWeaponRifleBarlowsBolt # Frontier: WeaponSniperMosin<NFWeaponRifleBarlowsBolt
+    - id: WeaponSniperMosin
       prob: 0.01
       orGroup: Weapons
-    - id: NFWeaponEnergyPistolLaserMakeshift # Frontier: WeaponMakeshiftLaser<NFWeaponEnergyPistolLaserMakeshift
+    - id: WeaponMakeshiftLaser
       prob: 0.001
       orGroup: Weapons
     - id: Sledgehammer
@@ -131,10 +131,10 @@
     - id: ThrowingStar
       prob: 0.01
       orGroup: Weapons
-    - id: NFWeaponEnergyPistolLaser # Frontier: WeaponLaserGun<NFWeaponEnergyPistolLaser
+    - id: WeaponLaserGun
       prob: 0.001
       orGroup: Weapons
-    - id: NFWeaponShotgunHandmade # Frontier: WeaponShotgunHandmade<NFWeaponShotgunHandmade
+    - id: WeaponShotgunHandmade
       prob: 0.01
       orGroup: Weapons
     - id: WeaponFlareGun
@@ -158,7 +158,7 @@
     - id: WeaponTurretXeno
       prob: 0.01
       orGroup: Weapons
-    - id: NFWeaponRifleFoam # Frontier: WeaponRifleFoam<NFWeaponRifleFoam
+    - id: WeaponRifleFoam
       prob: 0.03
       orGroup: Weapons
     #clothing
@@ -373,7 +373,7 @@
     - id: ClothingHandsGlovesColorYellowBudget
       prob: 0.01
       orGroup: NotUseful
-    - id: NFCartridgeCap # Frontier: CartridgeCap<NFCartridgeCap
+    - id: CartridgeCap
       prob: 0.01
       orGroup: NotUseful
     - id: EncryptionKeyCommon
@@ -394,10 +394,10 @@
     - id: WeakKudzu
       prob: 0.01
       orGroup: NotUseful
-    - id: NFMagazineBoxFoam # Frontier: MagazineFoamBox<
+    - id: MagazineFoamBox
       prob: 0.001
       orGroup: NotUseful
-    - id: NFBoxDonkSoftBox # Frontier: use NF variant
+    - id: BoxDonkSoftBox
       prob: 0.008
       orGroup: NotUseful
     - id: GrenadeFoamDart

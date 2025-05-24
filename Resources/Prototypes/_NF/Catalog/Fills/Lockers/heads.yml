@@ -39,6 +39,7 @@
   - type: StorageFill
     contents:
       - id: SrIDCard
+      - id: ClothingHeadsetCentCom # Frontier
       - id: BoxHandcuff # Frontier
       - id: IDComputerCircuitboard
       - id: CommsComputerCircuitboard # Frontier
@@ -69,7 +70,7 @@
   - type: StorageFill
     contents:
     - id: WeaponCaseHeavyCdet
-    - id: NFWeaponPistolMk58
+    - id: WeaponPistolMk58
       amount: 1
-    - id: NFMagazinePistol35
+    - id: MagazinePistol
       amount: 2

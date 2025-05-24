@@ -5,9 +5,8 @@
   playTimeTracker: JobScientist
   setPreference: false # Frontier
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Science
-      time: 9000 #2.5 hrs
+    - !type:OverallPlaytimeRequirement
+      time: 10800
   startingGear: ScientistGear
   icon: "JobIconScientist"
   supervisors: job-supervisors-hire # Frontier

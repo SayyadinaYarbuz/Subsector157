@@ -20,7 +20,6 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Controllers;
 using Robust.Shared.Physics.Systems;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using PullableComponent = Content.Shared.Movement.Pulling.Components.PullableComponent;
@@ -36,6 +35,7 @@ public abstract partial class SharedMoverController : VirtualController
 {
     [Dependency] private   readonly IConfigurationManager _configManager = default!;
     [Dependency] protected readonly IGameTiming Timing = default!;
+    [Dependency] private   readonly IMapManager _mapManager = default!;
     [Dependency] private   readonly ITileDefinitionManager _tileDefinitionManager = default!;
     [Dependency] private   readonly EntityLookupSystem _lookup = default!;
     [Dependency] private   readonly InventorySystem _inventory = default!;
@@ -44,6 +44,7 @@ public abstract partial class SharedMoverController : VirtualController
     [Dependency] private   readonly SharedContainerSystem _container = default!;
     [Dependency] private   readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private   readonly SharedGravitySystem _gravity = default!;
+    [Dependency] protected readonly SharedPhysicsSystem Physics = default!;
     [Dependency] private   readonly SharedTransformSystem _transform = default!;
     [Dependency] private   readonly TagSystem _tags = default!;
     [Dependency] private   readonly IEntityManager _entities = default!; // Delta V-NoShoesSilentFootstepsComponent
@@ -60,9 +61,6 @@ public abstract partial class SharedMoverController : VirtualController
     protected EntityQuery<NoRotateOnMoveComponent> NoRotateQuery;
     protected EntityQuery<FootstepModifierComponent> FootstepModifierQuery;
     protected EntityQuery<MapGridComponent> MapGridQuery;
-    protected EntityQuery<NoShoesSilentFootstepsComponent> NoShoesSilentQuery; // DeltaV - NoShoesSilentFootstepsComponent
-
-    private static readonly ProtoId<TagPrototype> FootstepSoundTag = "FootstepSound";
 
     /// <summary>
     /// <see cref="CCVars.StopSpeed"/>
@@ -92,7 +90,6 @@ public abstract partial class SharedMoverController : VirtualController
         CanMoveInAirQuery = GetEntityQuery<CanMoveInAirComponent>();
         FootstepModifierQuery = GetEntityQuery<FootstepModifierComponent>();
         MapGridQuery = GetEntityQuery<MapGridComponent>();
-        NoShoesSilentQuery = GetEntityQuery<NoShoesSilentFootstepsComponent>(); // DeltaV - NoShoesSilentFootstepsComponent
 
         InitializeInput();
         InitializeRelay();
@@ -110,14 +107,6 @@ public abstract partial class SharedMoverController : VirtualController
     public override void UpdateAfterSolve(bool prediction, float frameTime)
     {
         base.UpdateAfterSolve(prediction, frameTime);
-
-        var query = AllEntityQuery<InputMoverComponent, PhysicsComponent>();
-
-        while (query.MoveNext(out var uid, out var _, out var physics))
-        {
-            //PhysicsSystem.SetLinearVelocity(uid, Vector2.Zero, body: physics);
-        }
-
         UsedMobMovement.Clear();
     }
 
@@ -198,6 +187,7 @@ public abstract partial class SharedMoverController : VirtualController
             return;
         }
 
+
         UsedMobMovement[uid] = true;
         // Specifically don't use mover.Owner because that may be different to the actual physics body being moved.
         var weightless = _gravity.IsWeightless(physicsUid, physicsComponent, xform);
@@ -245,21 +235,20 @@ public abstract partial class SharedMoverController : VirtualController
         var total = walkDir * walkSpeed + sprintDir * sprintSpeed;
 
         var parentRotation = GetParentGridAngle(mover);
-        var wishDir = _relativeMovement ? parentRotation.RotateVec(total) : total;
+        var worldTotal = _relativeMovement ? parentRotation.RotateVec(total) : total;
 
-        DebugTools.Assert(MathHelper.CloseToPercent(total.Length(), wishDir.Length()));
+        DebugTools.Assert(MathHelper.CloseToPercent(total.Length(), worldTotal.Length()));
 
+        var velocity = physicsComponent.LinearVelocity;
         float friction;
         float weightlessModifier;
         float accel;
-        var velocity = physicsComponent.LinearVelocity;
 
-        // Whether we use weightless friction or not.
         if (weightless)
         {
             if (gridComp == null && !MapGridQuery.HasComp(xform.GridUid))
                 friction = moveSpeedComponent?.OffGridFriction ?? MovementSpeedModifierComponent.DefaultOffGridFriction;
-            else if (wishDir != Vector2.Zero && touching)
+            else if (worldTotal != Vector2.Zero && touching)
                 friction = moveSpeedComponent?.WeightlessFriction ?? MovementSpeedModifierComponent.DefaultWeightlessFriction;
             else
                 friction = moveSpeedComponent?.WeightlessFrictionNoInput ?? MovementSpeedModifierComponent.DefaultWeightlessFrictionNoInput;
@@ -269,7 +258,7 @@ public abstract partial class SharedMoverController : VirtualController
         }
         else
         {
-            if (wishDir != Vector2.Zero || moveSpeedComponent?.FrictionNoInput == null)
+            if (worldTotal != Vector2.Zero || moveSpeedComponent?.FrictionNoInput == null)
             {
                 friction = tileDef?.MobFriction ?? moveSpeedComponent?.Friction ?? MovementSpeedModifierComponent.DefaultFriction;
             }
@@ -285,27 +274,14 @@ public abstract partial class SharedMoverController : VirtualController
         var minimumFrictionSpeed = moveSpeedComponent?.MinimumFrictionSpeed ?? MovementSpeedModifierComponent.DefaultMinimumFrictionSpeed;
         Friction(minimumFrictionSpeed, frameTime, friction, ref velocity);
 
-        wishDir *= weightlessModifier;
-
-        if (!weightless || touching)
-            Accelerate(ref velocity, in wishDir, accel, frameTime);
-
-        SetWishDir((uid, mover), wishDir);
-
-        PhysicsSystem.SetLinearVelocity(physicsUid, velocity, body: physicsComponent);
-
-        // Ensures that players do not spiiiiiiin
-        PhysicsSystem.SetAngularVelocity(physicsUid, 0, body: physicsComponent);
-
-        // Handle footsteps at the end
-        if (total != Vector2.Zero)
+        if (worldTotal != Vector2.Zero)
         {
             if (!NoRotateQuery.HasComponent(uid))
             {
                 // TODO apparently this results in a duplicate move event because "This should have its event run during
                 // island solver"??. So maybe SetRotation needs an argument to avoid raising an event?
                 var worldRot = _transform.GetWorldRotation(xform);
-                _transform.SetLocalRotation(xform, xform.LocalRotation + wishDir.ToWorldAngle() - worldRot);
+                _transform.SetLocalRotation(xform, xform.LocalRotation + worldTotal.ToWorldAngle() - worldRot);
             }
 
             if (!weightless && MobMoverQuery.TryGetComponent(uid, out var mobMover) &&
@@ -329,23 +305,16 @@ public abstract partial class SharedMoverController : VirtualController
                 }
             }
         }
-    }
 
-    public Vector2 GetWishDir(Entity<InputMoverComponent?> mover)
-    {
-        if (!MoverQuery.Resolve(mover.Owner, ref mover.Comp, false))
-            return Vector2.Zero;
+        worldTotal *= weightlessModifier;
 
-        return mover.Comp.WishDir;
-    }
+        if (!weightless || touching)
+            Accelerate(ref velocity, in worldTotal, accel, frameTime);
 
-    public void SetWishDir(Entity<InputMoverComponent> mover, Vector2 wishDir)
-    {
-        if (mover.Comp.WishDir.Equals(wishDir))
-            return;
+        PhysicsSystem.SetLinearVelocity(physicsUid, velocity, body: physicsComponent);
 
-        mover.Comp.WishDir = wishDir;
-        Dirty(mover);
+        // Ensures that players do not spiiiiiiin
+        PhysicsSystem.SetAngularVelocity(physicsUid, 0, body: physicsComponent);
     }
 
     public void LerpRotation(EntityUid uid, InputMoverComponent mover, float frameTime)
@@ -381,7 +350,7 @@ public abstract partial class SharedMoverController : VirtualController
         }
     }
 
-    public void Friction(float minimumFrictionSpeed, float frameTime, float friction, ref Vector2 velocity)
+    private void Friction(float minimumFrictionSpeed, float frameTime, float friction, ref Vector2 velocity)
     {
         var speed = velocity.Length();
 
@@ -402,10 +371,7 @@ public abstract partial class SharedMoverController : VirtualController
         velocity *= newSpeed;
     }
 
-    /// <summary>
-    /// Adjusts the current velocity to the target velocity based on the specified acceleration.
-    /// </summary>
-    public static void Accelerate(ref Vector2 currentVelocity, in Vector2 velocity, float accel, float frameTime)
+    private void Accelerate(ref Vector2 currentVelocity, in Vector2 velocity, float accel, float frameTime)
     {
         var wishDir = velocity != Vector2.Zero ? velocity.Normalized() : Vector2.Zero;
         var wishSpeed = velocity.Length();
@@ -468,7 +434,7 @@ public abstract partial class SharedMoverController : VirtualController
     {
         sound = null;
 
-        if (!CanSound() || !_tags.HasTag(uid, FootstepSoundTag))
+        if (!CanSound() || !_tags.HasTag(uid, "FootstepSound"))
             return false;
 
         var coordinates = xform.Coordinates;
@@ -502,25 +468,6 @@ public abstract partial class SharedMoverController : VirtualController
             return false;
 
         mobMover.StepSoundDistance -= distanceNeeded;
-
-        // Frontier: check outer clothes
-        // If you have a hardsuit or power armor on that goes around your boots, it's the hardsuit that hits the floor.
-        // Check should happen before NoShoesSilentFootsteps check - loud power armor should count as wearing shoes.
-        if (_inventory.TryGetSlotEntity(uid, "outerClothing", out var outerClothing) &&
-            FootstepModifierQuery.TryComp(outerClothing, out var outerModifier))
-        {
-            sound = outerModifier.FootstepSoundCollection;
-            return sound != null;
-        }
-        // End Frontier
-
-        // DeltaV - Don't play the sound if they have no shoes and the component
-        if (NoShoesSilentQuery.HasComp(uid) &&
-            !_inventory.TryGetSlotEntity(uid, "shoes", out _))
-        {
-            return false;
-        }
-        // End DeltaV code
 
         if (FootstepModifierQuery.TryComp(uid, out var moverModifier))
         {
@@ -574,6 +521,25 @@ public abstract partial class SharedMoverController : VirtualController
                 sound = soundEv.Sound;
                 return true;
             }
+
+            // Frontier: check outer clothes
+            // If you have a hardsuit or power armor on that goes around your boots, it's the hardsuit that hits the floor.
+            // Check should happen before NoShoesSilentFootsteps check - loud power armor should count as wearing shoes.
+            if (_inventory.TryGetSlotEntity(uid, "outerClothing", out var outerClothing) &&
+                TryComp<FootstepModifierComponent>(outerClothing, out var outerModifier))
+            {
+                sound = outerModifier.FootstepSoundCollection;
+                return sound != null;
+            }
+            // End Frontier
+
+            // If got the component in yml and no shoes = no sound. Delta V
+            if (_entities.TryGetComponent(uid, out NoShoesSilentFootstepsComponent? _) &&
+                !_inventory.TryGetSlotEntity(uid, "shoes", out var _))
+            {
+                return false;
+            }
+            // Delta V NoShoesSilentFootsteps till here.
 
             if (_inventory.TryGetSlotEntity(uid, "shoes", out var shoes) &&
                 FootstepModifierQuery.TryComp(maybeFootstep, out var footstep))

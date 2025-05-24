@@ -143,8 +143,9 @@
   - type: MeleeThrowOnHit
     unanchorOnHit: true
     whitelist: # Frontier
-      components: # Frontier
-        - Anomaly # Frontier
+      components:
+        - Anomaly
+    enabled: false
   - type: ItemSlots
     slots:
       core_slot:

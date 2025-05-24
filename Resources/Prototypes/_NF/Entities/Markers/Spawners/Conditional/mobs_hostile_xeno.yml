@@ -1,5 +1,5 @@
 - type: entity
-  id: NFSpawnMobXenoBurrower
+  id: SpawnMobXenoBurrowerExpeditions
   name: xeno burrower spawner
   parent: MarkerBase
   suffix: AI, Hostile
@@ -12,10 +12,10 @@
         state: running
   - type: ConditionalSpawner
     prototypes:
-    - NFMobXeno
+    - MobXenoBurrowerExpeditions
 
 - type: entity
-  id: NFSpawnMobXenoDrone
+  id: SpawnMobXenoDroneExpeditions
   name: xeno drone spawner
   parent: MarkerBase
   suffix: AI, Hostile
@@ -28,10 +28,10 @@
         state: running
   - type: ConditionalSpawner
     prototypes:
-    - NFMobXenoDrone
+    - MobXenoDroneExpeditions
 
 - type: entity
-  id: NFSpawnMobXenoPraetorian
+  id: SpawnMobXenoPraetorianExpeditions
   name: xeno praetorian spawner
   parent: MarkerBase
   suffix: AI, Hostile
@@ -44,10 +44,10 @@
         state: running
   - type: ConditionalSpawner
     prototypes:
-    - NFMobXenoPraetorian
+    - MobXenoPraetorianExpeditions
 
 - type: entity
-  id: NFSpawnMobXenoRavager
+  id: SpawnMobXenoRavagerExpeditions
   name: xeno ravager spawner
   parent: MarkerBase
   suffix: AI, Hostile
@@ -60,10 +60,10 @@
         state: running
   - type: ConditionalSpawner
     prototypes:
-    - NFMobXenoRavager
+    - MobXenoRavagerExpeditions
 
 - type: entity
-  id: NFSpawnMobXenoRunner
+  id: SpawnMobXenoRunnerExpeditions
   name: xeno runner spawner
   parent: MarkerBase
   suffix: AI, Hostile
@@ -76,10 +76,10 @@
         state: running
   - type: ConditionalSpawner
     prototypes:
-    - NFMobXenoRunner
+    - MobXenoRunnerExpeditions
 
 - type: entity
-  id: NFSpawnMobXenoSpitter
+  id: SpawnMobXenoSpitterExpeditions
   name: xeno spitter spawner
   parent: MarkerBase
   suffix: AI, Hostile
@@ -92,10 +92,10 @@
         state: running
   - type: ConditionalSpawner
     prototypes:
-    - NFMobXenoSpitter
+    - MobXenoSpitterExpeditions
 
 - type: entity
-  id: NFSpawnMobXenoQueen
+  id: SpawnMobXenoQueenDungeon
   name: xeno queen spawner
   parent: MarkerBase
   suffix: AI, Hostile
@@ -108,13 +108,13 @@
         state: running
   - type: ConditionalSpawner
     prototypes:
-    - NFMobXenoQueen
+    - MobXenoQueenDungeon
 
 - type: entity
   name: xeno spawner
   suffix: AI, Hostile, T1
   parent: MarkerBase
-  id: NFSpawnMobXenoT1
+  id: SpawnMobXenoT1
   components:
   - type: Sprite
     layers:
@@ -124,42 +124,42 @@
     - state: ai
   - type: RandomSpawner
     prototypes:
-    - NFMobXeno
-    - NFMobXenoDrone
+    - MobXenoBurrowerExpeditions
+    - MobXenoDroneExpeditions
     rarePrototypes:
-    - NFMobXenoPraetorian
-    - NFMobXenoRunner
-    - NFMobXenoSpitter
+    - MobXenoPraetorianExpeditions
+    - MobXenoRunnerExpeditions
+    - MobXenoSpitterExpeditions
     rareChance: 0.10
 
 - type: entity
   suffix: AI, Hostile, T2
-  parent: NFSpawnMobXenoT1
-  id: NFSpawnMobXenoT2
+  parent: SpawnMobXenoT1
+  id: SpawnMobXenoT2
   components:
   - type: RandomSpawner
     prototypes:
-    - NFMobXeno
-    - NFMobXenoPraetorian
-    - NFMobXenoDrone
-    - NFMobXenoRunner
-    - NFMobXenoSpitter
+    - MobXenoBurrowerExpeditions
+    - MobXenoPraetorianExpeditions
+    - MobXenoDroneExpeditions
+    - MobXenoRunnerExpeditions
+    - MobXenoSpitterExpeditions
     rarePrototypes:
-    - NFMobXenoRavager
+    - MobXenoRavagerExpeditions
     rareChance: 0.10
 
 - type: entity
   suffix: AI, Hostile, T3
-  parent: NFSpawnMobXenoT1
-  id: NFSpawnMobXenoT3
+  parent: SpawnMobXenoT1
+  id: SpawnMobXenoT3
   components:
   - type: RandomSpawner
     prototypes:
-    - NFMobXenoPraetorian
-    - NFMobXenoRunner
-    - NFMobXenoSpitter
-    - NFMobXenoRavager
+    - MobXenoPraetorianExpeditions
+    - MobXenoRunnerExpeditions
+    - MobXenoSpitterExpeditions
+    - MobXenoRavagerExpeditions
     rarePrototypes:
-    - NFMobXenoDrone
-    - NFMobXeno
+    - MobXenoDroneExpeditions
+    - MobXenoBurrowerExpeditions
     rareChance: 0.10

@@ -53,10 +53,9 @@ public sealed partial class CharacterPickerButton : ContainerButton
                 .LoadProfileEntity(humanoid, null, true);
 
             var highPriorityJob = humanoid.JobPriorities.SingleOrDefault(p => p.Value == JobPriority.High).Key;
-            if (highPriorityJob != default && prototypeManager.TryIndex(highPriorityJob, out var priorityJobProto)) // Frontier: tryindex
+            if (highPriorityJob != default)
             {
-                // var jobName = prototypeManager.Index(highPriorityJob).LocalizedName; // Frontier
-                var jobName = priorityJobProto.LocalizedName; // Frontier
+                var jobName = prototypeManager.Index(highPriorityJob).LocalizedName;
                 description = $"{description}\n{jobName}";
             }
             description += $"\n{humanoid.BankBalanceText}"; // Frontier

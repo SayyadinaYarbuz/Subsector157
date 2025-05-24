@@ -164,11 +164,11 @@ public partial class ChatSystem
     /// </summary>
     /// <param name="uid"></param>
     /// <param name="textInput"></param>
-    private bool TryEmoteChatInput(EntityUid uid, string textInput) // Frontier: void<bool
+    private void TryEmoteChatInput(EntityUid uid, string textInput)
     {
         var actionTrimmedLower = TrimPunctuation(textInput.ToLower());
         if (!_wordEmoteDict.TryGetValue(actionTrimmedLower, out var emotes)) // DeltaV, renames to emotes
-            return false; // Frontier: add false
+            return;
 
         bool validEmote = false; // DeltaV - Multiple emotes for the same trigger
         foreach (var emote in emotes)
@@ -178,10 +178,10 @@ public partial class ChatSystem
 
             InvokeEmoteEvent(uid, emote);
             validEmote = true; // DeltaV
-            break; // Frontier: break on first emote (avoid playing multiple sounds at once)
         }
 
-        return validEmote; // Frontier
+        if (!validEmote) // DeltaV
+            return;
 
         static string TrimPunctuation(string textInput)
         {
@@ -208,29 +208,16 @@ public partial class ChatSystem
     /// <returns></returns>
     private bool AllowedToUseEmote(EntityUid source, EmotePrototype emote)
     {
-        // If emote is in AllowedEmotes, it will bypass whitelist and blacklist
-        if (TryComp<SpeechComponent>(source, out var speech) &&
-            speech.AllowedEmotes.Contains(emote.ID))
-        {
-            return true;
-        }
-
-        // Check the whitelist and blacklist
-        if (_whitelistSystem.IsWhitelistFail(emote.Whitelist, source) ||
-            _whitelistSystem.IsBlacklistPass(emote.Blacklist, source))
-        {
+        if ((_whitelistSystem.IsWhitelistFail(emote.Whitelist, source) || _whitelistSystem.IsBlacklistPass(emote.Blacklist, source)))
             return false;
-        }
 
-        // Check if the emote is available for all
-        if (!emote.Available)
-        {
+        if (!emote.Available &&
+            TryComp<SpeechComponent>(source, out var speech) &&
+            !speech.AllowedEmotes.Contains(emote.ID))
             return false;
-        }
 
         return true;
     }
-
 
     private void InvokeEmoteEvent(EntityUid uid, EmotePrototype proto)
     {

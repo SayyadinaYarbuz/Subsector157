@@ -6,11 +6,7 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
-      time: 18000 #5 hrs
-    - !type:DepartmentTimeRequirement
-      department: Security
       time: 36000 #10 hrs
-  # weight: 5 # Frontier
   startingGear: WardenGear
   icon: "JobIconWarden"
   supervisors: job-supervisors-hos
@@ -39,8 +35,8 @@
     eyes: ClothingEyesGlassesSecurity
     id: WardenPDA
     ears: ClothingHeadsetSecurity
-    pocket1: NFWeaponPistolMk58 # Frontier: use NF variant
+    pocket1: WeaponPistolMk58
   storage:
     back:
     - Flash
-    - NFMagazinePistol35 # Frontier: MagazinePistol<NFMagazinePistol35
+    - MagazinePistol

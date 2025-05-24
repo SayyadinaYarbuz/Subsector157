@@ -11,6 +11,8 @@ namespace Content.Client._NF.Kitchen.UI
     {
         [Dependency] private readonly IGameTiming _timing = default!;
 
+        public event Action<BaseButton.ButtonEventArgs, int>? OnCookTimeSelected;
+
         public bool IsBusy;
         public TimeSpan CurrentCooktimeEnd;
 

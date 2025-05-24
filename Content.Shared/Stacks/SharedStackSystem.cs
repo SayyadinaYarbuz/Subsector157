@@ -263,7 +263,7 @@ namespace Content.Shared.Stacks
         public int GetMaxCount(string entityId)
         {
             var entProto = _prototype.Index<EntityPrototype>(entityId);
-            entProto.TryGetComponent<StackComponent>(out var stackComp, EntityManager.ComponentFactory);
+            entProto.TryGetComponent<StackComponent>(out var stackComp);
             return GetMaxCount(stackComp);
         }
 

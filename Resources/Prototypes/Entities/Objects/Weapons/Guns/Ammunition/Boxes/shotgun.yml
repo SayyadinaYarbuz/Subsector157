@@ -32,33 +32,27 @@
 
 # Shotgun Shells
 - type: entity
-  categories: [ HideSpawnMenu ] # Frontier
   parent: AmmoProviderShotgunShell
   id: BoxBeanbag
-  name: ammunition box (.50 beanbag)
+  name: shell box (beanbag)
   components:
     - type: BallisticAmmoProvider
-      # proto: ShellShotgunBeanbag # Frontier
-    - type: MagazineVisuals
-      magState: mag-beanbag
-      steps: 5
-      zeroVisible: false
+      proto: ShellShotgunBeanbag
     - type: Sprite
       layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-beanbag-1
+      - state: mag-1
         map: ["enum.GunVisualLayers.Mag"]
       - state: beanbag
 
 - type: entity
-  categories: [ HideSpawnMenu ] # Frontier
-  name: ammunition box (.50 pellet)
+  name: shell box (lethal)
   parent: AmmoProviderShotgunShell
   id: BoxLethalshot
   components:
     - type: BallisticAmmoProvider
-      # proto: ShellShotgun # Frontier
+      proto: ShellShotgun
     - type: Sprite
       layers:
       - state: base
@@ -68,121 +62,99 @@
       - state: lethal
 
 - type: entity
-  categories: [ HideSpawnMenu ] # Frontier
-  name: ammunition box (.50 slug)
+  name: shell box (slug)
   parent: AmmoProviderShotgunShell
   id: BoxShotgunSlug
   components:
     - type: BallisticAmmoProvider
-      # proto: ShellShotgunSlug # Frontier
+      proto: ShellShotgunSlug
     - type: MagazineVisuals
-      magState: mag-slug
+      magState: mag-alt
       steps: 5
       zeroVisible: false
     - type: Sprite
       layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-slug-1
+      - state: mag-alt-1
         map: ["enum.GunVisualLayers.Mag"]
       - state: slug
 
 - type: entity
-  categories: [ HideSpawnMenu ] # Frontier
-  name: ammunition box (.50 flare)
+  name: shell box (flare)
   parent: AmmoProviderShotgunShell
   id: BoxShotgunFlare
   components:
     - type: BallisticAmmoProvider
-      # proto: ShellShotgunFlare # Frontier
-    - type: MagazineVisuals
-      magState: mag-flare
-      steps: 5
-      zeroVisible: false
+      proto: ShellShotgunFlare
     - type: Sprite
       layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-flare-1
+      - state: mag-1
         map: ["enum.GunVisualLayers.Mag"]
       - state: flare
 
 - type: entity
-  categories: [ HideSpawnMenu ] # Frontier
-  name: ammunition box (.50 incendiary)
+  name: shell box (incendiary)
   parent: AmmoProviderShotgunShell
   id: BoxShotgunIncendiary
   components:
     - type: BallisticAmmoProvider
-      # proto: ShellShotgunIncendiary # Frontier
-    - type: MagazineVisuals
-      magState: mag-incend
-      steps: 5
-      zeroVisible: false
+      proto: ShellShotgunIncendiary
     - type: Sprite
       layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-incend-1
+      - state: mag-1
         map: ["enum.GunVisualLayers.Mag"]
       - state: incendiary
 
 - type: entity
-  categories: [ HideSpawnMenu ] # Frontier
-  name: ammunition box (.50 uranium)
+  name: shell box (uranium)
   parent: AmmoProviderShotgunShell
   id: BoxShotgunUranium
   components:
     - type: BallisticAmmoProvider
-      # proto: ShellShotgunUranium # Frontier
+      proto: ShellShotgunUranium
     - type: MagazineVisuals
-      magState: mag-uranium
+      magState: mag-alt
       steps: 5
       zeroVisible: false
     - type: Sprite
       layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-uranium-1
+      - state: mag-alt-1
         map: ["enum.GunVisualLayers.Mag"]
       - state: uranium
 
 - type: entity
-  categories: [ HideSpawnMenu ] # Frontier
-  name: ammunition box (.50 practice)
+  name: shell box (practice)
   parent: AmmoProviderShotgunShell
   id: BoxShotgunPractice
   components:
     - type: BallisticAmmoProvider
-      # proto: ShellShotgunPractice # Frontier
-    - type: MagazineVisuals
-      magState: mag-practice
-      steps: 5
-      zeroVisible: false
+      proto: ShellShotgunPractice
     - type: Sprite
       layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-practice-1
+      - state: mag-1
         map: ["enum.GunVisualLayers.Mag"]
       - state: practice
 
 - type: entity
-  categories: [ HideSpawnMenu ] # Frontier
-  name: ammunition box (.50 tranquilizer)
+  name: shell box (tranquilizer)
   parent: AmmoProviderShotgunShell
   id: BoxShellTranquilizer
   components:
     - type: BallisticAmmoProvider
-      # proto: ShellTranquilizer # Frontier
-    - type: MagazineVisuals
-      magState: mag-tranq
-      steps: 5
-      zeroVisible: false
+      proto: ShellTranquilizer
     - type: Sprite
       layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
-      - state: mag-tranq-1
+      - state: mag-1
         map: ["enum.GunVisualLayers.Mag"]
       - state: tranquilizer

@@ -2,7 +2,6 @@
 using Content.Shared._NF.Market.BUI;
 using Content.Shared._NF.Market.Events;
 using JetBrains.Annotations;
-using Robust.Client.UserInterface;
 using static Robust.Client.UserInterface.Controls.BaseButton;
 
 namespace Content.Client._NF.Market.BUI;
@@ -21,17 +20,17 @@ public sealed class MarketConsoleBoundUserInterface : BoundUserInterface
     {
         base.Open();
 
-        if (_menu == null)
-        {
-            _menu = this.CreateWindow<MarketMenu>();
-            _menu.OnAddToCart1 += args => AddToCart(args, 1);
-            _menu.OnAddToCart5 += args => AddToCart(args, 5);
-            _menu.OnAddToCart10 += args => AddToCart(args, 10);
-            _menu.OnAddToCart30 += args => AddToCart(args, 30);
-            _menu.OnAddToCartAll += args => AddToCart(args, int.MaxValue);
-            _menu.OnReturn += Return;
-            _menu.OnPurchaseCart += PurchaseCrate;
-        }
+        _menu = new MarketMenu();
+        //_menu.OnClose += Close;
+        _menu.OnAddToCart1 += args => AddToCart(args, 1);
+        _menu.OnAddToCart5 += args => AddToCart(args, 5);
+        _menu.OnAddToCart10 += args => AddToCart(args, 10);
+        _menu.OnAddToCart30 += args => AddToCart(args, 30);
+        _menu.OnAddToCartAll += args => AddToCart(args, int.MaxValue);
+        _menu.OnReturn += Return;
+        _menu.OnPurchaseCart += PurchaseCrate;
+
+        _menu.OpenCentered();
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -72,5 +71,13 @@ public sealed class MarketConsoleBoundUserInterface : BoundUserInterface
     {
         SendMessage(new MarketPurchaseMessage());
         Close();
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+        if (!disposing)
+            return;
+        _menu?.Dispose();
     }
 }

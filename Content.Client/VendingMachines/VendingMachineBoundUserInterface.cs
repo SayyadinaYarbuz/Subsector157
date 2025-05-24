@@ -47,54 +47,39 @@ namespace Content.Client.VendingMachines
                 _mod = market.Mod;
             // End Frontier
 
-            _menu = this.CreateWindowCenteredLeft<VendingMachineMenu>();
-            // Frontier: no exceptions
-            if (EntMan.TryGetComponent(Owner, out MetaDataComponent? meta))
-                _menu.Title = meta.EntityName;
-            else
-                _menu.Title = Loc.GetString("vending-machine-nf-fallback-title");
-            // End Frontier: no exceptions
+            _menu = this.CreateWindow<VendingMachineMenu>();
+            _menu.OpenCenteredLeft();
+            _menu.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
             _menu.OnItemSelected += OnItemSelected;
             Refresh();
         }
 
         public void Refresh()
         {
-            var enabled = EntMan.TryGetComponent(Owner, out VendingMachineComponent? bendy) && !bendy.Ejecting;
-
             var system = EntMan.System<VendingMachineSystem>();
             _cachedInventory = system.GetAllInventory(Owner);
 
             // Frontier: state, market modifier, balance status
-            if (EntMan.TryGetComponent<BankAccountComponent>(PlayerManager.LocalEntity, out var bank))
-                _balance = bank.Balance;
-            else
-                _balance = 0;
+            var uiUsers = _uiSystem.GetActors(Owner, UiKey);
+            foreach (var uiUser in uiUsers)
+            {
+                if (EntMan.TryGetComponent<BankAccountComponent>(uiUser, out var bank))
+                    _balance = bank.Balance;
+            }
             int? cashSlotValue = null;
-            if (TryUpdateCashSlotBalance())
-                cashSlotValue = _cashSlotBalance;
-            // End Frontier
-
-            _menu?.Populate(_cachedInventory, enabled, _mod, _balance, cashSlotValue); // Frontier: add _mod, _balance, cashSlotValue
-        }
-
-        public void UpdateAmounts()
-        {
-            var enabled = EntMan.TryGetComponent(Owner, out VendingMachineComponent? bendy) && !bendy.Ejecting;
-
-            // Frontier: get bank balance
-            if (EntMan.TryGetComponent<BankAccountComponent>(PlayerManager.LocalEntity, out var bank))
-                _balance = bank.Balance;
+            if (EntMan.TryGetComponent<VendingMachineComponent>(Owner, out var vendingMachine))
+            {
+                _cashSlotBalance = vendingMachine.CashSlotBalance;
+                if (vendingMachine.CashSlotName != null)
+                    cashSlotValue = _cashSlotBalance;
+            }
             else
-                _balance = 0;
-            _menu?.UpdateBalance(_balance);
-            if (TryUpdateCashSlotBalance())
-                _menu?.UpdateCashSlotBalance(_cashSlotBalance);
+            {
+                _cashSlotBalance = 0;
+            }
             // End Frontier
 
-            var system = EntMan.System<VendingMachineSystem>();
-            _cachedInventory = system.GetAllInventory(Owner);
-            _menu?.UpdateAmounts(_cachedInventory, _mod, enabled); // Frontier: add _mod
+            _menu?.Populate(_cachedInventory, _mod, _balance, cashSlotValue); // Frontier: add _balance
         }
 
         private void OnItemSelected(GUIBoundKeyEventArgs args, ListData data)
@@ -113,7 +98,7 @@ namespace Content.Client.VendingMachines
             if (selectedItem == null)
                 return;
 
-            SendPredictedMessage(new VendingMachineEjectMessage(selectedItem.Type, selectedItem.ID));
+            SendMessage(new VendingMachineEjectMessage(selectedItem.Type, selectedItem.ID));
         }
 
         protected override void Dispose(bool disposing)
@@ -129,21 +114,5 @@ namespace Content.Client.VendingMachines
             _menu.OnClose -= Close;
             _menu.Dispose();
         }
-
-        // Frontier: update cash slot balance
-        public bool TryUpdateCashSlotBalance()
-        {
-            if (EntMan.TryGetComponent<VendingMachineComponent>(Owner, out var vendingMachine))
-            {
-                _cashSlotBalance = vendingMachine.CashSlotBalance;
-                return true;
-            }
-            else
-            {
-                _cashSlotBalance = 0;
-                return false;
-            }
-        }
-        // End Frontier
     }
 }

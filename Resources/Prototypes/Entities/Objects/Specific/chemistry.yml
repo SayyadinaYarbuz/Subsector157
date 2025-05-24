@@ -315,7 +315,6 @@
   - type: Tag
     tags:
     - Dropper
-  - type: PhysicalComposition
 
 - type: entity
   name: borgdropper
@@ -545,8 +544,7 @@
     sprite: Objects/Specific/Chemistry/pills.rsi
   - type: Pill
   - type: Food
-    delay: 0.6
-    forceFeedDelay: 2
+    forceFeedDelay: 1
     transferAmount: null
     eatMessage: food-swallow
     useSound: /Audio/Items/pill.ogg

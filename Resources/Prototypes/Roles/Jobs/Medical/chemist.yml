@@ -5,9 +5,8 @@
   playTimeTracker: JobChemist
   setPreference: false # Frontier
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 18000 #5 hrs
+    - !type:OverallPlaytimeRequirement
+      time: 10800
   startingGear: ChemistGear
   icon: "JobIconChemist"
   supervisors: job-supervisors-hire # Frontier

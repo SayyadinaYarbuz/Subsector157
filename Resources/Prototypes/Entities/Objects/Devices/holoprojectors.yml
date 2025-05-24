@@ -67,11 +67,6 @@
       - HolofanProjector
   - type: StaticPrice
     price: 80
-  - type: GuideHelp
-    guides:
-    - AtmosTools
-    - Fires
-    - Spacing
 
 - type: entity
   parent: HolofanProjector
@@ -119,7 +114,7 @@
   components:
     - type: HolosignProjector
       signProto: HolosignSecurity
-      chargeUse: 90
+      chargeUse: 120
     - type: Sprite
       sprite: Objects/Devices/Holoprojectors/security.rsi
       state: icon

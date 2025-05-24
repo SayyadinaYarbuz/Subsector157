@@ -33,7 +33,6 @@
   - Contractor # Frontier
   - Mercenary # Frontier
   - Pilot # Frontier
-  - Borg # Frontier
 
 - type: department
   id: CentralCommand
@@ -81,7 +80,6 @@
   - StationTrafficController # Frontier
   primary: false
   weight: 100
-  editorHidden: true # Frontier
 
 - type: department
   id: Engineering
@@ -142,7 +140,6 @@
   - Borg
   - StationAi
   editorHidden: true # Frontier
-  primary: false # Frontier
 
 - type: department
   id: Specific

@@ -12,9 +12,6 @@
   - AllAccess
   access:
   - CentralCommand
-  special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
 
 - type: startingGear
   id: CBURNGear
@@ -29,12 +26,12 @@
     shoes: ClothingShoesBootsCombatFilled
     id: CBURNPDA
     pocket1: RadioHandheldNF # Frontier: RadioHandheld<RadioHandheldNF
-    pocket2: NFWeaponEnergyPistolLaser # Frontier: WeaponLaserGun<NFWeaponEnergyPistolLaser
+    pocket2: WeaponLaserPistolNF # Frontier: WeaponLaserGun<WeaponLaserPistolNF
     belt: ClothingBeltBandolier
   storage:
     back:
-    - NFWeaponShotgunDoubleBarreled # Frontier: WeaponShotgunDoubleBarreled<NFWeaponShotgunDoubleBarreled
-    - NFAmmunitionBoxShellShotgunIncendiary # Frontier: BoxShotgunIncendiary<NFAmmunitionBoxShellShotgunIncendiary
+    - WeaponShotgunDoubleBarreled
+    - BoxShotgunIncendiary
     - GrenadeFlashBang
     - PillAmbuzolPlus
     - PillAmbuzol

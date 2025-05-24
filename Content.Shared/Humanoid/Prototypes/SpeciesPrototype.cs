@@ -1,11 +1,9 @@
-using Content.Shared.Dataset;
-using Content.Shared.Humanoid.Markings;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Humanoid.Prototypes;
 
-[Prototype]
+[Prototype("species")]
 public sealed partial class SpeciesPrototype : IPrototype
 {
     /// <summary>
@@ -44,7 +42,7 @@ public sealed partial class SpeciesPrototype : IPrototype
     // sprite accessories.
 
     [DataField("sprites")]
-    public ProtoId<HumanoidSpeciesBaseSpritesPrototype> SpriteSet { get; private set; } = default!;
+    public string SpriteSet { get; private set; } = default!;
 
     /// <summary>
     ///     Default skin tone for this species. This applies for non-human skin tones.
@@ -63,7 +61,7 @@ public sealed partial class SpeciesPrototype : IPrototype
     ///     The limit of body markings that you can place on this species.
     /// </summary>
     [DataField("markingLimits")]
-    public ProtoId<MarkingPointsPrototype> MarkingPoints { get; private set; } = default!;
+    public string MarkingPoints { get; private set; } = default!;
 
     /// <summary>
     ///     Humanoid species variant used by this entity.
@@ -84,13 +82,13 @@ public sealed partial class SpeciesPrototype : IPrototype
     public HumanoidSkinColor SkinColoration { get; private set; }
 
     [DataField]
-    public ProtoId<LocalizedDatasetPrototype> MaleFirstNames { get; private set; } = "NamesFirstMale";
+    public string MaleFirstNames { get; private set; } = "names_first_male";
 
     [DataField]
-    public ProtoId<LocalizedDatasetPrototype> FemaleFirstNames { get; private set; } = "NamesFirstFemale";
+    public string FemaleFirstNames { get; private set; } = "names_first_female";
 
     [DataField]
-    public ProtoId<LocalizedDatasetPrototype> LastNames { get; private set; } = "NamesLast";
+    public string LastNames { get; private set; } = "names_last";
 
     [DataField]
     public SpeciesNaming Naming { get; private set; } = SpeciesNaming.FirstLast;
@@ -122,12 +120,6 @@ public sealed partial class SpeciesPrototype : IPrototype
     /// </summary>
     [DataField]
     public int MaxAge = 120;
-
-    /// <summary>
-    ///     Frontier: Forced marking color for this species, used for overwrites to force marking to use a single color, eg for Sheleg hair.
-    /// </summary>
-    [DataField]
-    public Color ForcedMarkingColor { get; private set; } = new();
 }
 
 public enum SpeciesNaming : byte

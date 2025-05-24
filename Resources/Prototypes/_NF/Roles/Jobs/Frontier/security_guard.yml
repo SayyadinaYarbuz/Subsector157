@@ -33,13 +33,13 @@
   id: SecurityGuardGear
   equipment:
     eyes: ClothingEyesGlassesSunglasses #ClothingEyesGlassesSecurity
-    pocket1: NFWeaponPistolUniversalNfsdLessLethal
-    pocket2: NFMagazineHighCapacityPistol35
+    pocket1: WeaponPistolMk58 #WeaponPistolMk58Nonlethal
+    pocket2: MagazinePistol
   storage:
     back:
     - EncryptionKeyService
     - EncryptionKeySecurity
     - Flash
-    - NFMagazineHighCapacityPistol35
-    - NFMagazineHighCapacityPistol35Rubber
+    - MagazinePistol
+    - MagazinePistolRubber
     - ShipVoucherFrontierGuard

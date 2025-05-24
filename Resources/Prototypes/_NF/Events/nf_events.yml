@@ -1,5 +1,5 @@
 - type: entity
-  id: NFBaseStationEventModerateDelay
+  id: BaseStationEventNFModerateDelay
   parent: BaseGameRule
   abstract: true
   components:
@@ -9,8 +9,8 @@
         max:  40
 
 - type: entity
-  id: NFBluespaceCargoCrate
-  parent: NFBaseStationEventModerateDelay
+  id: BluespaceCargoCrate
+  parent: BaseStationEventNFModerateDelay
   components:
   - type: StationEvent
     startAnnouncement: bluespace-cargo-event-announcement
@@ -19,14 +19,13 @@
     reoccurrenceDelay: 120
   - type: BluespaceCargoRule
     spawnerPrototype: RandomCargoSpawner
-    flashPrototype: EffectFlashBluespaceQuiet
     requireSafeAtmosphere: true
     minimumSpawns: 2
     maximumSpawns: 5
 
 - type: entity
-  id: NFBluespaceMcCargoCrate
-  parent: NFBaseStationEventModerateDelay
+  id: BluespaceMcCargoCrate
+  parent: BaseStationEventNFModerateDelay
   components:
   - type: StationEvent
     startAnnouncement: bluespace-cargo-event-announcement
@@ -41,8 +40,8 @@
     requireSafeAtmosphere: true
 
 - type: entity
-  id: NFBluespaceSyndicateCrate
-  parent: NFBaseStationEventModerateDelay
+  id: BluespaceSyndicateCrate
+  parent: BaseStationEventNFModerateDelay
   components:
   - type: StationEvent
     startAnnouncement: bluespace-syndicate-crate-event-announcement
@@ -54,11 +53,11 @@
     minimumPlayers: 20
     reoccurrenceDelay: 480 # 8 hours
   - type: BluespaceCargoRule
-    spawnerPrototype: CrateSyndicateSurplusBundle
-    maximumSpawns: 1
+    spawnerPrototype: CrateSyndicateLightSurplusBundle
+    maximumSpawns: 2
 
 - type: entity
-  id: NFSmugglingFax
+  id: SmugglingFax
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
@@ -81,7 +80,7 @@
     - !type:GetRandomDeadDropAction
 
 - type: entity
-  id: NFSmugglingFaxBig
+  id: SmugglingFaxBig
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent

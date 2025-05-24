@@ -18,7 +18,6 @@ using Content.Server.Maps.NameGenerators;
 using Content.Server.StationEvents.Events;
 using Content.Server._NF.Station.Systems;
 using Content.Server._NF.StationEvents.Components;
-using Robust.Shared.EntitySerialization.Systems;
 
 namespace Content.Server._NF.StationEvents.Events;
 
@@ -26,7 +25,6 @@ public sealed class BluespaceErrorRule : StationEventSystem<BluespaceErrorRuleCo
 {
     NanotrasenNameGenerator _nameGenerator = new();
     [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly MapSystem _map = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -50,13 +48,13 @@ public sealed class BluespaceErrorRule : StationEventSystem<BluespaceErrorRuleCo
     {
         base.Started(uid, component, gameRule, args);
 
-        if (!_map.TryGetMap(GameTicker.DefaultMap, out var mapUid))
+        if (!_mapSystem.TryGetMap(GameTicker.DefaultMap, out var mapUid))
             return;
 
         var spawnCoords = new EntityCoordinates(mapUid.Value, Vector2.Zero);
 
         // Spawn on a dummy map and try to FTL if possible, otherwise dump it.
-        _map.CreateMap(out var mapId);
+        _mapSystem.CreateMap(out var mapId);
 
         foreach (var group in component.Groups.Values)
         {
@@ -124,7 +122,7 @@ public sealed class BluespaceErrorRule : StationEventSystem<BluespaceErrorRuleCo
             }
         }
 
-        _map.DeleteMap(mapId);
+        _mapManager.DeleteMap(mapId);
     }
 
     private bool TryDungeonSpawn(EntityCoordinates spawnCoords, BluespaceErrorRuleComponent component, ref BluespaceDungeonSpawnGroup group, int i, out EntityUid spawned)
@@ -153,7 +151,7 @@ public sealed class BluespaceErrorRule : StationEventSystem<BluespaceErrorRuleCo
         var spawnedGrid = _mapManager.CreateGridEntity(mapId);
 
         _transform.SetMapCoordinates(spawnedGrid, new MapCoordinates(Vector2.Zero, mapId));
-        _dungeon.GenerateDungeon(dungeonProto, dungeonProtoId, spawnedGrid.Owner, spawnedGrid.Comp, Vector2i.Zero, _random.Next(), spawnCoords);
+        _dungeon.GenerateDungeon(dungeonProto, dungeonProto.ID, spawnedGrid.Owner, spawnedGrid.Comp, Vector2i.Zero, _random.Next(), spawnCoords); // Frontier: add dungeonProto.ID
 
         spawned = spawnedGrid.Owner;
         component.MapsUid.Add(mapId);
@@ -179,20 +177,20 @@ public sealed class BluespaceErrorRule : StationEventSystem<BluespaceErrorRuleCo
         group.Paths.Add(path);
 
         // Do we support maps with multiple grids?
-        if (_loader.TryLoadGrid(mapId, path, out var ent))
+        if (_loader.TryLoad(mapId, path.ToString(), out var ent) && ent.Count == 1)
         {
-            if (HasComp<ShuttleComponent>(ent.Value))
+            if (HasComp<ShuttleComponent>(ent[0]))
             {
-                _shuttle.TryFTLProximity(ent.Value.Owner, spawnCoords);
+                _shuttle.TryFTLProximity(ent[0], spawnCoords);
             }
 
             if (group.NameGrid)
             {
                 var name = path.FilenameWithoutExtension;
-                _metadata.SetEntityName(ent.Value, name);
+                _metadata.SetEntityName(ent[0], name);
             }
 
-            spawned = ent.Value;
+            spawned = ent[0];
             return true;
         }
 
@@ -270,8 +268,8 @@ public sealed class BluespaceErrorRule : StationEventSystem<BluespaceErrorRuleCo
 
         foreach (MapId mapId in component.MapsUid)
         {
-            if (_map.MapExists(mapId))
-                _map.DeleteMap(mapId);
+            if (_mapManager.MapExists(mapId))
+                _mapManager.DeleteMap(mapId);
         }
     }
 }

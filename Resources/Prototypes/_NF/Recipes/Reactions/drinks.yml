@@ -20,7 +20,7 @@
       amount: 1
     Sugar:
       amount: 1
-    Everyspice:
+    Blackpepper:
       amount: 1
   products:
     PumpkinSpiceLatte: 6
@@ -111,10 +111,8 @@
       amount: 1
     JuiceApple:
       amount: 1
-    Everyspice:
-      amount: 1
   products:
-    WassailMulledAle : 4
+    WassailMulledAle : 3
 
 - type: reaction
   id: Eggnog

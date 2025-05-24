@@ -11,6 +11,7 @@
   cost: 7500
   recipeUnlocks:
   - RPED
+  - NFBlueprintRped
 
 # Tier 3
 
@@ -27,6 +28,9 @@
   - SuperCapacitorStockPart
   - SuperMatterBinStockPart
   - PicoManipulatorStockPart
+  - NFBlueprintSuperCapacitorStockPart
+  - NFBlueprintPicoManipulatorStockPart
+  - NFBlueprintSuperMatterBinStockPart
 
 - type: technology
   id: MagnetsTechAdvanced
@@ -39,6 +43,7 @@
   cost: 10000
   recipeUnlocks:
   - ClothingShoesBootsMagAdv
+  - NFBlueprintClothingShoesBootsMagAdv
   technologyPrerequisites:
   - MagnetsTech
 
@@ -52,6 +57,6 @@
   tier: 3
   cost: 15000
   recipeUnlocks:
-  - ClothingOuterHardsuitRd
+    - ClothingOuterHardsuitRd
   technologyPrerequisites:
   - HardsuitsArmored

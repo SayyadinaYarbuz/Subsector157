@@ -98,10 +98,6 @@
     sprite: _NF/Clothing/Head/Hoods/mccargocrown.rsi
   - type: Clothing
     sprite: _NF/Clothing/Head/Hoods/mccargocrown.rsi
-  - type: Butcherable
-    spawned:
-    - id: MaterialCardboard1
-      amount: 1
 
 - type: entity
   parent: ClothingHeadBaseButcherable

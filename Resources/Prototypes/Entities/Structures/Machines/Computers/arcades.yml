@@ -78,8 +78,8 @@
     # - Basketball
     # - BalloonNT
     # - BalloonCorgi
-    # - NFBoxDonkSoftBox # Frontier: use NF prefix
-    # - NFBoxCartridgeCap # Frontier: use NF prefix
+    # - BoxDonkSoftBox
+    # - BoxCartridgeCap
     # - BeachBall
     # - CandyBucket
     # - CrayonBox
@@ -126,7 +126,7 @@
     # - PlushieVox
     # - PlushieXeno
     # - PlasticBanana
-    # - NFRevolverCapGun # Frontier: RevolverCapGun<NFRevolverCapGun
+    # - RevolverCapGun
     # - SnapPopBox
     # - ToyMouse
     # - ToyAi

@@ -2,8 +2,3 @@
 - type: metabolismGroup
   id: Cryogenic
   name: metabolism-group-cryogenic
-
-# Separate effect to allow some meds to still work on sheleg
-- type: metabolismGroup
-  id: Sheleg
-  name: metabolism-group-sheleg

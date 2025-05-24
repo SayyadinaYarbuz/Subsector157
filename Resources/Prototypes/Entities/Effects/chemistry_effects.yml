@@ -49,15 +49,6 @@
     - HideContextMenu
 
 - type: entity
-  parent: Smoke
-  id: WizardSmoke
-  name: smoke
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Smoke
-    spreadAmount: 5
-
-- type: entity
   parent: BaseFoam
   id: Foam
   name: foam
@@ -183,7 +174,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 12
+        damage: 50
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]

@@ -31,11 +31,6 @@ public abstract partial class SharedBuckleSystem
 
     private void OnStrapDragDropTarget(EntityUid uid, StrapComponent component, ref DragDropTargetEvent args)
     {
-        // Frontier: check handled
-        if (args.Handled)
-            return;
-        // End Frontier
-
         if (!StrapCanDragDropOn(uid, args.User, uid, args.Dragged, component))
             return;
 

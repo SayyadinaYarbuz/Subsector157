@@ -1,4 +1,0 @@
-# Ignored upstream redefinitions
-- type: entity
-  parent: BulletFoam
-  id: NFBulletFoam

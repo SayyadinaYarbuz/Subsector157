@@ -126,7 +126,7 @@
             - material: Cloth
               amount: 2
               doAfter: 1
-        - to: BannerFsb
+        - to: BannerGoblin01
           completed:
             - !type:SnapToGrid { }
           steps:
@@ -317,8 +317,8 @@
             - tool: Screwing
               doAfter: 1
 
-    - node: BannerFsb
-      entity: BannerFsb
+    - node: BannerGoblin01
+      entity: BannerGoblin01
       edges:
         - to: start
           completed:

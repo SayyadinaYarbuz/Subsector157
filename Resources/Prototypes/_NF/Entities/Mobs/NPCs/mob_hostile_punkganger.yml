@@ -54,9 +54,6 @@
     maximumWait: 120
     nextAdvertisementTime: 10
   - type: AutoWakeUp
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 4.5
-    baseSprintSpeed : 4.5
 
 # Humans
 ## Tier 1
@@ -85,16 +82,12 @@
     prototypes:
     - PunkGangerGearPistol
   - type: BasicEntityAmmoProvider
-    proto: NFCartridgePistol35
+    proto: BulletPistol
     capacity: 1
     count: 1
   - type: Gun
     showExamineText: false
     fireRate: 0.5
-    minAngle: 10
-    maxAngle: 20
-    angleIncrease: 2
-    angleDecay: 3
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -131,16 +124,12 @@
     prototypes:
     - PunkGangerGearShotgun
   - type: BasicEntityAmmoProvider
-    proto: NFShellShotgunBuckshot
+    proto: ShellShotgun
     capacity: 1
     count: 1
   - type: Gun
     showExamineText: false
     fireRate: 0.5
-    minAngle: 10
-    maxAngle: 20
-    angleIncrease: 5
-    angleDecay: 3
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -177,7 +166,7 @@
     prototypes:
     - PunkGangerGearSmg
   - type: BasicEntityAmmoProvider
-    proto: NFCartridgePistol35
+    proto: BulletPistol
     capacity: 6
     count: 6
   - type: Gun
@@ -210,8 +199,8 @@
   - type: Loadout
     prototypes:
     - PunkGangerGearLaser
-  - type: ProjectileBatteryAmmoProvider
-    proto: NFBulletLaserLow
+  - type: HitscanBatteryAmmoProvider
+    proto: RedLaser
     fireCost: 100
   - type: BatterySelfRecharger
     autoRecharge: true
@@ -222,10 +211,8 @@
   - type: Gun
     showExamineText: false
     fireRate: 1
-    minAngle: 10
-    maxAngle: 20
-    angleIncrease: 5
-    angleDecay: 3
+    minAngle: 5
+    maxAngle: 10
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -261,8 +248,8 @@
     capacity: 1
     count: 1
   - type: Gun
-    minAngle: 5
-    maxAngle: 15
+    minAngle: 1
+    maxAngle: 5
     fireRate: 1
     selectedMode: FullAuto
     availableModes:

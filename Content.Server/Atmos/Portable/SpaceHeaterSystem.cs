@@ -76,11 +76,6 @@ public sealed class SpaceHeaterSystem : EntitySystem
             if (environment == null)
                 return;
 
-            // Frontier: functional cutoff
-            if (environment.Temperature >= spaceHeater.MaxFunctionalTemperature)
-                thermoMachine.Cp = 0;
-            // End Frontier
-
             if (environment.Temperature <= thermoMachine.TargetTemperature - (thermoMachine.TemperatureTolerance + spaceHeater.AutoModeSwitchThreshold))
             {
                 thermoMachine.Cp = spaceHeater.HeatingCp;

@@ -46,7 +46,7 @@
         deleteEntity: false
         maxPointsPerSecond: 100
         corePrototype: AnomalyCorePyroclastic
-        coreInertPrototype: AnomalyCorePyroclasticInert
+        coreInertPrototype: AnomalyCorePyroclasticInert # Frontier
       - type: InnerBodyAnomaly
         injectionProto: AnomalyInjectionPyroclastic
         startMessage: inner-anomaly-start-message-pyro
@@ -76,7 +76,7 @@
         deleteEntity: false
         maxPointsPerSecond: 100
         corePrototype: AnomalyCoreElectricity
-        coreInertPrototype: AnomalyCoreElectricityInert
+        coreInertPrototype: AnomalyCoreElectricityInert # Frontier
       - type: InnerBodyAnomaly
         injectionProto: AnomalyInjectionElectric
         startMessage: inner-anomaly-start-message-shock
@@ -106,7 +106,7 @@
         deleteEntity: false
         maxPointsPerSecond: 100
         corePrototype: AnomalyCoreShadow
-        coreInertPrototype: AnomalyCoreShadowInert
+        coreInertPrototype: AnomalyCoreShadowInert # Frontier
       - type: InnerBodyAnomaly
         injectionProto: AnomalyInjectionShadow
         startMessage: inner-anomaly-start-message-shadow
@@ -136,7 +136,7 @@
         deleteEntity: false
         maxPointsPerSecond: 100
         corePrototype: AnomalyCoreIce
-        coreInertPrototype: AnomalyCoreIceInert
+        coreInertPrototype: AnomalyCoreIceInert # Frontier
       - type: InnerBodyAnomaly
         injectionProto: AnomalyInjectionIce
         startMessage: inner-anomaly-start-message-frost
@@ -166,7 +166,7 @@
         deleteEntity: false
         maxPointsPerSecond: 100
         corePrototype: AnomalyCoreFlora
-        coreInertPrototype: AnomalyCoreFloraInert
+        coreInertPrototype: AnomalyCoreFloraInert # Frontier
       - type: InnerBodyAnomaly
         injectionProto: AnomalyInjectionFlora
         startMessage: inner-anomaly-start-message-flora
@@ -196,7 +196,7 @@
         deleteEntity: false
         maxPointsPerSecond: 100
         corePrototype: AnomalyCoreBluespace
-        coreInertPrototype: AnomalyCoreBluespaceInert
+        coreInertPrototype: AnomalyCoreBluespaceInert # Frontier
       - type: InnerBodyAnomaly
         injectionProto: AnomalyInjectionBluespace
         startMessage: inner-anomaly-start-message-bluespace
@@ -226,7 +226,7 @@
         deleteEntity: false
         maxPointsPerSecond: 100
         corePrototype: AnomalyCoreFlesh
-        coreInertPrototype: AnomalyCoreFleshInert
+        coreInertPrototype: AnomalyCoreFleshInert # Frontier
       - type: InnerBodyAnomaly
         injectionProto: AnomalyInjectionFlesh
         startMessage: inner-anomaly-start-message-flesh
@@ -256,7 +256,7 @@
         deleteEntity: false
         maxPointsPerSecond: 100
         corePrototype: AnomalyCoreGravity
-        coreInertPrototype: AnomalyCoreGravityInert
+        coreInertPrototype: AnomalyCoreGravityInert # Frontier
       - type: InnerBodyAnomaly
         injectionProto: AnomalyInjectionGravity
         startMessage: inner-anomaly-start-message-grav
@@ -286,7 +286,7 @@
         deleteEntity: false
         maxPointsPerSecond: 100
         corePrototype: AnomalyCoreTech
-        coreInertPrototype: AnomalyCoreTechInert
+        coreInertPrototype: AnomalyCoreTechInert # Frontier
       - type: InnerBodyAnomaly
         injectionProto: AnomalyInjectionTech
         startMessage: inner-anomaly-start-message-tech
@@ -317,7 +317,7 @@
         deleteEntity: false
         maxPointsPerSecond: 100
         corePrototype: AnomalyCoreRock
-        coreInertPrototype: AnomalyCoreRockInert
+        coreInertPrototype: AnomalyCoreRockInert # Frontier
       - type: InnerBodyAnomaly
         injectionProto: AnomalyInjectionRock
         startMessage: inner-anomaly-start-message-rock
@@ -347,7 +347,6 @@
         deleteEntity: false
         maxPointsPerSecond: 100
         corePrototype: AnomalyCoreSanta
-        coreInertPrototype: AnomalyCoreSantaInert
       - type: InnerBodyAnomaly
         injectionProto: AnomalyInjectionSanta
         startMessage: inner-anomaly-start-message-santa

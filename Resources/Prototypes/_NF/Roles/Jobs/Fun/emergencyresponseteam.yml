@@ -26,13 +26,13 @@
     outerClothing: ClothingOuterArmorBasicSlim
     id: ERTMailCarrierPDA
     ears: ClothingHeadsetAltCentCom
-    belt: NFMailBagCapsulePrimed
+    belt: MailBagCapsulePrimed
     pocket1: Flare
-    pocket2: DoubleEmergencyTankO2N2EqualFilled
+    pocket2: DoubleEmergencyAirTankFilled
   storage:
     back:
 #    - SecBreachingHammer
-#    - NFWeaponLauncherMail
+#    - WeaponMailLake
     - RubberStampCentcom
     - BoxFolderCentCom
 
@@ -47,12 +47,12 @@
     outerClothing: ClothingOuterHardsuitERTMailCarrier
     id: ERTMailCarrierPDA
     ears: ClothingHeadsetAltCentCom
-    belt: NFMailBagCapsulePrimed
+    belt: MailBagCapsulePrimed
     pocket1: Flare
-    pocket2: DoubleEmergencyTankO2N2EqualFilled
+    pocket2: DoubleEmergencyAirTankFilled
   storage:
     back:
 #    - SecBreachingHammer
-#    - NFWeaponLauncherMail
+#    - WeaponMailLake
     - RubberStampCentcom
     - BoxFolderCentCom

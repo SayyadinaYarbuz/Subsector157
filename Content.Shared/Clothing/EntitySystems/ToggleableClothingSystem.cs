@@ -160,7 +160,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
         // This should maybe double check that the entity currently in the slot is actually the attached clothing, but
         // if its not, then something else has gone wrong already...
         if (component.Container != null && component.Container.ContainedEntity == null && component.ClothingUid != null)
-            _inventorySystem.TryUnequip(args.Equipee, component.Slot, force: true, triggerHandContact: true);
+            _inventorySystem.TryUnequip(args.Equipee, component.Slot, force: true);
     }
 
     private void OnRemoveToggleable(EntityUid uid, ToggleableClothingComponent component, ComponentRemove args)
@@ -234,7 +234,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
         ToggleClothing(args.Performer, uid, component);
     }
 
-    public void ToggleClothing(EntityUid user, EntityUid target, ToggleableClothingComponent component) // Frontier: private to public
+    private void ToggleClothing(EntityUid user, EntityUid target, ToggleableClothingComponent component)
     {
         if (component.Container == null || component.ClothingUid == null)
             return;
@@ -248,7 +248,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
                 user, user);
         }
         else
-            _inventorySystem.TryEquip(user, parent, component.ClothingUid.Value, component.Slot, triggerHandContact: true);
+            _inventorySystem.TryEquip(user, parent, component.ClothingUid.Value, component.Slot);
     }
 
     private void OnGetActions(EntityUid uid, ToggleableClothingComponent component, GetItemActionsEvent args)

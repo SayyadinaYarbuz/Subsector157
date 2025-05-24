@@ -30,7 +30,6 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
-  canRotate: true
   conditions:
     - !type:WallmountCondition
 
@@ -65,7 +64,6 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
-  canRotate: true
   conditions:
     - !type:WallmountCondition
 
@@ -98,6 +96,5 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
-  canRotate: true
   conditions:
     - !type:WallmountCondition

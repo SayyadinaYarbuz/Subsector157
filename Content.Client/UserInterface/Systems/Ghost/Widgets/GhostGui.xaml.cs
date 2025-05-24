@@ -12,35 +12,35 @@ namespace Content.Client.UserInterface.Systems.Ghost.Widgets;
 [GenerateTypedNameReferences]
 public sealed partial class GhostGui : UIWidget
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!; // Frontier
-    private TimeSpan? _respawnTime; // Frontier
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
+
+    private TimeSpan? _respawnTime;
 
     public GhostTargetWindow TargetWindow { get; }
-    public GhostRespawnRulesWindow RulesWindow { get; } // Frontier
+    public GhostRespawnRulesWindow RulesWindow { get; }
     public CryosleepWakeupWindow CryosleepWakeupWindow { get; } // Frontier
 
     public event Action? RequestWarpsPressed;
     public event Action? ReturnToBodyPressed;
     public event Action? GhostRolesPressed;
-    public event Action? GhostRespawnPressed; // Frontier
-    private int _prevNumberRoles;
+    public event Action? GhostRespawnPressed;
 
     public GhostGui()
     {
         RobustXamlLoader.Load(this);
 
         TargetWindow = new GhostTargetWindow();
-        RulesWindow = new GhostRespawnRulesWindow(); // Frontier
+        RulesWindow = new GhostRespawnRulesWindow();
         CryosleepWakeupWindow = new CryosleepWakeupWindow(); // Frontier
-        RulesWindow.RespawnButton.OnPressed += _ => GhostRespawnPressed?.Invoke(); // Frontier
+        RulesWindow.RespawnButton.OnPressed += _ => GhostRespawnPressed?.Invoke();
 
         MouseFilter = MouseFilterMode.Ignore;
 
         GhostWarpButton.OnPressed += _ => RequestWarpsPressed?.Invoke();
         ReturnToBodyButton.OnPressed += _ => ReturnToBodyPressed?.Invoke();
         GhostRolesButton.OnPressed += _ => GhostRolesPressed?.Invoke();
-        GhostRolesButton.OnPressed += _ => GhostRolesButton.StyleClasses.Remove(StyleBase.ButtonCaution);
-        GhostRespawnButton.OnPressed += _ => RulesWindow.OpenCentered(); // Frontier
+        GhostRespawnButton.OnPressed += _ => RulesWindow.OpenCentered();
         CryosleepReturnButton.OnPressed += _ => CryosleepWakeupWindow.OpenCentered(); // Frontier
     }
 
@@ -55,28 +55,28 @@ public sealed partial class GhostGui : UIWidget
         _respawnTime = respawnTime;
     }
 
-    public void Update(int? roles, bool? canReturnToBody, bool? canUncryo)
+    public void Update(int? roles, bool? canReturnToBody, bool canUncryo)
     {
         ReturnToBodyButton.Disabled = !canReturnToBody ?? true;
 
         if (roles != null)
         {
             GhostRolesButton.Text = Loc.GetString("ghost-gui-ghost-roles-button", ("count", roles));
-
-            if (roles > _prevNumberRoles)
+            if (roles > 0)
             {
                 GhostRolesButton.StyleClasses.Add(StyleBase.ButtonCaution);
             }
-
-            _prevNumberRoles = (int)roles;
+            else
+            {
+                GhostRolesButton.StyleClasses.Remove(StyleBase.ButtonCaution);
+            }
         }
 
         TargetWindow.Populate();
 
-        CryosleepReturnButton.Disabled = !canUncryo ?? true; // Frontier
+        CryosleepReturnButton.Disabled = !canUncryo;
     }
 
-    // Frontier: respawn logic
     protected override void FrameUpdate(FrameEventArgs args)
     {
         if (_respawnTime is null || _gameTiming.CurTime > _respawnTime)
@@ -91,7 +91,6 @@ public sealed partial class GhostGui : UIWidget
             GhostRespawnButton.Disabled = true;
         }
     }
-    // End Frontier: respawn logic
 
     protected override void Dispose(bool disposing)
     {

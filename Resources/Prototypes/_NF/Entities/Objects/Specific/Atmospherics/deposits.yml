@@ -151,7 +151,7 @@
 - type: entity
   parent: BaseGasDeposit
   id: GasDepositMuddlePlasma
-  suffix: Muddled P+
+  suffix: Muddled PL+
   components:
   - type: RandomGasDeposit
     depositPrototype: MuddlePlasma
@@ -462,8 +462,8 @@
 - type: entity
   id: GasDepositLocatorUnpowered
   parent: BaseItem
-  name: gas deposit scanner
-  description: A scanner that both checks the nearby area for gas deposits and estimates the composition of deposits.
+  name: gas deposit locator
+  description: A scanner that checks the nearby area for gas deposits.
   suffix: Unpowered
   components:
   - type: Sprite
@@ -481,10 +481,6 @@
         enum.ToggleVisuals.Layer:
           True: { visible: true }
           False: { visible: false }
-      enum.GasDepositScannerVisuals.Enabled:
-        enum.ToggleVisuals.Layer:
-          True: { state: data, visible: true }
-          False: { state: screen }
   - type: ItemToggle
   - type: ProximityBeeper
   - type: ProximityDetector
@@ -501,11 +497,6 @@
       params:
         maxDistance: 1
         volume: -8
-  - type: GasDepositScanner
-  - type: UserInterface
-    interfaces:
-      enum.GasDepositScannerUiKey.Key:
-        type: GasDepositScannerBoundUserInterface
 
 - type: entity
   id: GasDepositLocator

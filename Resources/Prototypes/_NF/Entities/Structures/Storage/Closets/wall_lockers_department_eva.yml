@@ -1,9 +1,9 @@
 # DEPARTMENTS
-#region Command
+## Command
 - type: entity
   categories: [ HideSpawnMenu ] # debloat spawn menu
   id: LockerWallEVAColorCaptain
-  parent: NFBaseLockerGridInvWallColor
+  parent: LockerWallColorBase
   name: captain EVA wall locker
   components:
   - type: Sprite
@@ -11,8 +11,6 @@
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
       color: "#42658d"
-    - state: fillEva-0
-      map: ["enum.StorageFillLayers.Fill"]
     - state: door
       map: ["enum.StorageVisualLayers.Door"]
       color: "#42658d"
@@ -27,14 +25,11 @@
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: locked
       map: ["enum.LockVisualLayers.Lock"]
-  - type: StorageFillVisualizer
-    maxFillLevels: 6
-    fillBaseName: fillEva
 
 - type: entity
   categories: [ HideSpawnMenu ] # debloat spawn menu
   id: LockerWallEVAColorSr
-  parent: NFBaseLockerGridInvWallColor
+  parent: LockerWallColorBase
   name: station representative EVA wall locker
   components:
   - type: Sprite
@@ -42,8 +37,6 @@
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
       color: "#09300b"
-    - state: fillEva-0
-      map: ["enum.StorageFillLayers.Fill"]
     - state: door
       map: ["enum.StorageVisualLayers.Door"]
       color: "#09300b"
@@ -60,43 +53,12 @@
       map: ["enum.LockVisualLayers.Lock"]
   - type: AccessReader
     access: [["HeadOfPersonnel"]]
-  - type: StorageFillVisualizer
-    maxFillLevels: 6
-    fillBaseName: fillEva
 
-- type: entity
-  categories: [ HideSpawnMenu ] # debloat spawn menu
-  id: LockerWallEVAColorStc
-  parent: LockerWallColorBase
-  name: station traffic Controller EVA wall locker
-  components:
-  - type: Sprite
-    layers:
-    - state: base
-      map: ["enum.StorageVisualLayers.Base"]
-      color: "#1560bd"
-    - state: door
-      map: ["enum.StorageVisualLayers.Door"]
-      color: "#1560bd"
-    - state: door-decal-line-01
-      map: [ decal1 ]
-      color: "#fe5c00"
-    - state: door-decal-eva-02
-      map: [ decal2 ]
-      color: "#fe5c00"
-    - state: welded
-      visible: false
-      map: ["enum.WeldableLayers.BaseWelded"]
-    - state: locked
-      map: ["enum.LockVisualLayers.Lock"]
-  - type: AccessReader
-    access: [["StationTrafficController"]]
-
-#region Engineering
+## Engineering
 - type: entity
   categories: [ HideSpawnMenu ] # debloat spawn menu
   id: LockerWallEVAColorEngineer
-  parent: NFBaseLockerGridInvWallColor
+  parent: LockerWallColorBase
   name: engineer EVA wall locker
   components:
   - type: Sprite
@@ -104,8 +66,6 @@
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
       color: "#ead152"
-    - state: fillEva-0
-      map: ["enum.StorageFillLayers.Fill"]
     - state: door
       map: ["enum.StorageVisualLayers.Door"]
       color: "#ead152"
@@ -120,14 +80,11 @@
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: locked
       map: ["enum.LockVisualLayers.Lock"]
-  - type: StorageFillVisualizer
-    maxFillLevels: 6
-    fillBaseName: fillEva
 
 - type: entity
   categories: [ HideSpawnMenu ] # debloat spawn menu
   id: LockerWallEVAColorAtmosTech
-  parent: NFBaseLockerGridInvWallColor
+  parent: LockerWallColorBase
   name: atmospheric technician EVA wall locker
   components:
   - type: Sprite
@@ -135,8 +92,6 @@
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
       color: "#ead152"
-    - state: fillEva-0
-      map: ["enum.StorageFillLayers.Fill"]
     - state: door
       map: ["enum.StorageVisualLayers.Door"]
       color: "#ead152"
@@ -151,15 +106,12 @@
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: locked
       map: ["enum.LockVisualLayers.Lock"]
-  - type: StorageFillVisualizer
-    maxFillLevels: 6
-    fillBaseName: fillEva
 
-#region Supply
+## Supply
 - type: entity
   categories: [ HideSpawnMenu ] # debloat spawn menu
   id: LockerWallEVAColorCargo
-  parent: NFBaseLockerGridInvWallColor
+  parent: LockerWallColorBase
   name: cargo technician EVA wall locker
   components:
   - type: Sprite
@@ -167,8 +119,6 @@
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
       color: "#b3863c"
-    - state: fillEva-0
-      map: ["enum.StorageFillLayers.Fill"]
     - state: door
       map: ["enum.StorageVisualLayers.Door"]
       color: "#b3863c"
@@ -183,14 +133,11 @@
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: locked
       map: ["enum.LockVisualLayers.Lock"]
-  - type: StorageFillVisualizer
-    maxFillLevels: 6
-    fillBaseName: fillEva
 
 - type: entity
   categories: [ HideSpawnMenu ] # debloat spawn menu
   id: LockerWallEVAColorSalvage
-  parent: NFBaseLockerGridInvWallColor
+  parent: LockerWallColorBase
   name: salvage specialist EVA wall locker
   components:
   - type: Sprite
@@ -198,8 +145,6 @@
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
       color: "#b3863c"
-    - state: fillEva-0
-      map: ["enum.StorageFillLayers.Fill"]
     - state: door
       map: ["enum.StorageVisualLayers.Door"]
       color: "#b3863c"
@@ -214,15 +159,12 @@
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: locked
       map: ["enum.LockVisualLayers.Lock"]
-  - type: StorageFillVisualizer
-    maxFillLevels: 6
-    fillBaseName: fillEva
 
-#region Medical
+## Medical
 - type: entity
   categories: [ HideSpawnMenu ] # debloat spawn menu
   id: LockerWallEVAColorMedical
-  parent: NFBaseLockerGridInvWallColor
+  parent: LockerWallColorBase
   name: doctor EVA wall locker
   components:
   - type: Sprite
@@ -230,8 +172,6 @@
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
       color: "#5a96bb"
-    - state: fillEva-0
-      map: ["enum.StorageFillLayers.Fill"]
     - state: door
       map: ["enum.StorageVisualLayers.Door"]
       color: "#5a96bb"
@@ -246,46 +186,12 @@
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: locked
       map: ["enum.LockVisualLayers.Lock"]
-  - type: StorageFillVisualizer
-    maxFillLevels: 6
-    fillBaseName: fillEva
 
-- type: entity
-  categories: [ HideSpawnMenu ] # debloat spawn menu
-  id: LockerWallEVAColorParamedic
-  parent: NFBaseLockerGridInvWallColor
-  name: paramedic EVA wall locker
-  components:
-  - type: Sprite
-    layers:
-    - state: base
-      map: ["enum.StorageVisualLayers.Base"]
-      color: "#2c6946"
-    - state: fillEva-0
-      map: ["enum.StorageFillLayers.Fill"]
-    - state: door
-      map: ["enum.StorageVisualLayers.Door"]
-      color: "#2c6946"
-    - state: door-decal-line-01
-      map: [ decal1 ]
-      color: "#8c1e50"
-    - state: door-decal-eva-02
-      map: [ decal2 ]
-      color: "#8c1e50"
-    - state: welded
-      visible: false
-      map: ["enum.WeldableLayers.BaseWelded"]
-    - state: locked
-      map: ["enum.LockVisualLayers.Lock"]
-  - type: StorageFillVisualizer
-    maxFillLevels: 6
-    fillBaseName: fillEva
-
-#region Research
+## Research
 - type: entity
   categories: [ HideSpawnMenu ] # debloat spawn menu
   id: LockerWallEVAColorScientist
-  parent: NFBaseLockerGridInvWallColor
+  parent: LockerWallColorBase
   name: scientist EVA wall locker
   components:
   - type: Sprite
@@ -293,8 +199,6 @@
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
       color: "#edeaea"
-    - state: fillEva-0
-      map: ["enum.StorageFillLayers.Fill"]
     - state: door
       map: ["enum.StorageVisualLayers.Door"]
       color: "#edeaea"
@@ -309,15 +213,12 @@
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: locked
       map: ["enum.LockVisualLayers.Lock"]
-  - type: StorageFillVisualizer
-    maxFillLevels: 6
-    fillBaseName: fillEva
 
-#region Service
+## Service
 - type: entity
   categories: [ HideSpawnMenu ] # debloat spawn menu
   id: LockerWallEVAColorJanitor
-  parent: NFBaseLockerGridInvWallColor
+  parent: LockerWallColorBase
   name: janitor EVA wall locker
   components:
   - type: Sprite
@@ -325,8 +226,6 @@
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
       color: "#7100a4"
-    - state: fillEva-0
-      map: ["enum.StorageFillLayers.Fill"]
     - state: door
       map: ["enum.StorageVisualLayers.Door"]
       color: "#7100a4"
@@ -341,14 +240,11 @@
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: locked
       map: ["enum.LockVisualLayers.Lock"]
-  - type: StorageFillVisualizer
-    maxFillLevels: 6
-    fillBaseName: fillEva
 
 - type: entity
   categories: [ HideSpawnMenu ] # debloat spawn menu
   id: LockerWallEVAColorMail
-  parent: NFBaseLockerGridInvWallColor
+  parent: LockerWallColorBase
   name: mail carrier EVA wall locker
   components:
   - type: Sprite
@@ -356,8 +252,6 @@
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
       color: "#0080b8"
-    - state: fillEva-0
-      map: ["enum.StorageFillLayers.Fill"]
     - state: door
       map: ["enum.StorageVisualLayers.Door"]
       color: "#0080b8"
@@ -372,14 +266,11 @@
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: locked
       map: ["enum.LockVisualLayers.Lock"]
-  - type: StorageFillVisualizer
-    maxFillLevels: 6
-    fillBaseName: fillEva
 
 - type: entity
   categories: [ HideSpawnMenu ] # debloat spawn menu
   id: LockerWallEVAColorHydroponics
-  parent: NFBaseLockerGridInvWallColor
+  parent: LockerWallColorBase
   name: botanist EVA wall locker
   components:
   - type: Sprite
@@ -387,8 +278,6 @@
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
       color: "#5fa31e"
-    - state: fillEva-0
-      map: ["enum.StorageFillLayers.Fill"]
     - state: door
       map: ["enum.StorageVisualLayers.Door"]
       color: "#5fa31e"
@@ -403,14 +292,11 @@
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: locked
       map: ["enum.LockVisualLayers.Lock"]
-  - type: StorageFillVisualizer
-    maxFillLevels: 6
-    fillBaseName: fillEva
 
 - type: entity
   categories: [ HideSpawnMenu ] # debloat spawn menu
   id: LockerWallEVAColorServiceWorker
-  parent: NFBaseLockerGridInvWallColor
+  parent: LockerWallColorBase
   name: service worker EVA wall locker
   components:
   - type: Sprite
@@ -418,8 +304,6 @@
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
       color: "#707070"
-    - state: fillEva-0
-      map: ["enum.StorageFillLayers.Fill"]
     - state: door
       map: ["enum.StorageVisualLayers.Door"]
       color: "#707070"
@@ -434,14 +318,11 @@
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: locked
       map: ["enum.LockVisualLayers.Lock"]
-  - type: StorageFillVisualizer
-    maxFillLevels: 6
-    fillBaseName: fillEva
 
 - type: entity
   categories: [ HideSpawnMenu ] # debloat spawn menu
   id: LockerWallEVAColorChaplain
-  parent: NFBaseLockerGridInvWallColor
+  parent: LockerWallColorBase
   name: chaplain EVA wall locker
   components:
   - type: Sprite
@@ -449,8 +330,6 @@
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
       color: "#3e3e48"
-    - state: fillEva-0
-      map: ["enum.StorageFillLayers.Fill"]
     - state: door
       map: ["enum.StorageVisualLayers.Door"]
       color: "#3e3e48"
@@ -465,15 +344,12 @@
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: locked
       map: ["enum.LockVisualLayers.Lock"]
-  - type: StorageFillVisualizer
-    maxFillLevels: 6
-    fillBaseName: fillEva
 
-#region NFSD / Security
+## NFSD / Security
 - type: entity
   categories: [ HideSpawnMenu ] # debloat spawn menu
   id: LockerWallEVAColorNfsd
-  parent: NFBaseLockerGridInvWallColor
+  parent: LockerWallColorBase
   name: NFSD EVA wall locker
   components:
   - type: Sprite
@@ -481,8 +357,6 @@
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
       color: "#a9947d"
-    - state: fillEva-0
-      map: ["enum.StorageFillLayers.Fill"]
     - state: door
       map: ["enum.StorageVisualLayers.Door"]
       color: "#a9947d"
@@ -499,15 +373,12 @@
       map: ["enum.LockVisualLayers.Lock"]
   - type: AccessReader
     access: [["Security"]]
-  - type: StorageFillVisualizer
-    maxFillLevels: 6
-    fillBaseName: fillEva
 
-#region Wildcards
+## Wildcards
 - type: entity
   categories: [ HideSpawnMenu ] # debloat spawn menu
   id: LockerWallEVAColorContractor
-  parent: NFBaseLockerGridInvWallColor
+  parent: LockerWallColorBase
   name: contractor EVA wall locker
   components:
   - type: Sprite
@@ -515,8 +386,6 @@
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
       color: "#fff4e2"
-    - state: fillEva-0
-      map: ["enum.StorageFillLayers.Fill"]
     - state: door
       map: ["enum.StorageVisualLayers.Door"]
       color: "#fff4e2"
@@ -531,14 +400,11 @@
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: locked
       map: ["enum.LockVisualLayers.Lock"]
-  - type: StorageFillVisualizer
-    maxFillLevels: 6
-    fillBaseName: fillEva
 
 - type: entity
   categories: [ HideSpawnMenu ] # debloat spawn menu
   id: LockerWallEVAColorPilot
-  parent: NFBaseLockerGridInvWallColor
+  parent: LockerWallColorBase
   name: pilot EVA wall locker
   components:
   - type: Sprite
@@ -546,8 +412,6 @@
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
       color: "#496ea0"
-    - state: fillEva-0
-      map: ["enum.StorageFillLayers.Fill"]
     - state: door
       map: ["enum.StorageVisualLayers.Door"]
       color: "#496ea0"
@@ -562,14 +426,11 @@
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: locked
       map: ["enum.LockVisualLayers.Lock"]
-  - type: StorageFillVisualizer
-    maxFillLevels: 6
-    fillBaseName: fillEva
 
 - type: entity
   categories: [ HideSpawnMenu ] # debloat spawn menu
   id: LockerWallEVAColorMercenary
-  parent: NFBaseLockerGridInvWallColor
+  parent: LockerWallColorBase
   name: mercenary EVA wall locker
   components:
   - type: Sprite
@@ -577,8 +438,6 @@
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
       color: "#7b7b3f"
-    - state: fillEva-0
-      map: ["enum.StorageFillLayers.Fill"]
     - state: door
       map: ["enum.StorageVisualLayers.Door"]
       color: "#7b7b3f"
@@ -593,14 +452,11 @@
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: locked
       map: ["enum.LockVisualLayers.Lock"]
-  - type: StorageFillVisualizer
-    maxFillLevels: 6
-    fillBaseName: fillEva
 
 - type: entity
   categories: [ HideSpawnMenu ] # debloat spawn menu
   id: LockerWallEVAColorPrivateSec
-  parent: NFBaseLockerGridInvWallColor
+  parent: LockerWallColorBase
   name: private security EVA wall locker
   components:
   - type: Sprite
@@ -608,8 +464,6 @@
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
       color: "#935c3f"
-    - state: fillEva-0
-      map: ["enum.StorageFillLayers.Fill"]
     - state: door
       map: ["enum.StorageVisualLayers.Door"]
       color: "#935c3f"
@@ -624,15 +478,12 @@
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: locked
       map: ["enum.LockVisualLayers.Lock"]
-  - type: StorageFillVisualizer
-    maxFillLevels: 6
-    fillBaseName: fillEva
 
-#region Generic
+## Generic
 - type: entity
   categories: [ HideSpawnMenu ] # debloat spawn menu
   id: LockerWallEVAColorGeneric
-  parent: NFBaseLockerGridInvWallColor
+  parent: LockerWallColorBase
   name: EVA wall locker
   components:
   - type: Sprite
@@ -640,8 +491,6 @@
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
       color: "#707070"
-    - state: fillEva-0
-      map: ["enum.StorageFillLayers.Fill"]
     - state: door
       map: ["enum.StorageVisualLayers.Door"]
       color: "#707070"
@@ -656,14 +505,11 @@
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: locked
       map: ["enum.LockVisualLayers.Lock"]
-  - type: StorageFillVisualizer
-    maxFillLevels: 6
-    fillBaseName: fillEva
 
 - type: entity
   categories: [ HideSpawnMenu ] # debloat spawn menu
   id: LockerWallEVAColorEmergency
-  parent: NFBaseLockerGridInvWallColor
+  parent: LockerWallColorBase
   name: emergency EVA wall locker
   components:
   - type: Sprite
@@ -671,8 +517,6 @@
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
       color: "#a3d7ff"
-    - state: fillEva-0
-      map: ["enum.StorageFillLayers.Fill"]
     - state: door
       map: ["enum.StorageVisualLayers.Door"]
       color: "#a3d7ff"
@@ -687,15 +531,12 @@
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: locked
       map: ["enum.LockVisualLayers.Lock"]
-  - type: StorageFillVisualizer
-    maxFillLevels: 6
-    fillBaseName: fillEva
 
-#region Player Factions
+# Player Factions
 - type: entity
   categories: [ HideSpawnMenu ] # debloat spawn menu
   id: LockerWallEVAColorLvhi
-  parent: NFBaseLockerGridInvWallColor
+  parent: LockerWallColorBase
   name: LVHI EVA wall locker
   components:
   - type: Sprite
@@ -703,15 +544,13 @@
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
       color: "#283846"
-    - state: fillEva-0
-      map: ["enum.StorageFillLayers.Fill"]
     - state: door
       map: ["enum.StorageVisualLayers.Door"]
       color: "#283846"
     - state: door-decal-line-01
       map: [ decal1 ]
       color: "#e48545"
-    - state: door-decal-eva-02
+    - state: door-decal-eva-01
       map: [ decal2 ]
       color: "#e48545"
     - state: welded
@@ -719,14 +558,11 @@
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: locked
       map: ["enum.LockVisualLayers.Lock"]
-  - type: StorageFillVisualizer
-    maxFillLevels: 6
-    fillBaseName: fillEva
 
 - type: entity
   categories: [ HideSpawnMenu ] # debloat spawn menu
   id: LockerWallEVAColorFsb
-  parent: NFBaseLockerGridInvWallColor
+  parent: LockerWallColorBase
   name: FSB EVA wall locker
   components:
   - type: Sprite
@@ -734,8 +570,6 @@
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
       color: "#8497B2"
-    - state: fillEva-0
-      map: ["enum.StorageFillLayers.Fill"]
     - state: door
       map: ["enum.StorageVisualLayers.Door"]
       color: "#8497B2"
@@ -750,6 +584,3 @@
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: locked
       map: ["enum.LockVisualLayers.Lock"]
-  - type: StorageFillVisualizer
-    maxFillLevels: 6
-    fillBaseName: fillEva

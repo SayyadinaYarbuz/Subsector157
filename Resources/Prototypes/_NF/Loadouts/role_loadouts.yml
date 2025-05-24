@@ -8,7 +8,6 @@
   - ContractorGloves
   - ContractorBackpack
   - ContractorOuterClothing
-  - ContractorForcedOuterClothing
   - ContractorShoes
   - ContractorFace
   - ContractorGlasses
@@ -17,11 +16,12 @@
   - ContractorEncryptionKey
   - ContractorBoxSurvival
   - ContractorPDA
-  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
-  - ContractorBackpackItems
-  - ContractorHandItems
+  - ContractorUtility
+  - ContractorFun
+  - ContractorTrinkets
+  - ContractorBureaucracy
   - NFSpeciesSpecific
 
 # Pilot
@@ -34,7 +34,6 @@
   - PilotGloves
   - PilotBackpack
   - PilotOuterClothing
-  - PilotForcedOuterClothing
   - PilotShoes
   - PilotFace
   - PilotGlasses
@@ -43,11 +42,12 @@
   - ContractorEncryptionKey
   - ContractorBoxSurvival
   - PilotPDA
-  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
-  - ContractorBackpackItems
-  - ContractorHandItems
+  - ContractorUtility
+  - ContractorFun
+  - ContractorTrinkets
+  - ContractorBureaucracy
   - NFSpeciesSpecific
 
 # Mercenary
@@ -60,7 +60,6 @@
   - MercenaryGloves
   - MercenaryBackpack
   - MercenaryOuterClothing
-  - MercenaryForcedOuterClothing
   - MercenaryShoes
   - MercenaryFace
   - MercenaryGlasses
@@ -69,11 +68,12 @@
   - ContractorEncryptionKey
   - ContractorBoxSurvival
   - MercenaryPDA
-  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
-  - ContractorBackpackItems
-  - ContractorHandItems
+  - ContractorUtility
+  - ContractorFun
+  - ContractorTrinkets
+  - ContractorBureaucracy
   - NFSpeciesSpecific
 
 # Frontier
@@ -84,7 +84,6 @@
   - ValetJumpsuit
   - ContractorBackpack
   - ValetOuterClothing
-  - ValetForcedOuterClothing
   - ContractorShoes
   - ContractorFace
   - ContractorGlasses
@@ -92,11 +91,11 @@
   - ContractorEars
   - ContractorEncryptionKey
   - ContractorBoxSurvival
-  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
-  - ContractorBackpackItems
-  - ContractorHandItems
+  - ContractorFun
+  - ContractorTrinkets
+  - ContractorBureaucracy
   - NFSpeciesSpecific
 
 - type: roleLoadout
@@ -105,19 +104,17 @@
   - JanitorNFHead
   - JanitorNFJumpsuit
   - JanitorNFGloves
-  - JanitorBackpack
+  - ContractorBackpack
   - JanitorNFOuterClothing
-  - JanitorNFForcedOuterClothing
   - ContractorFace
   - ContractorGlasses
   - ContractorEars
   - ContractorEncryptionKey
   - ContractorBoxSurvival
-  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
-  - ContractorBackpackItems
-  - ContractorHandItems
+  - ContractorFun
+  - ContractorTrinkets
   - NFSpeciesSpecific
 
 - type: roleLoadout
@@ -128,17 +125,16 @@
   - ContractorGloves
   - MailCarrierBackpack
   - MailCarrierOuterClothing
-  - MailCarrierForcedOuterClothing
   - ContractorShoes
   - ContractorFace
   - ContractorEars
   - ContractorEncryptionKey
   - ContractorBoxSurvival
-  - MailCarrierWallet
   - ContractorCartridge
   - ContractorImplanter
-  - ContractorBackpackItems
-  - ContractorHandItems
+  - ContractorFun
+  - ContractorTrinkets
+  - ContractorBureaucracy
   - NFSpeciesSpecific
 
 - type: roleLoadout
@@ -150,18 +146,17 @@
   - ContractorGloves
   - ContractorBackpack
   - ContractorOuterClothing
-  - StcForcedOuterClothing
   - StcShoes
   - ContractorFace
   - ContractorGlasses
   - ContractorBelt
   - StcEars
   - ContractorBoxSurvival
-  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
-  - ContractorBackpackItems
-  - ContractorHandItems
+  - ContractorFun
+  - ContractorTrinkets
+  - ContractorBureaucracy
   - NFSpeciesSpecific
 
 - type: roleLoadout
@@ -173,7 +168,6 @@
   - StationRepGloves
   - StationRepBackpack
   - StationRepOuterClothing
-  - StationRepForcedOuterClothing
   - ContractorShoes
   - ContractorFace
   - ContractorGlasses
@@ -181,11 +175,11 @@
   - StationRepEars
   - ContractorBoxSurvival
   - StationRepPDA
-  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
-  - StationRepBackpackItems
-  - ContractorHandItems
+  - ContractorFun
+  - ContractorTrinkets
+  - ContractorBureaucracy
   - NFSpeciesSpecific
 
 - type: roleLoadout
@@ -196,19 +190,18 @@
   - SecurityGuardGloves
   - SecurityGuardBackpack
   - SecurityGuardOuterClothing
-  - SecurityGuardForcedOuterClothing
   - SecurityGuardShoes
   - SecurityGuardFace
   - SecurityGuardBelt
   - SecurityGuardEars
   - NfsdBoxSurvival
   - SecurityGuardPDA
-  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
   - ContractorEncryptionKey
-  - ContractorBackpackItems
-  - ContractorHandItems
+  - ContractorFun
+  - ContractorTrinkets
+  - ContractorBureaucracy
   - NFSpeciesSpecific
 
 - type: roleLoadout
@@ -220,7 +213,6 @@
   - DocGloves
   - DocBackpack
   - ContractorOuterClothing
-  - DocForcedOuterClothing
   - DocShoes
   - ContractorFace
   - ContractorGlasses
@@ -228,12 +220,12 @@
   - DocEars
   - ContractorBoxSurvival
   - DocPDA
-  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
   - ContractorEncryptionKey
-  - ContractorBackpackItems
-  - ContractorHandItems
+  - ContractorFun
+  - ContractorTrinkets
+  - ContractorBureaucracy
   - NFSpeciesSpecific
 
 # Nfsd
@@ -246,7 +238,6 @@
   - NfsdGlovesBrown
   - NfsdBackpackBrown
   - CadetOuterClothing
-  - NfsdForcedOuterClothing
   - NfsdShoesBrown
   - NfsdFace
   - NfsdGlasses
@@ -254,12 +245,11 @@
   - NfsdEarsBrown
   - NfsdBoxSurvival
   - CadetPDA
-  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
   - ContractorEncryptionKey
-  - ContractorBackpackItems
-  - ContractorHandItems
+  - ContractorFun
+  - ContractorTrinkets
   - NfsdSpeciesSpecific
 
 - type: roleLoadout
@@ -271,7 +261,6 @@
   - NfsdGlovesBrown
   - NfsdBackpackBrown
   - DeputyOuterClothing
-  - NfsdForcedOuterClothing
   - NfsdShoesBrown
   - NfsdFace
   - NfsdGlasses
@@ -279,12 +268,11 @@
   - NfsdEarsBrown
   - NfsdBoxSurvival
   - DeputyPDA
-  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
   - ContractorEncryptionKey
-  - ContractorBackpackItems
-  - ContractorHandItems
+  - ContractorFun
+  - ContractorTrinkets
   - NfsdSpeciesSpecific
 
 - type: roleLoadout
@@ -296,7 +284,6 @@
   - BrigmedicGloves
   - NfsdBackpackCream
   - BrigmedicOuterClothing
-  - NfsdForcedOuterClothing
   - NfsdShoesCream
   - BrigmedicFace
   - BrigmedicGlasses
@@ -304,12 +291,11 @@
   - NfsdEarsCream
   - NfsdBoxSurvival
   - BrigmedicPDA
-  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
   - ContractorEncryptionKey
-  - ContractorBackpackItems
-  - ContractorHandItems
+  - ContractorFun
+  - ContractorTrinkets
   - NfsdSpeciesSpecific
 
 - type: roleLoadout
@@ -321,7 +307,6 @@
   - NFDetectiveGloves
   - NfsdBackpackBrown
   - NFDetectiveOuterClothing
-  - NfsdForcedOuterClothing
   - NfsdShoesBrown
   - NfsdFace
   - NfsdGlasses
@@ -329,12 +314,11 @@
   - NfsdEarsCream
   - NfsdBoxSurvival
   - NFDetectivePDA
-  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
   - ContractorEncryptionKey
-  - ContractorBackpackItems
-  - ContractorHandItems
+  - ContractorFun
+  - ContractorTrinkets
   - NfsdSpeciesSpecific
 
 - type: roleLoadout
@@ -345,7 +329,6 @@
   - PalJumpsuit
   - PalGloves
   - NfsdBackpackBrown
-  - NfsdForcedOuterClothing
   - NfsdShoesBrown
   - ContractorFace
   - NfsdGlasses
@@ -353,12 +336,11 @@
   - NfsdEarsBrown
   - NfsdBoxSurvival
   - PalPDA
-  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
   - ContractorEncryptionKey
-  - ContractorBackpackItems
-  - ContractorHandItems
+  - ContractorFun
+  - ContractorTrinkets
   - NFSpeciesSpecific # Explicitly civilian variant
 
 # - type: roleLoadout # Fix when this is actully used
@@ -370,7 +352,6 @@
   # - NfsdGlovesBrown
   # - NfsdBackpackBrown
   # - PrisonGuardOuterClothing
-  # - NfsdForcedOuterClothing
   # - NfsdShoesBrown
   # - NfsdFace
   # - NfsdGlasses
@@ -378,12 +359,11 @@
   # - NfsdEarsGreen
   # - NfsdBoxSurvival
   # - PrisonGuardPDA
-  # - ContractorWallet
   # - ContractorCartridge
   # - ContractorImplanter
   # - ContractorEncryptionKey
-  # - ContractorBackpackItems
-  # - ContractorHandItems
+  # - ContractorFun
+  # - ContractorTrinkets
   # - NfsdSpeciesSpecific
 
 - type: roleLoadout
@@ -395,7 +375,6 @@
   - NfsdGlovesCream
   - NfsdBackpackBrown
   - BailiffOuterClothing
-  - NfsdForcedOuterClothing
   - NfsdShoesCream
   - NfsdFace
   - NfsdGlasses
@@ -403,12 +382,11 @@
   - NfsdEarsAltGreen
   - NfsdBoxSurvival
   - BailiffPDA
-  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
   - ContractorEncryptionKey
-  - SeniorOfficerBackpackItems
-  - ContractorHandItems
+  - ContractorFun
+  - ContractorTrinkets
   - NfsdSpeciesSpecific
 
 - type: roleLoadout
@@ -420,7 +398,6 @@
   - NfsdGlovesCream
   - NfsdBackpackBrown
   - SeniorOfficerOuterClothing
-  - NfsdForcedOuterClothing
   - NfsdShoesBrown
   - NfsdFace
   - NfsdGlasses
@@ -428,12 +405,11 @@
   - NfsdEarsAltBrown
   - NfsdBoxSurvival
   - SeniorOfficerPDA
-  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
   - ContractorEncryptionKey
-  - SeniorOfficerBackpackItems
-  - ContractorHandItems
+  - ContractorFun
+  - ContractorTrinkets
   - NfsdSpeciesSpecific
 
 - type: roleLoadout
@@ -445,7 +421,6 @@
   - NfsdGlovesCream
   - NfsdBackpackBrown
   - SheriffOuterClothing
-  - NfsdForcedOuterClothing
   - NfsdShoesBrown
   - SheriffFace
   - NfsdGlasses
@@ -453,73 +428,57 @@
   - SheriffEars
   - NfsdBoxSurvival
   - SheriffPDA
-  - ContractorWallet
   - ContractorCartridge
   - ContractorImplanter
-  - SeniorOfficerBackpackItems
-  - ContractorHandItems
+  - ContractorFun
+  - ContractorTrinkets
   - NfsdSpeciesSpecific
 
-# NFPirate
+# Pirate
 
 - type: roleLoadout
-  id: JobNFPirate
+  id: JobPirate
   groups:
-  - NFPirateHead
-#  - NFPirateNeck
-  - NFPirateJumpsuit
-#  - NFPirateGloves
+  - PirateHead
+#  - PirateNeck
+  - PirateJumpsuit
+#  - PirateGloves
   - ContractorBackpack
-  - NFPirateForcedOuterClothing
-  - NFPirateShoes
-  - NFPirateFace
+  - PirateShoes
+  - PirateFace
   - ContractorBoxSurvival
-  - NFPiratePDA
-  - ContractorWallet
-  - PirateBackpackItems
-  - ContractorHandItems
+  - PiratePDA
   - NFSpeciesSpecific
-  canCustomizeName: true # pseudonym?
 
 - type: roleLoadout
-  id: JobNFPirateFirstMate
+  id: JobPirateFirstMate
   groups:
-  - NFPirateFirstMateHead
-#  - NFPirateNeck
-  - NFPirateJumpsuit
-#  - NFPirateGloves
+  - PirateFirstMateHead
+#  - PirateNeck
+  - PirateJumpsuit
+#  - PirateGloves
   - ContractorBackpack
-  - NFPirateFirstMateOuterClothing
-  - NFPirateForcedOuterClothing
-  - NFPirateShoes
-  - NFPirateFace
+  - PirateFirstMateOuterClothing
+  - PirateShoes
+  - PirateFace
   - ContractorBoxSurvival
-  - NFPirateFirstMatePDA
-  - ContractorWallet
-  - PirateBackpackItems
-  - ContractorHandItems
+  - PirateFirstMatePDA
   - NFSpeciesSpecific
-  canCustomizeName: true # pseudonym?
 
 - type: roleLoadout
-  id: JobNFPirateCaptain
+  id: JobPirateCaptain
   groups:
-  - NFPirateCaptainHead
-#  - NFPirateNeck
-  - NFPirateJumpsuit
-#  - NFPirateGloves
+  - PirateCaptainHead
+#  - PirateNeck
+  - PirateJumpsuit
+#  - PirateGloves
   - ContractorBackpack
-  - NFPirateCaptainOuterClothing
-  - NFPirateForcedOuterClothing
-  - NFPirateShoes
-  - NFPirateFace
+  - PirateCaptainOuterClothing
+  - PirateShoes
+  - PirateFace
   - ContractorBoxSurvival
-  - NFPirateCaptainPDA
-  - PirateCaptainWallet
-  - PirateCaptainBackpackItems
-  - ContractorHandItems
+  - PirateCaptainPDA
   - NFSpeciesSpecific
-  canCustomizeName: true # pseudonym?
 
 # Prisoner
 
@@ -531,7 +490,6 @@
   - PrisonerJumpsuit
 #  - PrisonerGloves
 #  - PrisonerBackpack
-  - PrisonerForcedOuterClothing
 #  - PrisonerShoes
   - PrisonerFace
   - PrisonerSurvival

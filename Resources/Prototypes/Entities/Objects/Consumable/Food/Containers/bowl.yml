@@ -6,7 +6,6 @@
   id: FoodBowlBig
   description: A simple bowl, used for soups and salads.
   components:
-  - type: GoblinPreciousTrash # Frontier
   - type: Item
     storedRotation: -90
   - type: SolutionContainerManager
@@ -66,7 +65,6 @@
     - Trash
   - type: StaticPrice # Frontier
     price: 4 # Frontier
-  - type: NFCookware # Frontier
 
 - type: entity
   name: broken bowl
@@ -86,7 +84,6 @@
   - type: SpaceGarbage
   - type: StaticPrice
     price: 4 # Frontier 0<4 4 needed for arbitrage
-  - type: NFCookware # Frontier
 
 - type: entity
   name: bowl

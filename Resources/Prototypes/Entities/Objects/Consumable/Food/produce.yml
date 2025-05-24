@@ -21,7 +21,7 @@
 # For produce that can be immediately eaten
 
 - type: entity
-  parent: [FoodInjectableBase, RecyclableItemOrganicTiny] # Frontier: added RecyclableItemOrganicTiny
+  parent: FoodInjectableBase
   id: FoodProduceBase
   abstract: true
   components:
@@ -44,8 +44,6 @@
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/wheat.rsi
-  - type: Item
-    heldPrefix: produce
   - type: SolutionContainerManager
     solutions:
       food:
@@ -66,8 +64,6 @@
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/meatwheat.rsi
-  - type: Item
-    heldPrefix: produce
   - type: SolutionContainerManager
     solutions:
       food:
@@ -112,8 +108,6 @@
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/sugarcane.rsi
-  - type: Item
-    heldPrefix: produce
   - type: SolutionContainerManager
     solutions:
       food:
@@ -131,8 +125,6 @@
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/papercane.rsi
-  - type: Item
-    heldPrefix: produce
   - type: SolutionContainerManager
   - type: Produce
     seedId: papercane
@@ -167,8 +159,6 @@
         Quantity: 5
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/laughin_pea.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: laughinPea
   - type: Tag
@@ -183,8 +173,6 @@
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/towercap.rsi
-  - type: Item
-    heldPrefix: produce
   - type: SolutionContainerManager
   - type: MeleeWeapon
     damage:
@@ -205,8 +193,6 @@
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/steelcap.rsi
-  - type: Item
-    heldPrefix: produce
   - type: SolutionContainerManager
   - type: MeleeWeapon
     damage:
@@ -256,7 +242,7 @@
   name: death nettle
   description: This nettle's out for blood.
   id: DeathNettle
-  parent: [ProduceBase, BaseC1Contraband ] # Frontier: BaseMajorContraband<BaseC1Contraband
+  parent: ProduceBase
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/death_nettle.rsi
@@ -267,56 +253,24 @@
   - type: MeleeWeapon
     damage:
       types:
-        Heat: 8
-        Caustic: 8
+        Heat: 8.5
+        Caustic: 8.5
   - type: SolutionContainerManager
     solutions:
       food:
         reagents:
         - ReagentId: SulfuricAcid
-          Quantity: 15
+          Quantity: 3
         - ReagentId: FluorosulfuricAcid
-          Quantity: 15
+          Quantity: 3
   - type: Produce
     seedId: deathNettle
   - type: MeleeChemicalInjector
-    transferAmount: 5
+    transferAmount: 2
     solution: food
-    pierceArmor: true
+    pierceArmor: false
   - type: Extractable
     grindableSolutionName: food
-  - type: DamageOnInteract
-    damage: 
-      types:
-        Heat: 4
-        Caustic: 4
-    throw: true
-    throwSpeed: 3
-    interactTimer: 2 # Stop the player from spam clicking the entity
-    ignoreResistances: false
-    popupText: powered-light-component-burn-hand
-    interactSound: /Audio/Effects/lightburn.ogg
-    stunChance: 0.10
-    stunSeconds: 1.5
-  - type: Damageable
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 25
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          path: /Audio/Voice/Diona/diona_salute.ogg
-          params:
-            volume: -5
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-  - type: DamageOnHit 
-    damage:
-      types:
-        Blunt: 5 # The nettle will "wilt" after 5 hits.
 
 - type: entity
   name: banana
@@ -341,8 +295,6 @@
           Quantity: 2
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/banana.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: banana
   - type: Extractable
@@ -383,8 +335,6 @@
           Quantity: 2
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/mimana.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: mimana
   - type: Extractable
@@ -530,8 +480,6 @@
           Quantity: 3
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/carrot.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: carrots
   - type: Extractable
@@ -566,8 +514,6 @@
           Quantity: 4
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/cabbage.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: cabbage
   - type: Tag
@@ -630,8 +576,6 @@
           Quantity: 4
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/lemon.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: lemon
   - type: Extractable
@@ -668,8 +612,6 @@
           Quantity: 16
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/lemoon.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: lemoon
   - type: Extractable
@@ -696,8 +638,6 @@
       - sour
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/lime.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: lime
   - type: Extractable
@@ -725,8 +665,6 @@
       - orange
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/orange.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: orange
   - type: Extractable
@@ -765,8 +703,6 @@
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/extradimensional_orange.rsi
     scale: 0.5,0.5
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: extradimensionalOrange
   - type: PotencyVisuals
@@ -807,8 +743,6 @@
           Quantity: 4
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/pineapple.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: pineapple
   - type: Extractable
@@ -843,8 +777,6 @@
           Quantity: 4
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/potato.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: potato
   - type: Extractable
@@ -852,9 +784,6 @@
       reagents:
       - ReagentId: JuicePotato
         Quantity: 10
-  - type: SliceableFood # Frontier
-    count: 1 # Frontier
-    slice: FoodPotatoSlice # Frontier
   - type: Tag
     tags:
     - Potato
@@ -887,8 +816,6 @@
           Quantity: 4
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/tomato.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: tomato
   - type: Extractable
@@ -946,8 +873,6 @@
           Quantity: 4
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/blue_tomato.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: blueTomato
   - type: Extractable
@@ -995,8 +920,6 @@
           Quantity: 4
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/blood_tomato.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: bloodTomato
   - type: Extractable
@@ -1048,8 +971,6 @@
           Quantity: 4
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/eggplant.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: eggplant
   - type: Tag
@@ -1115,8 +1036,6 @@
           Quantity: 13
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/golden_apple.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: goldenApple
   - type: Extractable
@@ -1252,8 +1171,6 @@
           Quantity: 4
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/onion.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: onion
   - type: SliceableFood
@@ -1285,8 +1202,6 @@
           Quantity: 4
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/onion_red.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: onionred
   - type: SliceableFood
@@ -1310,8 +1225,6 @@
           Quantity: 5
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/chanterelle.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: chanterelle
   - type: Tag
@@ -1449,8 +1362,6 @@
             Quantity: 4
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/chili.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: chili
   - type: Tag
@@ -1479,14 +1390,12 @@
         reagents:
           - ReagentId: Nutriment
             Quantity: 4
-          - ReagentId: FrostOil
+          - ReagentId: Frostoil
             Quantity: 10
           - ReagentId: Vitamin
             Quantity: 4
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/chilly.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: chilly
   - type: FoodSequenceElement
@@ -1515,8 +1424,6 @@
           Quantity: 10
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/aloe.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: aloe
   - type: Extractable
@@ -1618,8 +1525,6 @@
           Quantity: 20
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/lingzhi.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: lingzhi
   - type: Extractable
@@ -1656,8 +1561,6 @@
           Quantity: 2
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/ambrosia_vulgaris.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: ambrosiaVulgaris
   - type: Extractable
@@ -1699,8 +1602,6 @@
           Quantity: 10
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/ambrosia_deus.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: ambrosiaDeus
   - type: Extractable
@@ -1735,8 +1636,6 @@
           Quantity: 25
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/galaxythistle.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: galaxythistle
   - type: Extractable
@@ -1830,16 +1729,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 30
         reagents:
         - ReagentId: Amatoxin
-          Quantity: 10
+          Quantity: 25
         - ReagentId: Nutriment
           Quantity: 5
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/fly_amanita.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: flyAmanita
   - type: Extractable
@@ -1874,7 +1771,7 @@
     seedId: gatfruit
   - type: Food
     trash:
-    - NFWeaponRevolverRitland45 # Frontier: WeaponRevolverPython<NFWeaponRevolverRitland45
+    - WeaponRevolverPython
   - type: Tag
     tags:
     - Fruit # It's in the name
@@ -1882,6 +1779,7 @@
     entries:
       Taco: Gatfruit
       Burger: GatfruitBurger
+  - type: BadFood # Frontier: Nope
 
 - type: entity
   name: capfruit
@@ -1903,13 +1801,11 @@
           Quantity: 10 # Frontier: 5<10
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/capfruit.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: realCapfruit
   - type: Food
     trash:
-    - NFRevolverCapGun # Frontier: RevolverCapGun<NFRevolverCapGun
+    - RevolverCapGun
   - type: Tag
     tags:
     - Fruit
@@ -1917,6 +1813,7 @@
     entries:
       Taco: Capfruit
       Burger: CapfruitBurger
+  - type: BadFood # Frontier: Nope
 
 - type: entity
   name: capfruit
@@ -1928,7 +1825,7 @@
     seedId: fakeCapfruit
   - type: Food
     trash:
-    - NFRevolverCapGunFakeGrown # Frontier: add Grown
+    - RevolverCapGunFakeGrown # Frontier: add Grown
 
 - type: entity
   name: rice bushel
@@ -1938,8 +1835,6 @@
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/rice.rsi
-  - type: Item
-    heldPrefix: produce
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1990,8 +1885,6 @@
       - violets
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/spacemans_trumpet.rsi
-  - type: Item
-    heldPrefix: produce
   - type: SolutionContainerManager
     solutions:
       food:
@@ -2053,7 +1946,6 @@
   components:
   - type: Item
     size: Small
-    heldPrefix: produce
   - type: FlavorProfile
     flavors:
       - watermelon
@@ -2155,7 +2047,6 @@
   components:
   - type: Item
     size: Small
-    heldPrefix: produce
   - type: FlavorProfile
     flavors:
       - holy
@@ -2271,8 +2162,6 @@
           Quantity: 4
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/grape.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: grape
   - type: Extractable
@@ -2304,8 +2193,6 @@
           Quantity: 4
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/berries.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: berries
   - type: Extractable
@@ -2407,8 +2294,6 @@
           Quantity: 2
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/pea.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: pea
   - type: Tag
@@ -2441,8 +2326,6 @@
           Quantity: 2
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/world_pea.rsi
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: worldPea
   - type: Tag
@@ -2461,7 +2344,6 @@
   components:
   - type: Item
     size: Small
-    heldPrefix: produce
   - type: FlavorProfile
     flavors:
       - pumpkin
@@ -2511,7 +2393,6 @@
   components:
   - type: Item
     size: Small
-    heldPrefix: produce
   - type: FlavorProfile
     flavors:
       - bluepumpkin
@@ -2697,8 +2578,6 @@
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/anomaly_berry.rsi
     state: produce
-  - type: Item
-    heldPrefix: produce
   - type: Produce
     seedId: anomalyBerry
   - type: Food

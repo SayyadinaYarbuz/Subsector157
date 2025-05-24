@@ -5,8 +5,7 @@
 - type: latheRecipe
   abstract: true
   id: BaseMaterialsNoDiscountRecipe
-  categories:
-  - Materials
+  category: Materials
   applyMaterialDiscount: false
   completetime: 0.06
 

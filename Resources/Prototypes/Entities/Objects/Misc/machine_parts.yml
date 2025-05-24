@@ -14,7 +14,6 @@
       - MachineUpgrading
     - type: Stack
       count: 1
-    - type: ConstructionMaterials # Frontier
 
 # Rating 1
 

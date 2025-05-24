@@ -13,20 +13,20 @@ public sealed partial class ReflectComponent : Component
     /// <summary>
     /// What we reflect.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField]
+    [ViewVariables(VVAccess.ReadWrite), DataField("reflects")]
     public ReflectType Reflects = ReflectType.Energy | ReflectType.NonEnergy;
 
     /// <summary>
     /// Probability for a projectile to be reflected.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [DataField("reflectProb"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public float ReflectProb = 0.25f;
 
-    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [DataField("spread"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public Angle Spread = Angle.FromDegrees(45);
 
-    [DataField]
-    public SoundSpecifier? SoundOnReflect = new SoundPathSpecifier("/Audio/Weapons/Guns/Hits/laser_sear_wall.ogg", AudioParams.Default.WithVariation(0.05f));
+    [DataField("soundOnReflect")]
+    public SoundSpecifier? SoundOnReflect = new SoundPathSpecifier("/Audio/Weapons/Guns/Hits/laser_sear_wall.ogg");
 }
 
 [Flags]

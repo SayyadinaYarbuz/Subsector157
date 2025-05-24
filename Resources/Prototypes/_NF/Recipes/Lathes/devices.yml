@@ -42,8 +42,7 @@
 - type: latheRecipe
   id: GasDepositLocator
   result: GasDepositLocatorEmpty
-  categories:
-  - Tools
+  category: Tools
   completetime: 3
   materials:
     Steel: 400

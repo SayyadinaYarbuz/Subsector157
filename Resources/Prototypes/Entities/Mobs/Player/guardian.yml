@@ -256,15 +256,13 @@
       prototypes: [ HoloClownGear ]
     - type: RandomMetadata
       nameSegments:
-      - NamesClown
-    # Frontier: no faction/NPC behaviour
+      - names_clown
     # - type: NpcFactionMember
-    #   factions:
-    #     - Syndicate
-    # - type: HTN
-    #   rootTask:
-    #     task: SimpleHumanoidHostileCompound
-    # End Frontier
+      # factions:
+        # - Syndicate
+    # - type: HTN # Frontier
+      # rootTask:
+        # task: SimpleHumanoidHostileCompound
 
 - type: entity
   id: ActionToggleGuardian

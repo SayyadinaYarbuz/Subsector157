@@ -1,5 +1,4 @@
-﻿using Content.Shared._NF.Research.Prototypes; // Frontier
-using Robust.Shared.Prototypes;
+﻿using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Research.Prototypes;
@@ -8,7 +7,7 @@ namespace Content.Shared.Research.Prototypes;
 /// This is a prototype for a research discipline, a category
 /// that governs how <see cref="TechnologyPrototype"/>s are unlocked.
 /// </summary>
-[Prototype]
+[Prototype("techDiscipline")]
 public sealed partial class TechDisciplinePrototype : IPrototype
 {
     /// <inheritdoc/>
@@ -45,5 +44,5 @@ public sealed partial class TechDisciplinePrototype : IPrototype
     /// Purchasing this tier of technology causes a server to become "locked" to this discipline.
     /// </summary>
     [DataField("lockoutTier")]
-    public int LockoutTier = 4; // Frontier: 3<4
+    public int LockoutTier = 4;
 }

@@ -7,7 +7,6 @@
   description: An empty bottle.
   suffix: Empty
   components:
-  - type: GoblinPreciousTrash # Frontier
   - type: Sprite
     state: icon
   - type: Item
@@ -100,7 +99,6 @@
   description: An empty carton.
   suffix: Empty
   components:
-  - type: GoblinPreciousTrash # Frontier
   - type: Sprite
     state: icon
   - type: SolutionContainerManager

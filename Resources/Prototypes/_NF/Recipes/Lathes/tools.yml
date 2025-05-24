@@ -3,8 +3,7 @@
 - type: latheRecipe
   abstract: true
   id: NFBaseToolsRecipe
-  categories:
-  - Tools
+  category: Tools
   completetime: 3.5
 
 # Recipes
@@ -38,8 +37,7 @@
 - type: latheRecipe
   id: MedicalAppraisalTool
   result: MedicalAppraisalTool
-  categories:
-  - Tools
+  category: Tools
   completetime: 3.5
   materials:
     Steel: 500
@@ -92,7 +90,7 @@
   result: ShipyardRCDEmpty
   completetime: 4
   materials:
-    Steel: 1250
+    Steel: 1000
     Plastic: 300
 
 - type: latheRecipe
@@ -119,8 +117,7 @@
 - type: latheRecipe
   id: NFEnergyPickaxe
   result: NFEnergyPickaxe
-  categories:
-  - Tools
+  category: Tools
   completetime: 4
   materials:
     Steel: 1000

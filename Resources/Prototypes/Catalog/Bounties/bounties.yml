@@ -7,7 +7,7 @@
     amount: 1
     whitelist:
       components:
-      - XenoArtifact
+      - Artifact
 
 - type: cargoBounty
   id: BountyBaseballBat
@@ -529,9 +529,6 @@
     whitelist:
       components:
       - HitscanBatteryAmmoProvider
-    blacklist:
-      components:
-      - PowerCell
 
 - type: cargoBounty
   id: BountyFood
@@ -564,7 +561,6 @@
       - Cake
       - Pie
       - Bread
-      - Pistachios  
 
 - type: cargoBounty
   id: BountyVegetable

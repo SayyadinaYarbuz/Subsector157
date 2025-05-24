@@ -17,17 +17,12 @@
   - type: WarpPoint
     follow: true
     location: nuke disk
-    blacklist:
-      tags:
-      - GhostOnlyWarp
   - type: Tag
     tags:
     - HighRiskItem
-    - GhostOnlyWarp
   - type: StealTarget
     stealGroup: NukeDisk
-  - type: ShipyardSellCondition # Frontier
-    blockSale: true # Frontier
+  - type: DisableShipyardSale # Frontier
     reason: shipyard-console-station-resources # Frontier
     allowedShipyardTypes: # Frontier: mail profits removed, sector in shambles
     - Syndicate # Frontier

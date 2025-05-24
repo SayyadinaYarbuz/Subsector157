@@ -1,7 +1,7 @@
 - type: entity
-  id: PoweredlightUltraviolet
-  suffix: UV
+  id: PoweredlightBlack
+  suffix: Black
   parent: Poweredlight
   components:
   - type: PoweredLight
-    hasLampOnSpawn: LightTubeUltraviolet
+    hasLampOnSpawn: LightTubeCrystalBlack

@@ -2,7 +2,7 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Stacks;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared._NF.Bank.Components;
 
@@ -10,8 +10,8 @@ namespace Content.Shared._NF.Bank.Components;
 
 public sealed partial class StationBankATMComponent : Component
 {
-    [DataField]
-    public ProtoId<StackPrototype> CashType = "Credit";
+    [ViewVariables(VVAccess.ReadWrite), DataField("cashType", customTypeSerializer:typeof(PrototypeIdSerializer<StackPrototype>))]
+    public string CashType = "Credit";
 
     public static string CashSlotId = "station-bank-ATM-cashSlot";
 
@@ -21,11 +21,11 @@ public sealed partial class StationBankATMComponent : Component
     [DataField]
     public SectorBankAccount Account = SectorBankAccount.Invalid;
 
-    [DataField]
+    [DataField("soundError")]
     public SoundSpecifier ErrorSound =
         new SoundPathSpecifier("/Audio/Effects/Cargo/buzz_sigh.ogg");
 
-    [DataField]
+    [DataField("soundConfirm")]
     public SoundSpecifier ConfirmSound =
         new SoundPathSpecifier("/Audio/Effects/Cargo/ping.ogg");
 }

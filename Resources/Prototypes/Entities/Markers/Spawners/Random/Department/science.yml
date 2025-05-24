@@ -109,15 +109,14 @@
     rarePrototypes:
     - BorgModuleDefibrillator
     - BorgModuleAdvancedCleaning
-    # - BorgModuleClowning # Frontier: base
+    - BorgModuleClowning
     - BorgModuleGardening
     - BorgModuleHarvesting
-    - BorgModuleChef # Frontier
     rareChance: 0.1
     prototypes:
-    # - BorgModuleCable # Frontier: base
+    - BorgModuleCable
     - BorgModuleFireExtinguisher
-    # - BorgModuleGPS # Frontier: useless
+    - BorgModuleGPS
     - BorgModuleRadiationDetection
     - BorgModuleTool
     - BorgModuleArtifact

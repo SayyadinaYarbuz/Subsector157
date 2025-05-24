@@ -82,7 +82,7 @@
         prob: 0.25
       - id: OxygenTankFilled
         prob: 0.05
-
+        
 - type: entity
   id: CratePermaEscapeGun
   parent: CrateGenericSteel
@@ -90,28 +90,28 @@
   components:
   - type: StorageFill
     contents:
-    - id: NFWeaponPistolMk58 # Frontier: WeaponPistolMk58<NFWeaponPistolMk58
+    - id: WeaponPistolMk58
       prob: 0.15
       orGroup: gun
     - id: FoamCrossbow
       prob: 0.10
       orGroup: gun
-    - id: NFWeaponRifleFoam # Frontier: WeaponRifleFoam<NFWeaponRifleFoam
+    - id: WeaponRifleFoam
       prob: 0.05
       orGroup: gun
-    - id: NFWeaponPistolFlintlock # Frontier: WeaponPistolFlintlock<NFWeaponPistolFlintlock
+    - id: WeaponPistolFlintlock
       prob: 0.20
       orGroup: gun
-    - id: NFWeaponShotgunBlunderbuss # Frontier: WeaponShotgunBlunderbuss<NFWeaponShotgunBlunderbuss
+    - id: WeaponShotgunBlunderbuss
       prob: 0.10
       orGroup: gun
-    - id: NFWeaponShotgunBlunderbuss # Frontier: WeaponShotgunBlunderbuss<NFWeaponShotgunBlunderbuss
+    - id: WeaponShotgunBlunderbuss
       prob: 0.15
       orGroup: gun
-    - id: NFWeaponRevolverPirate # Frontier: WeaponRevolverPirate<NFWeaponRevolverPirate
+    - id: WeaponRevolverPirate
       prob: 0.15
       orGroup: gun
-    - id: NFWeaponPka # Frontier: WeaponProtoKineticAccelerator<NFWeaponPka
+    - id: WeaponProtoKineticAccelerator
       prob: 0.20
       orGroup: gun
 

@@ -1,26 +1,27 @@
 using Content.Shared.Actions;
 
-namespace Content.Shared._DV.Harpy;
-
-public abstract class SharedHarpySingerSystem : EntitySystem
+namespace Content.Shared._DV.Harpy
 {
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-
-    public override void Initialize()
+    public class HarpySingerSystem : EntitySystem
     {
-        base.Initialize();
+        [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
 
-        SubscribeLocalEvent<HarpySingerComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<HarpySingerComponent, ComponentShutdown>(OnShutdown);
-    }
+        public override void Initialize()
+        {
+            base.Initialize();
 
-    private void OnStartup(EntityUid uid, HarpySingerComponent component, ComponentStartup args)
-    {
-        _actionsSystem.AddAction(uid, ref component.MidiAction, component.MidiActionId);
-    }
+            SubscribeLocalEvent<HarpySingerComponent, ComponentStartup>(OnStartup);
+            SubscribeLocalEvent<HarpySingerComponent, ComponentShutdown>(OnShutdown);
+        }
 
-    private void OnShutdown(EntityUid uid, HarpySingerComponent component, ComponentShutdown args)
-    {
-        _actionsSystem.RemoveAction(uid, component.MidiAction);
+        private void OnStartup(EntityUid uid, HarpySingerComponent component, ComponentStartup args)
+        {
+            _actionsSystem.AddAction(uid, ref component.MidiAction, component.MidiActionId);
+        }
+
+        private void OnShutdown(EntityUid uid, HarpySingerComponent component, ComponentShutdown args)
+        {
+            _actionsSystem.RemoveAction(uid, component.MidiAction);
+        }
     }
 }

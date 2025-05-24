@@ -4,8 +4,7 @@
   abstract: true
   id: NFBaseArmorRecipe
   completetime: 5
-  categories:
-  - ArmorNF
+  category: ArmorNF
   materials:
     Durathread: 1200
     Steel: 500
@@ -61,7 +60,7 @@
   parent: NFBaseArmorRecipe
   result: ClothingOuterArmorBulletproof
   materials:
-    Durathread: 700
+    Durathread: 500
     Steel: 300
     Plasteel: 1000
 
@@ -94,8 +93,7 @@
   id: ClothingOuterArmorElitePunkRandomized
   result: ClothingOuterArmorElitePunkRandomized
   completetime: 5
-  categories:
-  - ArmorNF
+  category: ArmorNF
   materials:
     Durathread: 500
     Steel: 300

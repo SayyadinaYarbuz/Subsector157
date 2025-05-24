@@ -1,7 +1,7 @@
 - type: entity
   id: BaseCartridgeLightRifle
   name: cartridge (.30 rifle)
-  parent: [ BaseCartridge, BaseC1Contraband ] # Frontier: BaseSecurityContraband<BaseC1Contraband
+  parent: [ BaseCartridge, BaseC1Contraband ] # Frontier: BaseRestrictedContraband<BaseC1Contraband
   abstract: true
   components:
   - type: Tag
@@ -9,7 +9,7 @@
     - Cartridge
     - CartridgeLightRifle
   - type: CartridgeAmmo
-    # proto: BulletLightRifle # Frontier
+    proto: BulletLightRifle
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
     layers:
@@ -21,22 +21,20 @@
     price: 1
 
 - type: entity
-  categories: [ HideSpawnMenu ] # Frontier
   id: CartridgeLightRifle
   name: cartridge (.30 rifle)
   parent: BaseCartridgeLightRifle
   components:
   - type: CartridgeAmmo
-    # proto: BulletLightRifle # Frontier
+    proto: BulletLightRifle
 
 - type: entity
-  categories: [ HideSpawnMenu ] # Frontier
   id: CartridgeLightRiflePractice
   name: cartridge (.30 rifle practice)
   parent: BaseCartridgeLightRifle
   components:
   - type: CartridgeAmmo
-    # proto: BulletLightRiflePractice # Frontier
+    proto: BulletLightRiflePractice
   - type: Sprite
     layers:
       - state: base
@@ -46,13 +44,12 @@
         color: "#dbdbdb"
 
 - type: entity
-  categories: [ HideSpawnMenu ] # Frontier
   id: CartridgeLightRifleIncendiary
   name: cartridge (.30 rifle incendiary)
   parent: BaseCartridgeLightRifle
   components:
   - type: CartridgeAmmo
-    # proto: BulletLightRifleIncendiary # Frontier
+    proto: BulletLightRifleIncendiary
   - type: Sprite
     layers:
       - state: base
@@ -62,13 +59,12 @@
         color: "#ff6e52"
 
 - type: entity
-  categories: [ HideSpawnMenu ] # Frontier
   id: CartridgeLightRifleUranium
   name: cartridge (.30 rifle uranium)
   parent: BaseCartridgeLightRifle
   components:
   - type: CartridgeAmmo
-    # proto: BulletLightRifleUranium # Frontier
+    proto: BulletLightRifleUranium
   - type: Sprite
     layers:
       - state: base

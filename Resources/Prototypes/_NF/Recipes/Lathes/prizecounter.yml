@@ -233,20 +233,20 @@
   parent: BasePrize50Recipe
 
 - type: latheRecipe
-  id: NFBoxDonkSoftBoxRecipe
-  result: NFBoxDonkSoftBox
+  id: BoxDonkSoftBoxRecipe
+  result: BoxDonkSoftBox
   parent: BasePrize15Recipe
 
 - type: latheRecipe
-  id: NFRevolverCapGunRecipe
-  result: NFRevolverCapGun
+  id: RevolverCapGunRecipe
+  result: RevolverCapGun
   parent: BasePrizeRecipe
   materials:
     PrizeTicket: 80
 
 - type: latheRecipe
-  id: NFBoxCartridgeCapRecipe
-  result: NFBoxCartridgeCap
+  id: BoxCartridgeCapRecipe
+  result: BoxCartridgeCap
   parent: BasePrize20Recipe
 
 - type: latheRecipe

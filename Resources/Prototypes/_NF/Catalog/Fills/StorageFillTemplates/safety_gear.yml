@@ -10,7 +10,7 @@
     - id: FireExtinguisher
     - id: ClothingMaskGas
     - id: CrowbarRed
-    - id: DoubleEmergencyTankO2N2EqualFilled
+    - id: DoubleEmergencyAirTankFilled
 
 - type: entity
   abstract: true
@@ -29,7 +29,7 @@
     contents:
     - id: ClothingOuterBioGeneral
     - id: ClothingHeadHatHoodBioGeneral
-    - id: DoubleEmergencyTankO2N2EqualFilled
+    - id: DoubleEmergencyAirTankFilled
 
 - type: entity
   abstract: true

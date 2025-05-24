@@ -59,9 +59,8 @@
     MailNFUnicycle: 0.5
     MailNFVulpCannon: 0.1
     # Useful
-    MailNFATV: 0.8
+    MailNFATV: 0.9
     MailNFSkeletonMotorcycle: 0.1 # Shares a pool with MailNFATV as a rare variant
-    MailNFHoverchair: 0.1 # Shares a pool with MailNFATV as a rare variant
     MailNFCircuitboardIndustrial: 1.25
     MailNFCircuitboardService: 1.25
     MailNFCognizine: 0.5

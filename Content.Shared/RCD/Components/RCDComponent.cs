@@ -34,12 +34,24 @@ public sealed partial class RCDComponent : Component
     public ProtoId<RCDPrototype> ProtoId { get; set; } = "Invalid";
 
     /// <summary>
+    /// A cached copy of currently selected RCD prototype
+    /// </summary>
+    /// <remarks>
+    /// If the ProtoId is changed, make sure to update the CachedPrototype as well
+    /// </remarks>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public RCDPrototype CachedPrototype { get; set; } = default!;
+
+    /// <summary>
     /// The direction constructed entities will face upon spawning
     /// </summary>
     [DataField, AutoNetworkedField]
     public Direction ConstructionDirection
     {
-        get => _constructionDirection;
+        get
+        {
+            return _constructionDirection;
+        }
         set
         {
             _constructionDirection = value;
@@ -56,21 +68,19 @@ public sealed partial class RCDComponent : Component
     /// Contains no position data
     /// </remarks>
     [ViewVariables(VVAccess.ReadOnly)]
-    public Transform ConstructionTransform { get; private set; }
-
-    // Frontier: ship-based RCDs
+    public Transform ConstructionTransform { get; private set; } = default!;
+    
     /// <summary>
     /// Frontier - Shipyard RCD
     /// A flag that limits RCD to the authorized ships.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField("isShipyardRCD"), AutoNetworkedField]
     public bool IsShipyardRCD;
-
+    
     /// <summary>
     /// Frontier - Shipyard RCD
     /// The uid to which this RCD is limited to be used on.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField("linkedShuttleUid"), AutoNetworkedField]
     public EntityUid? LinkedShuttleUid = null;
-    // End Frontier: ship-based RCDs
 }

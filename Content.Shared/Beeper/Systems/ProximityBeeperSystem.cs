@@ -31,12 +31,7 @@ public sealed class ProximityBeeperSystem : EntitySystem
             return;
         }
 
-        // Frontier: minimum range for beeper
-        if (args.Distance <= proxBeeper.MinRange)
-            _beeper.SetIntervalScaling(owner, 0, beeper);
-        else
-            _beeper.SetIntervalScaling(owner, (args.Distance - proxBeeper.MinRange) / (args.Detector.Range - proxBeeper.MinRange), beeper);
-        // End Frontier
+        _beeper.SetIntervalScaling(owner, args.Distance / args.Detector.Range, beeper);
         _beeper.SetMute(owner, false, beeper);
     }
 

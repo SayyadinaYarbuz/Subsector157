@@ -23,7 +23,6 @@
   id: StationRepBackpack
   name: loadout-group-contractor-backpack
   loadouts:
-  - StationRepClothingBackpackDuffelSr
   - StationRepClothingBackpackMessengerSr
   - StationRepClothingBackpackIan
   subgroups:
@@ -72,19 +71,9 @@
 
 - type: loadoutGroup
   id: StationRepPDA
-  name: loadout-group-contractor-pda
+  name: loadout-group-contractor-id
   hidden: true # No point in showing this, it gets auto-selected.
   loadouts:
   - StationRepSrPDA
   fallbacks:
   - StationRepSrPDA
-
-- type: loadoutGroup
-  id: StationRepBackpackItems
-  name: loadout-group-contractor-backpack-items
-  minLimit: 0
-  maxLimit: 6
-  loadouts:
-  - StationRepNFPouchSr
-  subgroups:
-  - ContractorBackpackItems

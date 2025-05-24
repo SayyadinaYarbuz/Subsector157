@@ -1,8 +1,5 @@
 using System.Linq;
-using Content.Shared._DV.SmartFridge; // DeltaV - ough why do you not use events for this
 using Content.Shared.Disposal;
-using Content.Shared.Disposal.Components;
-using Content.Shared.Disposal.Unit;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
@@ -26,7 +23,6 @@ public sealed class DumpableSystem : EntitySystem
     [Dependency] private readonly SharedDisposalUnitSystem _disposalUnitSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] private readonly SmartFridgeSystem _smartFridge = default!; // Frontier
 
     private EntityQuery<ItemComponent> _itemQuery;
 
@@ -34,7 +30,7 @@ public sealed class DumpableSystem : EntitySystem
     {
         base.Initialize();
         _itemQuery = GetEntityQuery<ItemComponent>();
-        SubscribeLocalEvent<DumpableComponent, AfterInteractEvent>(OnAfterInteract, after: new[] { typeof(SharedEntityStorageSystem) });
+        SubscribeLocalEvent<DumpableComponent, AfterInteractEvent>(OnAfterInteract, after: new[]{ typeof(SharedEntityStorageSystem) });
         SubscribeLocalEvent<DumpableComponent, GetVerbsEvent<AlternativeVerb>>(AddDumpVerb);
         SubscribeLocalEvent<DumpableComponent, GetVerbsEvent<UtilityVerb>>(AddUtilityVerbs);
         SubscribeLocalEvent<DumpableComponent, DumpableDoAfterEvent>(OnDoAfter);
@@ -45,7 +41,7 @@ public sealed class DumpableSystem : EntitySystem
         if (!args.CanReach || args.Handled)
             return;
 
-        if (!HasComp<DisposalUnitComponent>(args.Target) && !HasComp<PlaceableSurfaceComponent>(args.Target))
+        if (!_disposalUnitSystem.HasDisposals(args.Target) && !HasComp<PlaceableSurfaceComponent>(args.Target))
             return;
 
         if (!TryComp<StorageComponent>(uid, out var storage))
@@ -73,7 +69,7 @@ public sealed class DumpableSystem : EntitySystem
                 StartDoAfter(uid, args.Target, args.User, dumpable);//Had multiplier of 0.6f
             },
             Text = Loc.GetString("dump-verb-name"),
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/drop.svg.192dpi.png")),
+            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/drop.svg.192dpi.png")),
         };
         args.Verbs.Add(verb);
     }
@@ -86,7 +82,7 @@ public sealed class DumpableSystem : EntitySystem
         if (!TryComp<StorageComponent>(uid, out var storage) || !storage.Container.ContainedEntities.Any())
             return;
 
-        if (HasComp<DisposalUnitComponent>(args.Target) || HasComp<SmartFridgeComponent>(args.Target)) // DeltaV - ough why do you not use events for this)
+        if (_disposalUnitSystem.HasDisposals(args.Target))
         {
             UtilityVerb verb = new()
             {
@@ -133,7 +129,7 @@ public sealed class DumpableSystem : EntitySystem
             delay += itemSize.Weight;
         }
 
-        delay *= (float)dumpable.DelayPerItem.TotalSeconds * dumpable.Multiplier;
+        delay *= (float) dumpable.DelayPerItem.TotalSeconds * dumpable.Multiplier;
 
         _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, userUid, delay, new DumpableDoAfterEvent(), storageUid, target: targetUid, used: storageUid)
         {
@@ -144,7 +140,7 @@ public sealed class DumpableSystem : EntitySystem
 
     private void OnDoAfter(EntityUid uid, DumpableComponent component, DumpableDoAfterEvent args)
     {
-        if (args.Handled || args.Cancelled)
+        if (args.Handled || args.Cancelled) // DeltaV: conditions pushed into DumpContents
             return;
 
         DumpContents(uid, args.Args.Target, args.Args.User, component); // DeltaV
@@ -165,7 +161,7 @@ public sealed class DumpableSystem : EntitySystem
 
         var dumped = false;
 
-        if (HasComp<DisposalUnitComponent>(target))
+        if (_disposalUnitSystem.HasDisposals(target))
         {
             dumped = true;
 
@@ -185,18 +181,6 @@ public sealed class DumpableSystem : EntitySystem
                 _transformSystem.SetWorldPositionRotation(entity, targetPos + _random.NextVector2Box() / 4, targetRot);
             }
         }
-        // Begin DeltaV - ough why do you not use events for this
-        else if (TryComp<SmartFridgeComponent>(target, out var fridge))
-        {
-            dumped = true;
-            // Frontier: go through the fridge's interface
-            foreach (var entity in dumpQueue)
-            {
-                _smartFridge.TryInsertObject((target!.Value, fridge), entity, user); // Frontier
-            }
-            // End Frontier
-        }
-        // End DeltaV - ough why do you not use events for this
         else
         {
             var targetPos = _transformSystem.GetWorldPosition(uid);
@@ -213,5 +197,4 @@ public sealed class DumpableSystem : EntitySystem
             _audio.PlayPredicted(component.DumpSound, uid, user);
         }
     }
-    // End DeltaV: Refactor to allow dumping that doesn't require a verb
 }

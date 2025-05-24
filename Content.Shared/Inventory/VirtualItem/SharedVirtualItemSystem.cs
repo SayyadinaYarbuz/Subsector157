@@ -26,6 +26,8 @@ namespace Content.Shared.Inventory.VirtualItem;
 /// </remarks>
 public abstract class SharedVirtualItemSystem : EntitySystem
 {
+    [Dependency] private readonly INetManager _netManager = default!;
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly SharedItemSystem _itemSystem = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
@@ -44,8 +46,6 @@ public abstract class SharedVirtualItemSystem : EntitySystem
 
         SubscribeLocalEvent<VirtualItemComponent, BeforeRangedInteractEvent>(OnBeforeRangedInteract);
         SubscribeLocalEvent<VirtualItemComponent, GettingInteractedWithAttemptEvent>(OnGettingInteractedWithAttemptEvent);
-
-        SubscribeLocalEvent<VirtualItemComponent, GetUsedEntityEvent>(OnGetUsedEntity);
     }
 
     /// <summary>
@@ -79,23 +79,6 @@ public abstract class SharedVirtualItemSystem : EntitySystem
     {
         // No interactions with a virtual item, please.
         args.Cancelled = true;
-    }
-
-    private void OnGetUsedEntity(Entity<VirtualItemComponent> ent, ref GetUsedEntityEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        // if the user is holding the real item the virtual item points to,
-        // we allow them to use it in the interaction
-        foreach (var hand in _handsSystem.EnumerateHands(args.User))
-        {
-            if (hand.HeldEntity == ent.Comp.BlockingEntity)
-            {
-                args.Used = ent.Comp.BlockingEntity;
-                return;
-            }
-        }
     }
 
     #region Hands
@@ -155,6 +138,11 @@ public abstract class SharedVirtualItemSystem : EntitySystem
     /// </summary>
     public void DeleteInHandsMatching(EntityUid user, EntityUid matching)
     {
+        // Client can't currently predict deleting networked entities so we use this workaround, another
+        // problem can popup when the hands leave PVS for example and this avoids that too
+        if (_netManager.IsClient)
+            return;
+
         foreach (var hand in _handsSystem.EnumerateHands(user))
         {
             if (TryComp(hand.HeldEntity, out VirtualItemComponent? virt) && virt.BlockingEntity == matching)
@@ -199,6 +187,11 @@ public abstract class SharedVirtualItemSystem : EntitySystem
     /// <param name="slotName">Set this param if you have the name of the slot, it avoids unnecessary queries</param>
     public void DeleteInSlotMatching(EntityUid user, EntityUid matching, string? slotName = null)
     {
+        // Client can't currently predict deleting networked entities so we use this workaround, another
+        // problem can popup when the hands leave PVS for example and this avoids that too
+        if (_netManager.IsClient)
+            return;
+
         if (slotName != null)
         {
             if (!_inventorySystem.TryGetSlotEntity(user, slotName, out var slotEnt))
@@ -232,8 +225,14 @@ public abstract class SharedVirtualItemSystem : EntitySystem
     /// <param name="virtualItem">The virtual item, if spawned</param>
     public bool TrySpawnVirtualItem(EntityUid blockingEnt, EntityUid user, [NotNullWhen(true)] out EntityUid? virtualItem)
     {
+        if (_netManager.IsClient)
+        {
+            virtualItem = null;
+            return false;
+        }
+
         var pos = Transform(user).Coordinates;
-        virtualItem = PredictedSpawnAttachedTo(VirtualItem, pos);
+        virtualItem = Spawn(VirtualItem, pos);
         var virtualItemComp = Comp<VirtualItemComponent>(virtualItem.Value);
         virtualItemComp.BlockingEntity = blockingEnt;
         Dirty(virtualItem.Value, virtualItemComp);
@@ -254,6 +253,8 @@ public abstract class SharedVirtualItemSystem : EntitySystem
         if (TerminatingOrDeleted(item))
             return;
 
-        PredictedQueueDel(item.Owner);
+        _transformSystem.DetachEntity(item, Transform(item));
+        if (_netManager.IsServer)
+            QueueDel(item);
     }
 }

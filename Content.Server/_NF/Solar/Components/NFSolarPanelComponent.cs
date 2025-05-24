@@ -15,7 +15,7 @@ public sealed partial class NFSolarPanelComponent : Component
     /// <summary>
     /// Maximum supply output by this panel (coverage = 1)
     /// </summary>
-    [DataField]
+    [DataField("maxSupply")]
     public int MaxSupply = 750;
 
     /// <summary>

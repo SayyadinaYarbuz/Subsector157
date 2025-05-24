@@ -4,6 +4,7 @@
   <GuideEntityEmbed Entity="MiningDrill"/>
   <GuideEntityEmbed Entity="OreBag"/>
   <GuideEntityEmbed Entity="VendingMachineSalvage"/>
+  <GuideEntityEmbed Entity="RipleyChassis"/>
   </Box>  
   <Box>
   <GuideEntityEmbed Entity="ShuttleMapKestrel" Caption=""/>

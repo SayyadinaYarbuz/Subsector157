@@ -80,11 +80,14 @@ public sealed partial class DeepFryerSystem
 
     private void OnInsertItem(EntityUid uid, DeepFryerComponent component, DeepFryerInsertItemMessage args)
     {
-        if (!TryComp<HandsComponent>(args.Actor, out var handsComponent) ||
+        var user = args.Actor;
+
+        if (user == null ||
+            !TryComp<HandsComponent>(user, out var handsComponent) ||
             handsComponent.ActiveHandEntity == null)
             return;
 
         if (handsComponent.ActiveHandEntity != null)
-            TryInsertItem(uid, component, args.Actor, handsComponent.ActiveHandEntity.Value);
+            TryInsertItem(uid, component, user, handsComponent.ActiveHandEntity.Value);
     }
 }

@@ -19,6 +19,7 @@ public sealed partial class ShipyardConsoleMenu : FancyWindow
 
     public event Action<ButtonEventArgs>? OnSellShip;
     public event Action<ButtonEventArgs>? OnOrderApproved;
+    private readonly ShipyardConsoleBoundUserInterface _menu;
     private readonly List<VesselSize> _categoryStrings = new();
     private readonly List<VesselClass> _classStrings = new();
     private readonly List<VesselEngine> _engineStrings = new();
@@ -31,10 +32,11 @@ public sealed partial class ShipyardConsoleMenu : FancyWindow
     private bool _freeListings = false;
     private bool _validId = false;
 
-    public ShipyardConsoleMenu()
+    public ShipyardConsoleMenu(ShipyardConsoleBoundUserInterface owner)
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
+        _menu = owner;
         Title = Loc.GetString("shipyard-console-menu-title");
         SearchBar.OnTextChanged += OnSearchBarTextChanged;
         Categories.OnItemSelected += OnCategoryItemSelected;

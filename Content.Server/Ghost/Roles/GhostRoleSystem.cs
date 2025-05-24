@@ -480,7 +480,7 @@ public sealed class GhostRoleSystem : EntitySystem
         }
         else
         {
-            TryTakeover(player, identifier); // DeltaV - prevent taking ghost roles in the lobby
+            Takeover(player, identifier);
         }
     }
 

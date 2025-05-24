@@ -219,13 +219,12 @@
 
 - type: entity
   parent: PirateIDCard
-  id: NFPirateIDCard
+  id: PirateNFIDCard
   name: pirate ID card
   description: Garr, be this wood?
-  suffix: Frontier
   components:
   - type: PresetIdCard
-    job: NFPirate
+    job: Pirate
   - type: Sprite
     sprite: _NF/Objects/Misc/id_cards.rsi
     layers:
@@ -235,13 +234,13 @@
     heldPrefix: pirate
 
 - type: entity
-  parent: NFPirateIDCard
-  id: NFPirateCaptainIDCard
+  parent: PirateNFIDCard
+  id: PirateCaptainNFIDCard
   name: pirate captain ID card
   description: Ahoy, see how it glistens!
   components:
   - type: PresetIdCard
-    job: NFPirateCaptain
+    job: PirateCaptain
   - type: Sprite
     sprite: _NF/Objects/Misc/id_cards.rsi
     layers:
@@ -249,12 +248,12 @@
     - state: idpiratecaptain
 
 - type: entity
-  parent: NFPirateIDCard
-  id: NFPirateFirstMateIDCard
+  parent: PirateNFIDCard
+  id: PirateFirstMateNFIDCard
   name: pirate first mate ID card
   components:
   - type: PresetIdCard
-    job: NFPirateFirstMate
+    job: PirateFirstMate
   - type: Sprite
     sprite: _NF/Objects/Misc/id_cards.rsi
     layers:
@@ -296,7 +295,7 @@
     name: Clippy
 
 - type: entity
-  parent: NFPirateFirstMateIDCard
+  parent: PirateFirstMateNFIDCard
   id: ClarpyIDCard
   name: clarpy ID card
   components:

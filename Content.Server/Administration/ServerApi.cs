@@ -423,7 +423,7 @@ public sealed partial class ServerApi : IPostInjectInit
         }
 
         var serverBwoinkSystem = _entitySystemManager.GetEntitySystem<BwoinkSystem>();
-        var message = new SharedBwoinkSystem.BwoinkTextMessage(player.UserId, SharedBwoinkSystem.SystemUserId, body.Text, adminOnly: body.AdminOnly);
+        var message = new SharedBwoinkSystem.BwoinkTextMessage(player.UserId, SharedBwoinkSystem.SystemUserId, body.Text);
         serverBwoinkSystem.OnWebhookBwoinkTextMessage(message, body);
 
         // Respond with OK
@@ -676,7 +676,6 @@ public sealed partial class ServerApi : IPostInjectInit
         public required Guid Guid { get; init; }
         public bool UserOnly { get; init; }
         public required bool WebhookUpdate { get; init; }
-        public bool AdminOnly { get; init; }
     }
 
     #endregion

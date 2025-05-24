@@ -67,10 +67,13 @@ public sealed partial class ExplosionSystem
 
     private List<EntityUid> _anchored = new();
 
-    private void OnMapRemoved(MapRemovedEvent ev)
+    private void OnMapChanged(MapChangedEvent ev)
     {
         // If a map was deleted, check the explosion currently being processed belongs to that map.
-        if (_activeExplosion?.Epicenter.MapId != ev.MapId)
+        if (ev.Created)
+            return;
+
+        if (_activeExplosion?.Epicenter.MapId != ev.Map)
             return;
 
         QueueDel(_activeExplosion.VisualEnt);
@@ -461,7 +464,7 @@ public sealed partial class ExplosionSystem
                 }
 
                 // TODO EXPLOSIONS turn explosions into entities, and pass the the entity in as the damage origin.
-                _damageableSystem.TryChangeDamage(entity, damage * _damageableSystem.UniversalExplosionDamageModifier, ignoreResistances: true);
+                _damageableSystem.TryChangeDamage(entity, damage, ignoreResistances: true);
 
             }
         }
@@ -715,7 +718,7 @@ sealed class Explosion
 
         if (spaceData != null)
         {
-            var mapUid = mapSystem.GetMap(epicenter.MapId);
+            var mapUid = mapMan.GetMapEntityId(epicenter.MapId);
 
             _explosionData.Add(new()
             {

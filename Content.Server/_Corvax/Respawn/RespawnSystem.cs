@@ -15,7 +15,6 @@ using Content.Shared.Ghost; // Frontier
 using Content.Server.Administration.Managers; // Frontier
 using Content.Server.Administration; // Frontier
 using Content.Shared.GameTicking; // Frontier
-using Content.Shared._NF.Roles.Components; // Frontier
 
 namespace Content.Server._Corvax.Respawn;
 
@@ -89,14 +88,13 @@ public sealed class RespawnSystem : EntitySystem
             return;
 
         // Frontier: extra conditions for respawn lenience
-        if (HasComp<GhostRoleComponent>(entity) || // Don't penalize user for exiting ghost roles
-            HasComp<InterviewHologramComponent>(entity)) // Don't penalize user for leaving an interview
+        if (HasComp<GhostRoleComponent>(entity)) // Don't penalize user for exiting ghost roles
             return; // Frontier: don't penalize user for exiting ghost roles
 
         if (HasComp<GhostComponent>(entity)) // Don't penalize user for reobserving
             return;
 
-        if (_player.TryGetSessionById(e.Mind.Comp.UserId.Value, out var session) && _admin.IsAdmin(session)) // Admins get free respawns
+        if (e.Mind.Comp.Session != null && _admin.IsAdmin(e.Mind.Comp.Session)) // Admins get free respawns
             return;
 
         // Get respawn info

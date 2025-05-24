@@ -4,27 +4,17 @@
   name: extended-oxygen survival box
   hideEffects:
   - !type:GroupLoadoutEffect
-    proto: NFOxygenBreather
+    proto: OxygenBreatherNF
   storage:
     back:
-    - NFBoxSurvivalExtended
+    - BoxSurvivalNFOxygenExtended
 
 - type: loadout
   id: NfsdBoxSurvivalNfsdNitrogen
   name: extended-nitrogen survival box
   hideEffects:
   - !type:GroupLoadoutEffect
-    proto: NFNitrogenBreather
+    proto: NitrogenBreatherNF
   storage:
     back:
-    - NFBoxSurvivalExtendedNitrogen
-
-- type: loadout
-  id: NfsdBoxSurvivalNfsdSheleg
-  name: extended-oxygen survival box
-  hideEffects:
-  - !type:GroupLoadoutEffect
-    proto: NFSheleg
-  storage:
-    back:
-    - NFBoxSurvivalExtendedSheleg
+    - BoxSurvivalNFNitrogenExtended

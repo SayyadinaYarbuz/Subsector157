@@ -108,6 +108,7 @@
     #- RCD
     - ShipyardRCD
     - ShipyardRCDAmmo
+    - SyndicateJawsOfLife
     rareChance: 0.01
 
 - type: entity
@@ -135,10 +136,10 @@
     - ToolboxMechanicalFilled
     chance: 1
     offset: 0.0
-#    rarePrototypes: # Contravend
-#    - ToolboxSyndicate # Contravend
-#    - ToolboxSyndicateFilled # Contravend
-#    rareChance: 0.02 # Contravend
+    rarePrototypes:
+    - ToolboxSyndicate
+    - ToolboxSyndicateFilled
+    rareChance: 0.02
 
 # Clothes
 - type: entity
@@ -239,7 +240,7 @@
     offset: 0.0
     rarePrototypes:
     - SuitStorageNTSRA
-#    - SuitStorageCE
+    - SuitStorageCE
     rareChance: 0.05
 
 - type: entity
@@ -308,7 +309,7 @@
     # Filled crates
     - CrateEngineeringKitShipyardRcd
     - CrateEngineeringKitRtg
-    #- CrateEngineeringKitFabrication
+    - CrateEngineeringKitFabrication
     - CrateEngineerChiefHardsuit
     rareChance: 0.01
 
@@ -420,7 +421,7 @@
     chance: 1
     offset: 0.0
     rarePrototypes:
-    - VendingMachineSyndieContraband
+#    - VendingMachineSyndieContraband # A bit less Syndicate loot
 #    - VendingMachineSyndieDrobe # A bit less Syndicate loot
     - VendingMachineRobotics
     rareChance: 0.01

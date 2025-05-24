@@ -18,16 +18,16 @@
   components:
   - type: StorageFill
     contents:
-      - id: NFWeaponLauncherPirateCannon
+      - id: WeaponLauncherPirateCannon
         amount: 2
       - id: ClothingOuterCoatGentle
       - id: Cutlass
         amount: 2
-      - id: NFCannonBall
+      - id: CannonBall
         amount: 2
-      - id: NFWeaponPistolFlintlock
+      - id: WeaponPistolFlintlock
         amount: 4
-      - id: NFWeaponShotgunBlunderbuss
+      - id: WeaponShotgunBlunderbuss
         amount: 2
       - id: ClothingHeadsetFreelance  # Frontier
         amount: 3  # Frontier
@@ -40,18 +40,18 @@
   components:
   - type: StorageFill
     contents:
-      - id: NFCannonBall
+      - id: CannonBall
         amount: 6
 
 - type: entity
-  id: CratePirateChestNFCannonBallEmp
+  id: CratePirateChestCannonBallEmp
   name: shockshot chest
   suffix: Filled
   parent: CratePirateGrey
   components:
   - type: StorageFill
     contents:
-      - id: NFCannonBallEmp
+      - id: CannonBallEmp
         amount: 6
 
 - type: entity
@@ -62,7 +62,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: NFCannonBallGrapeshot
+      - id: CannonBallGrapeshot
         amount: 6
 
 - type: entity
@@ -73,5 +73,5 @@
   components:
   - type: StorageFill
     contents:
-      - id: NFCannonBallGlassshot
+      - id: CannonBallGlassshot
         amount: 6

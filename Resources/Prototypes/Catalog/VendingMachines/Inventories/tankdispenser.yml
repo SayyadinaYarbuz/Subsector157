@@ -3,10 +3,8 @@
   startingInventory:
 #    EmergencyOxygenTankFilled: 5 # Frontier
 #    ExtendedEmergencyOxygenTankFilled: 5 # Frontier
-#    AirTankFilled: 10 # Frontier
-#    DoubleEmergencyAirTankFilled: 10 # Frontier
-    NFTankO2N2EqualFilled: 10 # Frontier
-    DoubleEmergencyTankO2N2EqualFilled: 10 # Frontier
+    AirTankFilled: 10
+    DoubleEmergencyAirTankFilled: 10
     OxygenTankFilled: 10
     DoubleEmergencyOxygenTankFilled: 10
 #    EmergencyNitrogenTankFilled: 5 # Frontier

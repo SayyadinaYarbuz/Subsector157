@@ -24,10 +24,11 @@ public abstract partial class SharedPseudoItemSystem : EntitySystem
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
-    private readonly ProtoId<TagPrototype> _preventTag = "PreventLabel";
-    private readonly EntProtoId _sleepActionId = "ActionSleep"; // The action used for sleeping inside bags. Currently uses the default sleep action (same as beds)
+    [ValidatePrototypeId<TagPrototype>]
+    private const string PreventTag = "PreventLabel";
+    [ValidatePrototypeId<EntityPrototype>]
+    private const string SleepActionId = "ActionSleep"; // The action used for sleeping inside bags. Currently uses the default sleep action (same as beds)
 
     public override void Initialize()
     {
@@ -81,16 +82,11 @@ public abstract partial class SharedPseudoItemSystem : EntitySystem
             return false;
 
         var itemComp = new ItemComponent
-        {
-            Size = component.Size,
-            Shape = component.Shape,
-            StoredOffset = component.StoredOffset,
-            StoredRotation = component.StoredRotation
-        }; // Frontier: added StoredRotation
+            { Size = component.Size, Shape = component.Shape, StoredOffset = component.StoredOffset, StoredRotation = component.StoredRotation }; // Frontier: added StoredRotation
         AddComp(toInsert, itemComp);
         _item.VisualsChanged(toInsert);
 
-        _tag.TryAddTag(toInsert, _preventTag);
+        _tag.TryAddTag(toInsert, PreventTag);
 
         if (!_storage.Insert(storageUid, toInsert, out _, null, storage))
         {
@@ -101,7 +97,7 @@ public abstract partial class SharedPseudoItemSystem : EntitySystem
 
         // If the storage allows sleeping inside, add the respective action
         if (HasComp<AllowsSleepInsideComponent>(storageUid))
-            _actions.AddAction(toInsert, ref component.SleepAction, _sleepActionId, toInsert);
+            _actions.AddAction(toInsert, ref component.SleepAction, SleepActionId, toInsert);
 
         component.Active = true;
         return true;
@@ -124,7 +120,7 @@ public abstract partial class SharedPseudoItemSystem : EntitySystem
         if (args.User == args.Item)
             return;
 
-        _transform.AttachToGridOrMap(uid);
+        Transform(uid).AttachToGridOrMap();
         args.Cancel();
     }
 

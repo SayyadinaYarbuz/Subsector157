@@ -63,23 +63,17 @@ public sealed partial class PinpointerComponent : Component
     [ViewVariables]
     public bool HasTarget => DistanceToTarget != Distance.Unknown;
 
-    // Frontier: Frontier-specific fields
-    // If greater than 0, the pinpointer stops pointing to its target when it's further away than this many meters.
-    [DataField]
+    // Frontier - if greater than 0, then the pinpointer stops pointing to the target when it's further than this value
+    [DataField("maxRange")]
     public float MaxRange = -1;
 
-    // Time in seconds to retarget.
-    [DataField]
+    // Frontier - time in seconds to retarget
+    [DataField("retargetDoAfter")]
     public float RetargetDoAfter = 15f;
 
-    // Whether this pinpointer can target mobs.
-    [DataField]
+    // Frontier - whether this pinpointer can target mobs
+    [DataField("canTargetMobs")]
     public bool CanTargetMobs = false;
-
-    // Whether this pinpointer's target knows about the pinpointer using the PinpointerTargetComponent.
-    [DataField]
-    public bool SetsTarget = false;
-    // End Frontier: extra pinpointer fields
 }
 
 [Serializable, NetSerializable]

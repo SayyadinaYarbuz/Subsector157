@@ -4,15 +4,12 @@
   antagonist: true
   setPreference: false
   objective: roles-antag-thief-objective
-  # guides: [ Thieves ] # Frontier
-  requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 3600 # 1h
+  #guides: [ Thieves ] # Frontier
 
 - type: startingGear
   id: ThiefGear
   storage:
     back:
     - ThiefBeacon
-    - SatchelThief
+    - ToolboxThief
     - ClothingHandsChameleonThief

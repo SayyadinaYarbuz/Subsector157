@@ -13,7 +13,7 @@
   [color=#a4885c]Flier[/color]: creature levitates above the ground and can bypass low obstacles such as tables, machine frames, or railings without being blocked or slowed down.
   
   <Box>
-  <GuideEntityEmbed Entity="MobCarp"/>
+  <GuideEntityEmbed Entity="MobCarpExpeditions"/>
   </Box>
   - [bold][color=#a4885c]Health thresholds:[/color][/bold] 50 (death)
   - [bold][color=#a4885c]Run speed:[/color][/bold] 4.5 m/s[bold][color=#a4885c]*[/color][/bold]
@@ -32,7 +32,7 @@
   [color=#a4885c]Flier[/color]: creature levitates above the ground and can bypass low obstacles such as tables, machine frames, or railings without being blocked or slowed down.
   
   <Box>
-  <GuideEntityEmbed Entity="MobCarpMagic"/>
+  <GuideEntityEmbed Entity="MobCarpMagicExpeditions"/>
   </Box>
   - [bold][color=#a4885c]Health thresholds:[/color][/bold] 50 (death)
   - [bold][color=#a4885c]Run speed:[/color][/bold] 4.5 m/s
@@ -51,7 +51,7 @@
   [color=#a4885c]Incorporeal[/color]: can only be damaged by melee attacks or energy weapons.
   
   <Box>
-  <GuideEntityEmbed Entity="MobCarpHolo"/>
+  <GuideEntityEmbed Entity="MobCarpHoloExpeditions"/>
   </Box>
   - [bold][color=#a4885c]Health thresholds:[/color][/bold] 50 (death)
   - [bold][color=#a4885c]Run speed:[/color][/bold] 4.5 m/s
@@ -68,7 +68,7 @@
   [color=#a4885c]Flier[/color]: creature levitates above the ground and can bypass low obstacles such as tables, machine frames, or railings without being blocked or slowed down.
   
   <Box>
-  <GuideEntityEmbed Entity="MobCarpRainbow"/>
+  <GuideEntityEmbed Entity="MobCarpRainbowExpeditions"/>
   </Box>
   - [bold][color=#a4885c]Health thresholds:[/color][/bold] 50 (death)
   - [bold][color=#a4885c]Run speed:[/color][/bold] 4.5 m/s
@@ -85,7 +85,7 @@
   [color=#a4885c]Flier[/color]: creature levitates above the ground and can bypass low obstacles such as tables, machine frames, or railings without being blocked or slowed down.
   
   <Box>
-  <GuideEntityEmbed Entity="MobShark"/>
+  <GuideEntityEmbed Entity="MobSharkExpeditions"/>
   </Box>
   - [bold][color=#a4885c]Health thresholds:[/color][/bold] 80 (death)
   - [bold][color=#a4885c]Run speed:[/color][/bold] 4.5 m/s
@@ -102,7 +102,7 @@
   [color=#a4885c]Small[/color]: creature is small enough to pass under tables and airlocks.
   
   <Box>
-  <GuideEntityEmbed Entity="MobSnake"/>
+  <GuideEntityEmbed Entity="MobSnakeExpeditions"/>
   </Box>
   - [bold][color=#a4885c]Health thresholds:[/color][/bold] 50 (death)
   - [bold][color=#a4885c]Run speed:[/color][/bold] 4.5 m/s
@@ -121,7 +121,7 @@
   [color=#a4885c]Flier[/color]: creature levitates above the ground and can bypass low obstacles such as tables, machine frames, or railings without being blocked or slowed down.
   
   <Box>
-  <GuideEntityEmbed Entity="NFMobDragonDungeon"/>
+  <GuideEntityEmbed Entity="MobDragonDungeon"/>
   </Box>
   - [bold][color=#a4885c]Health thresholds:[/color][/bold] 200 (death)
   - [bold][color=#a4885c]Run speed:[/color][/bold] 5 m/s
@@ -134,7 +134,7 @@
   # Mission Objectives
   ## Elimination
   <Box>
-  <GuideEntityEmbed Entity="NFMobDragonDungeon"/>
+  <GuideEntityEmbed Entity="MobDragonDungeon"/>
   </Box>
   Eliminate a large and dangerous creature - a [color=#a4885c]space dragon[/color] within given time constraints to earn a monetary reward.
   

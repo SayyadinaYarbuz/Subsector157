@@ -1,6 +1,6 @@
 ﻿- type: entity
   name: shuttle records console
-  parent: [BaseStructureIndestructible, BaseStructureAccessReaderImmuneToEmag, BaseComputer]
+  parent: [BaseStructureDisableToolUse, BaseStructureIndestructible, BaseComputer]
   id: ComputerShuttleRecordsBase
   description: Used to browse shuttle records and recover or reassign shuttle ownership to IDs.
   abstract: true

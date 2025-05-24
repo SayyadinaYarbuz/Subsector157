@@ -79,9 +79,3 @@
   - type: TimedDespawn
     lifetime: 15
 
-- type: entity
-  id: MobMonkeyNoInventory
-  parent: MobMonkey
-  components:
-  - type: Inventory
-    templateId: empty

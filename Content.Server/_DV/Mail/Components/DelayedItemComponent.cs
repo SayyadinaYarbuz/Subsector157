@@ -1,5 +1,3 @@
-using Robust.Shared.Prototypes;
-
 namespace Content.Server._DV.Mail.Components
 {
     /// <summary>
@@ -12,7 +10,7 @@ namespace Content.Server._DV.Mail.Components
         /// <summary>
         /// The entity to replace this when opened or dropped.
         /// </summary>
-        [DataField]
-        public EntProtoId Item;
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        public string Item = "None";
     }
 }

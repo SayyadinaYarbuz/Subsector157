@@ -59,13 +59,11 @@ marking-GauzeLizardFootRight = Gauze Foot Wrap (Right)
 marking-GauzeLizardFootLeft-gauze_lizard_foot_l = Gauze Foot Wrap (Left)
 marking-GauzeLizardFootLeft = Gauze Foot Wrap (Left)
 
-# Frontier: capitalize Eyepatch
-marking-GauzeLizardLefteyePatch-gauze_lizard_lefteye = Reptilian Gauze Eyepatch (Left)
-marking-GauzeLizardLefteyePatch = Reptilian Gauze Eyepatch (Left)
+marking-GauzeLizardLefteyePatch-gauze_lizard_lefteye = Reptilian Gauze eyepatch (Left)
+marking-GauzeLizardLefteyePatch = Reptilian Gauze eyepatch (Left)
 
-marking-GauzeLizardRighteyePatch-gauze_lizard_righteye = Reptilian Gauze Eyepatch (Right)
+marking-GauzeLizardRighteyePatch-gauze_lizard_righteye = Reptilian Gauze eyepatch (Right)
 marking-GauzeLizardRighteyePatch = Reptilian Gauze Eyepatch (Right)
-# End Frontier: capitalize Eyepatch
 
 marking-GauzeMothStomach-gauze_moth_abdomen = Insectoid Stomach Wrap
 marking-GauzeMothStomach = Insectoid Stomach Wrap
@@ -76,19 +74,17 @@ marking-GauzeMothShoulder = Insectoid Shoulder Sling
 marking-GauzeMothBlindfold-gauze_moth_blindfold = Insectoid Blindfold
 marking-GauzeMothBlindfold = Insectoid Blindfold
 
-# Frontier: capitalize Eyepatch/pad
-marking-GauzeMothLeftEyePatch-gauze_moth_lefteye_2 = Insectoid Gauze Eyepatch (Left)
-marking-GauzeMothLeftEyePatch = Insectoid Gauze Eyepatch (Left)
+marking-GauzeMothLeftEyePatch-gauze_moth_lefteye_2 = Insectoid Gauze eyepatch (Left)
+marking-GauzeMothLeftEyePatch = Insectoid Gauze eyepatch (Left)
 
-marking-GauzeMothLeftEyePad-gauze_moth_lefteye_1 = Insectoid Gauze Eyepad (Left)
-marking-GauzeMothLeftEyePad = Insectoid Gauze Eyepad (Left)
+marking-GauzeMothLeftEyePad-gauze_moth_lefteye_1 = Insectoid Gauze eyepad (Left)
+marking-GauzeMothLeftEyePad = Insectoid Gauze eyepad (Left)
 
-marking-GauzeMothRightEyePatch-gauze_moth_righteye_2 = Insectoid Gauze Eyepatch (Right)
-marking-GauzeMothRightEyePatch = Insectoid Gauze Eyepatch (Right)
+marking-GauzeMothRightEyePatch-gauze_moth_righteye_2 = Insectoid Gauze eyepatch (Right)
+marking-GauzeMothRightEyePatch = Insectoid Gauze eyepatch (Right)
 
-marking-GauzeMothRightEyePad-gauze_moth_righteye_1 = Insectoid Gauze Eyepad (Right)
-marking-GauzeMothRightEyePad = Insectoid Gauze Eyepad (Right)
-# End Frontier: capitalize Eyepatch/pad
+marking-GauzeMothRightEyePad-gauze_moth_righteye_1 = Insectoid Gauze eyepad (Right)
+marking-GauzeMothRightEyePad = Insectoid Gauze eyepad (Right)
 
 marking-GauzeMothUpperArmRight-gauze_moth_upperarm_r = Insectoid Gauze Forearm Wrap (Right)
 marking-GauzeMothUpperArmRight = Insectoid Gauze Forearm Wrap (Right)

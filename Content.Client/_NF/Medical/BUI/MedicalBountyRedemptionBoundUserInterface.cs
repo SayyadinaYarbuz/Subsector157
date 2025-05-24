@@ -1,7 +1,6 @@
 using JetBrains.Annotations;
 using Content.Client._NF.Medical.UI;
 using Content.Shared._NF.Medical;
-using Robust.Client.UserInterface;
 
 namespace Content.Client._NF.Medical.BUI;
 
@@ -19,11 +18,13 @@ public sealed class MedicalBountyRedemptionBoundUserInterface : BoundUserInterfa
     {
         base.Open();
 
-        if (_menu == null)
-        {
-            _menu = this.CreateWindow<MedicalBountyRedemptionMenu>();
-            _menu.SellRequested += SendBountyMessage;
-        }
+        _menu = new();
+
+        _menu.OnClose += Close;
+
+        _menu.SellRequested += SendBountyMessage;
+
+        _menu.OpenCentered();
     }
 
     private void SendBountyMessage()
@@ -39,5 +40,15 @@ public sealed class MedicalBountyRedemptionBoundUserInterface : BoundUserInterfa
             return;
 
         _menu?.UpdateState(state);
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+
+        if (!disposing)
+            return;
+
+        _menu?.Dispose();
     }
 }

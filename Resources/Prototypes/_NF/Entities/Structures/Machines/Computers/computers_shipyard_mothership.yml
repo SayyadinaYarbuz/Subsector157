@@ -91,7 +91,7 @@
   components:
   - type: ShipyardListing
     shuttles:
-    - Adder
+    - Pioneer
     - Prospector
     - Chisel
 
@@ -106,7 +106,7 @@
     - Bocadillo
     - PTS
     - Construct
-    - Adder
+    - Pioneer
     - Loader
     - Legman
     - Liquidator

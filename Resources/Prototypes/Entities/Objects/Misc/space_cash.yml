@@ -62,8 +62,6 @@
         - ItemMask
   - type: Appearance
   - type: CargoSellBlacklist
-  - type: ShipyardSellCondition # Frontier: Teleport to shipyard console on sale
-    preserveOnSale: true
 
 - type: material
   id: Credit

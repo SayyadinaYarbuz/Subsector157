@@ -280,8 +280,6 @@
         orGroup: GiftPool
       - id: FoodBoxDonkpocketHonk
         orGroup: GiftPool
-      - id: FoodBoxDonkpocketMoth
-        orGroup: GiftPool
       - id: ClothingHandsGlovesColorPurple
         orGroup: GiftPool
       - id: ClothingHandsGlovesColorYellow
@@ -346,7 +344,7 @@
         orGroup: GiftPool
       - id: ToySword
         orGroup: GiftPool
-      - id: NFRevolverCapGun # Frontier: RevolverCapGun<NFRevolverCapGun
+      - id: RevolverCapGun
         orGroup: GiftPool
       - id: Ash
         orGroup: GiftPool

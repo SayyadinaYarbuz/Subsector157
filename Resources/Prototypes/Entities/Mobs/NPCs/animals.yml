@@ -108,17 +108,6 @@
         Base: dead
       Dead:
         Base: dead
-  - type: Extractable
-    grindableSolutionName: food
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: GroundBee
-          Quantity: 1
-  - type: Butcherable
-    spawned:
-    - id: null # Should give nothing when you butcher it so we set the item id it needs to spawn to null
   - type: Item
     size: Tiny
   - type: Tag
@@ -126,7 +115,6 @@
     - Bee
     - Trash
   - type: Bloodstream
-    bloodReagent: InsectBlood
     bloodMaxVolume: 0.1
   - type: MobPrice
     price: 50
@@ -138,6 +126,14 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
+  - type: Extractable # DeltaV - Make it so bees can be ground up
+    grindableSolutionName: bee
+  - type: SolutionContainerManager
+    solutions:
+      bee:
+        reagents:
+        - ReagentId: GroundBee
+          Quantity: 5
   - type: ZombieImmune
 
 - type: entity
@@ -243,8 +239,7 @@
     bloodMaxVolume: 100
   - type: EggLayer
     eggSpawn:
-    - id: FoodEggLaid # Frontier: FoodEgg<FoodEggLaid
-  - type: ExaminableHunger
+    - id: FoodEgg
   - type: ReplacementAccent
     accent: chicken
   - type: SentienceTarget
@@ -253,9 +248,6 @@
     factions:
     - Passive
     - Chicken # Frontier
-  - type: HTN # Frontier
-    rootTask: # Frontier
-      task: RuminantCompound # Frontier
 
 - type: entity
   parent: MobChicken
@@ -309,7 +301,7 @@
 
 - type: entity
   id: FoodEggChickenFertilized
-  parent: FoodEggLaid # Frontier: FoodEgg<FoodEggLaid
+  parent: FoodEgg
   suffix: Fertilized, Chicken
   components:
   - type: Timer
@@ -339,7 +331,6 @@
   - type: Item
     size: Tiny
   - type: HTN
-    constantlyReplan: false
     rootTask:
       task: MouseCompound
   - type: Physics
@@ -444,7 +435,7 @@
       - SemiAuto
     soundGunshot: /Audio/Weapons/Guns/Gunshots/pistol.ogg
   - type: BallisticAmmoProvider
-    proto: NFCartridgeRifle25 # Frontier: CartridgeCaselessRifle<NFCartridgeRifle25 (still caseless)
+    proto: CartridgeCaselessRifle
     capacity: 500
   - type: CombatMode
   - type: HTN
@@ -471,7 +462,7 @@
     description: ghost-role-information-mothroach-description
     rules: ghost-role-information-freeagent-rules
     mindRoles:
-    - MindRoleGhostRoleFreeAgentHarmless
+    - MindRoleGhostRoleFreeAgent
   - type: Fixtures
     fixtures:
       fix1:
@@ -486,7 +477,7 @@
   - type: GhostTakeoverAvailable
   - type: Speech
     speechVerb: Moth
-    speechSounds: Moth # Frontier: Squeak<Moth (upstream#37297)
+    speechSounds: Squeak
     allowedEmotes: ['Chitter', 'Squeak']
   - type: FaxableObject
     insertingState: inserting_mothroach
@@ -694,8 +685,7 @@
     bloodMaxVolume: 100
   - type: EggLayer
     eggSpawn:
-    - id: FoodEggLaid # Frontier: FoodEgg<FoodEggLaid
-  - type: ExaminableHunger
+    - id: FoodEgg
   - type: ReplacementAccent
     accent: duck
   - type: SentienceTarget
@@ -703,9 +693,6 @@
   - type: NpcFactionMember
     factions:
     - Passive
-  - type: HTN # Frontier
-    rootTask: # Frontier
-      task: RuminantCompound # Frontier
 
 - type: entity
   name: white duck #Quack
@@ -747,7 +734,7 @@
 
 - type: entity
   id: FoodEggDuckFertilized
-  parent: FoodEggLaid # Frontier: FoodEgg<FoodEggLaid
+  parent: FoodEgg
   suffix: Fertilized, Duck
   components:
     - type: Timer
@@ -805,24 +792,7 @@
         Base: dead
       Dead:
         Base: dead
-  - type: Extractable
-    grindableSolutionName: food
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 1
-  - type: Butcherable
-    spawned:
-    - id: null # Should give nothing when you butcher it so we set the item id it needs to spawn to null
-  - type: Item
-    size: Tiny
-  - type: Tag
-    tags:
-    - Trash
   - type: Bloodstream
-    bloodReagent: InsectBlood
     bloodMaxVolume: 0.1
   - type: MobPrice
     price: 50
@@ -881,7 +851,6 @@
     reagentId: Milk
     quantityPerUpdate: 25
     growthDelay: 30
-  - type: ExaminableHunger
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -1041,7 +1010,6 @@
     reagentId: MilkGoat
     quantityPerUpdate: 25
     growthDelay: 20
-  - type: ExaminableHunger
   - type: Wooly
   - type: Food
     solution: wool
@@ -1331,8 +1299,8 @@
       state: body-overlay-2
       visible: false
     - map: [ "ears" ]
-    - map: [ "id" ]
     - map: [ "outerClothing" ]
+    - map: [ "id" ]
     - map: [ "mask" ]
     - map: [ "head" ]
     - map: [ "clownedon" ]
@@ -1678,7 +1646,7 @@
     description: ghost-role-information-mouse-description
     rules: ghost-role-information-freeagent-rules
     mindRoles:
-    - MindRoleGhostRoleFreeAgentHarmless
+    - MindRoleGhostRoleFreeAgent
   - type: GhostTakeoverAvailable
   - type: Speech
     speechSounds: Squeak
@@ -1710,7 +1678,6 @@
     factions:
       - Mouse
   - type: HTN
-    constantlyReplan: false
     rootTask:
       task: MouseCompound
   - type: Physics
@@ -2835,7 +2802,6 @@
   - type: Physics
   - type: Speech
     speechVerb: Canine
-    speechSounds: Dog
   - type: Fixtures
     fixtures:
       fix1:
@@ -3038,17 +3004,12 @@
   - type: Tag
     tags:
     - VimPilot
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 2
-    baseSprintSpeed: 4
-  # DeltaV: get cats to fight with mice
-  - type: HTN
+  - type: HTN # DeltaV - make all cats eat mice
     rootTask:
       task: SimpleHostileCompound
-  - type: NpcFactionMember
+  - type: NpcFactionMember # DeltaV - give cats faction so they fight mice
     factions:
     - Cat
-  # End DeltaV
 
 - type: entity
   name: calico cat

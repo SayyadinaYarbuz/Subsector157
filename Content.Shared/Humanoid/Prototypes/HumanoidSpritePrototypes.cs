@@ -72,10 +72,4 @@ public sealed partial class HumanoidSpeciesSpriteLayer : IPrototype
     /// </summary>
     [DataField("markingsMatchSkin")]
     public bool MarkingsMatchSkin { get; private set; }
-
-    /// <summary>
-    ///     Frontier: If this layer should always use the same color
-    /// </summary>
-    [DataField]
-    public bool ForcedColoring { get; private set; }
 }
